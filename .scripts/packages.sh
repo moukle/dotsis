@@ -27,6 +27,7 @@ packages_gui=(
     "code"
     "firefox"
     "kitty"
+    "mission-center"
     "pavucontrol"
     "zathura"
 )
@@ -34,10 +35,12 @@ packages_gui=(
 packages_wm=(
     "anyrun"
     "dunst"
-    "hyprland"
+    # "hyprland"
+    "niri"
     "libnotify"
     "pipewire"
     "waybar"
+    "wlsunset"
 )
 
 packages_nvidia=(
@@ -61,4 +64,5 @@ packages_gaming=(
 packages_laptop=(
     "bluez"
     "blueman"
+    "overskride"
 )

@@ -1,0 +1,133 @@
+input {
+    keyboard {
+        xkb {
+            layout "us"
+            model ""
+            rules ""
+            variant ""
+            options "caps:escape"
+        }
+        repeat-delay 600
+        repeat-rate 25
+        track-layout "global"
+    }
+    touchpad {
+        tap
+        dwt
+        dwtp
+        natural-scroll
+        accel-speed 0.000000
+        click-method "clickfinger"
+    }
+    mouse { accel-speed 0.000000; }
+    trackpoint { accel-speed 0.001000; }
+    tablet
+    touch
+    warp-mouse-to-focus
+    focus-follows-mouse
+}
+output "DP-1" {
+    transform "normal"
+    position x=0 y=0
+}
+output "DP-2" {
+    transform "normal"
+    position x=-1920 y=0
+    mode "1920x1080@144.001000"
+}
+screenshot-path "~/pics/ss/ss%Y-%m-%d %H-%M-%S.png"
+prefer-no-csd
+layout {
+    gaps 16
+    struts {
+        left 0
+        right 0
+        top 0
+        bottom 0
+    }
+    focus-ring {
+        width 2
+        active-color "#f4b8e4"
+        inactive-color "#737994"
+    }
+    border { off; }
+    preset-column-widths {
+        proportion 0.333000
+        proportion 0.500000
+        proportion 0.666000
+    }
+    default-column-width { proportion 0.500000; }
+    center-focused-column "never"
+}
+cursor {
+    xcursor-theme "default"
+    xcursor-size 24
+}
+hotkey-overlay { skip-at-startup; }
+environment
+binds {
+    Mod+Q { close-window; }
+    Mod+Return cooldown-ms=500 { spawn "/nix/store/cmkk0l1qs0hph06nlp0ji1arkpxp44xs-kitty-0.34.1/bin/kitty"; }
+    Mod+Shift+L { spawn "gtklock"; }
+    Mod+Shift+P { power-off-monitors; }
+    Mod+Shift+Period { spawn "emoji"; }
+    Mod+Space { spawn "/nix/store/kfcvg407s7i4pj8bv5n7q1vnzsgvsx04-fuzzel-1.10.2/bin/fuzzel"; }
+    Mod+V { spawn "sh" "-c" "/nix/store/n365h2yr0vqs2yx0wprrq8k5da25rx8v-cliphist-0.5.0/bin/cliphist list | fuzzel --dmenu | cliphist decode | wl-copy"; }
+    Super+C { center-column; }
+    Super+Ctrl+H { move-column-left; }
+    Super+Ctrl+J { move-window-down; }
+    Super+Ctrl+K { move-window-up; }
+    Super+Ctrl+L { move-column-right; }
+    Super+Down { focus-window-down; }
+    Super+Equal { set-column-width "+10%"; }
+    Super+F { maximize-column; }
+    Super+H { focus-column-left; }
+    Super+I { move-workspace-up; }
+    Super+J { focus-workspace-down; }
+    Super+K { focus-workspace-up; }
+    Super+L { focus-column-right; }
+    Super+Left { focus-column-left; }
+    Super+Minus { set-column-width "-10%"; }
+    Super+Print { screenshot-window; }
+    Super+R { switch-preset-column-width; }
+    Super+Right { focus-column-right; }
+    Super+Shift+Ctrl+H { move-column-to-monitor-left; }
+    Super+Shift+Ctrl+J { move-column-to-monitor-down; }
+    Super+Shift+Ctrl+K { move-column-to-monitor-up; }
+    Super+Shift+Ctrl+L { move-column-to-monitor-right; }
+    Super+Shift+Equal { set-window-height "+10%"; }
+    Super+Shift+F { fullscreen-window; }
+    Super+Shift+H { focus-monitor-left; }
+    Super+Shift+J { focus-monitor-down; }
+    Super+Shift+K { focus-monitor-up; }
+    Super+Shift+L { focus-monitor-right; }
+    Super+Shift+Minus { set-window-height "-10%"; }
+    Super+Shift+Print { screenshot-screen; }
+    Super+Shift+S { screenshot; }
+    Super+U { move-workspace-down; }
+    Super+Up { focus-window-up; }
+    Super+WheelScrollDown cooldown-ms=500 { focus-workspace-down; }
+    Super+WheelScrollLeft { focus-column-left; }
+    Super+WheelScrollRight { focus-column-right; }
+    Super+WheelScrollUp cooldown-ms=500 { focus-workspace-up; }
+    XF86AudioLowerVolume { spawn "pamixer" "-d" "5"; }
+    XF86AudioMicMute { spawn "micmute"; }
+    XF86AudioMute { spawn "pamixer" "-t"; }
+    XF86AudioRaiseVolume { spawn "pamixer" "-i" "5"; }
+    XF86Bluetooth { spawn "bt"; }
+    XF86MonBrightnessDown { spawn "brightnessctl" "set" "5%-"; }
+    XF86MonBrightnessUp { spawn "brightnessctl" "set" "+5%"; }
+}
+spawn-at-startup "run-as-service" "waybar"
+window-rule {
+    geometry-corner-radius 8.000000 8.000000 8.000000 8.000000
+    clip-to-geometry true
+}
+animations {
+    slowdown 1.300000
+    workspace-switch { spring damping-ratio=0.750000 epsilon=0.000100 stiffness=400; }
+    horizontal-view-movement { spring damping-ratio=0.750000 epsilon=0.000100 stiffness=400; }
+    window-movement { spring damping-ratio=0.750000 epsilon=0.000100 stiffness=400; }
+    window-open { spring damping-ratio=0.580000 epsilon=0.000100 stiffness=735; }
+    window-close { spring damping-ratio=0.580000 epsilon=0.000100 stiffness=735; }
+}
