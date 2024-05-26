@@ -1,0 +1,51 @@
+* {
+  all: unset;
+  font: 11pt Inter, sans-serif;
+  color: #c6d0f5
+}
+
+  #window,
+  #match,
+  #entry,
+  #plugin,
+  #main {
+    background: transparent;
+  }
+
+  #entry {
+    background: #303446;
+    border-radius: 0.5rem;
+    margin: 0.5rem;
+    padding: 1rem;
+  }
+
+  #match.activatable {
+    padding: 0.5rem 1rem;
+    background: #232634;
+  }
+
+  #match.activatable:first-child {
+    border-radius: 0.5rem 0.5rem 0 0;
+  }
+
+  #match.activatable:last-child {
+    border-radius: 0 0 0.5rem 0.5rem;
+  }
+
+  #match:selected,
+  #match:hover,
+  #plugin:hover {
+    border-radius: 0.5rem;
+    background: #51576d;
+  }
+
+  box#main {
+    background: #414559;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+  }
+
+  list > #plugin {
+    border-radius: 0.5rem;
+    margin: 0.5rem;
+  }

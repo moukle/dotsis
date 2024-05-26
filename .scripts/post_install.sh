@@ -3,7 +3,6 @@
 set -e
 
 packages_base=(
-    "git"
     "gum"
     "stow"
 )
@@ -13,14 +12,23 @@ packages_cli=(
     "fish"
     "fzf"
     "git"
+    "git"
     "gotop"
     "neovim"
+    "pywal"
+    "starship"
     "tmux"
     "yazi"
     "zsh"
 )
 
-packages_desktop=(
+packages_gui=(
+    "kitty"
+    "vscode"
+)
+
+packages_wm=(
+    "anyrun"
     "dunst"
     "hyprland"
     "waybar"
@@ -33,7 +41,8 @@ packages_nvidia=(
 
 options_packages=(
     "packages_cli"
-    "packages_desktop"
+    "packages_gui"
+    "packages_wm"
     "packages_nvidia"
 )
 
@@ -49,7 +58,6 @@ install_pkgs() {
 
 stow_pkgs()
 {
-    cd ..
     echo -n " Stowing: "
     for pkg in $@
     do
@@ -59,7 +67,6 @@ stow_pkgs()
         fi
     done
     echo
-    cd - > /dev/null
 }
 
 gum_style_list() {
@@ -74,11 +81,11 @@ gum_style_list() {
         "${@:2}"
 }
 
-# welcome
-gum style --border normal --margin "1" --padding "1 2" --border-foreground 2 "Hello, there! Welcome to $(gum style --foreground 2 'Post-Installer')."
-
 # install required pkgs
 install_pkgs ${packages_base[@]}
+
+# welcome
+gum style --border normal --margin "1" --padding "1 2" --border-foreground 2 "Hello, there! Welcome to $(gum style --foreground 2 'Post-Installer')."
 
 # pick packages
 gum join \
@@ -87,17 +94,19 @@ gum join \
     "$(gum_style_list "desktop" ${packages_desktop[@]})"
 
 SELECT_PACKAGES=$(gum choose --no-limit \
-    --selected=${options_packages[0]},${options_packages[1]} \
     --header "Installing <space>" ${options_packages[@]})
+    # --selected=${options_packages[0]},${options_packages[1]} \
 gum log "Selected: " ${SELECT_PACKAGES[@]}
 
 # install and stow
 for package_set in $SELECT_PACKAGES
 do
+    cd ../${package_set#*_}
     for pkgs in $package_set[@]
     do
         install_pkgs ${!pkgs}
         stow_pkgs ${!pkgs}
     done
+    cd -
     echo ""
 done

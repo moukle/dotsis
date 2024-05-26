@@ -1,0 +1,260 @@
+@import "/nix/store/1c8qc6hm56hjk48smc5337d9mnxx188p-source/themes/frappe.css";
+
+* {
+  all: unset;
+  font: 15pt "Material Design Icons", Lexend, Inter, sans-serif;
+  min-height: 0;
+  min-width: 0;
+}
+
+menu,
+tooltip {
+  background: #303446;
+  color: #c6d0f5;
+  border: 1px solid #b5bfe2;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+}
+
+menu {
+  padding: 0;
+}
+
+menu label,
+tooltip label {
+  padding: 0.5rem;
+}
+
+button {
+  box-shadow: inset 0 -0.25rem transparent;
+  border: none;
+}
+
+button:hover {
+  box-shadow: inherit;
+  text-shadow: inherit;
+}
+
+slider {
+  opacity: 0;
+  background-image: none;
+  border: none;
+  box-shadow: none;
+}
+
+trough {
+  min-height: 5rem;
+  min-width: 0.625rem;
+  border-radius: 0.5rem;
+  background-color: #303446;
+}
+
+highlight {
+  min-width: 0.625rem;
+  border-radius: 0.5rem;
+}
+
+window#waybar {
+  background: alpha(#303446, 0.2);
+  color: #c6d0f5;
+}
+
+.modules-left {
+  padding-top: 0.5rem;
+}
+
+.modules-right {
+  padding-bottom: 0.5rem;
+}
+
+#custom-logo,
+#workspaces,
+#tray,
+#custom-notification,
+#custom-toggle-theme,
+#network-pulseaudio-backlight-battery,
+#clock,
+#custom-exit,
+#custom-lock,
+#custom-suspend,
+#custom-reboot,
+#custom-power-placeholder,
+#custom-power {
+  background: alpha(#51576d, 0.3);
+  border: 1px solid alpha(#51576d, 0.3);
+  border-radius: 1.5rem;
+  min-width: 0.75rem;
+  margin: 0.25rem 0.5rem;
+}
+
+#network,
+#pulseaudio,
+#battery,
+#backlight {
+  color: #8caaee;
+}
+
+#tray,
+#custom-notification,
+#custom-toggle-theme,
+#network-pulseaudio-backlight-battery,
+#clock {
+  padding: 0.5rem 0;
+}
+
+#network,
+#pulseaudio,
+#pulseaudio-slider,
+#backlight,
+#backlight-slider,
+#battery {
+  background: transparent;
+  padding: 0.25rem 0.5rem;
+}
+
+#custom-logo,
+#custom-exit,
+#custom-lock,
+#custom-suspend,
+#custom-reboot,
+#custom-power-placeholder,
+#custom-power {
+  padding: 0.5rem;
+}
+
+#custom-logo {
+  background: transparent
+    url("/nix/store/488hqs4jj4i981k6pfbbmxd62nigkpxa-Logo-14mbpw8jv1w2c5wvfvj8clmjw0fi956bq5xf9s2q3my14far0as8.svg")
+    center/2rem no-repeat;
+  border: none;
+}
+
+#workspaces {
+  padding: 0.75rem 0.5rem;
+}
+
+#workspaces button {
+  color: #c6d0f5;
+  border-radius: 1rem;
+  margin-bottom: 0.75rem;
+  transition: all 0.5s steps(12);
+}
+
+#workspaces button:last-child {
+  margin-bottom: 0;
+}
+
+#workspaces button:hover {
+  color: alpha(#414559, 0.9);
+}
+
+#workspaces button.empty {
+  color: alpha(#414559, 0.1);
+}
+
+#workspaces button.empty:hover {
+  color: alpha(#414559, 0.9);
+}
+
+#workspaces button.urgent {
+  color: #303446;
+  background: #e78284;
+}
+
+#workspaces button.urgent:hover {
+  color: alpha(#e78284, 0.5);
+}
+
+#workspaces button.special {
+  color: #e5c890;
+}
+
+#workspaces button.special:hover {
+  color: alpha(#e5c890, 0.5);
+}
+
+#workspaces button.active {
+  color: #f4b8e4;
+}
+
+#workspaces button.active:hover {
+  color: alpha(#8caaee, 0.5);
+}
+
+#tray > .passive {
+  -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+  -gtk-icon-effect: highlight;
+  background-color: #e78284;
+}
+
+#tray menu menuitem {
+  border-radius: 0.5rem;
+  color: #c6d0f5;
+  padding: 0.25rem;
+}
+
+#tray menu menuitem:hover {
+  background: #8caaee;
+  color: #414559;
+}
+
+#custom-toggle-theme {
+  color: #99d1db;
+}
+
+#custom-notification {
+  color: #e5c890;
+}
+
+#network.disconnected,
+#pulseaudio.muted {
+  color: #e78284;
+}
+
+#backlight-slider highlight,
+#pulseaudio-slider highlight {
+  background-color: #b5bfe2;
+}
+
+#battery.charging,
+#battery.plugged {
+  color: #a6d189;
+}
+
+#battery.critical:not(.charging) {
+  color: #e78284;
+  animation: blink 0.5s steps(12) infinite alternate;
+}
+
+#custom-exit {
+  color: #8caaee;
+}
+
+#custom-lock {
+  color: #a6d189;
+}
+
+#custom-suspend {
+  color: #e5c890;
+}
+
+#custom-reboot {
+  color: #ef9f76;
+}
+
+#custom-power-placeholder {
+  color: #e5c890;
+}
+
+#custom-power {
+  color: #e78284;
+}
+
+@keyframes blink {
+  to {
+    color: #c6d0f5;
+  }
+}

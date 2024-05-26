@@ -1,0 +1,257 @@
+[
+  {
+    "backlight": {
+      "format": "{icon}",
+      "format-icons": [
+        "󰝦",
+        "󰪞",
+        "󰪟",
+        "󰪠",
+        "󰪡",
+        "󰪢",
+        "󰪣",
+        "󰪤",
+        "󰪥"
+      ],
+      "on-scroll-down": "/nix/store/81id03dynf716msd4js4z6gj6xy2gqkb-brightnessctl-0.5.1/bin/brightnessctl set +1%",
+      "on-scroll-up": "/nix/store/81id03dynf716msd4js4z6gj6xy2gqkb-brightnessctl-0.5.1/bin/brightnessctl set 1%-",
+      "tooltip-format": "Backlight: {percent}%"
+    },
+    "backlight/slider": {
+      "max": 100,
+      "min": 0,
+      "orientation": "vertical"
+    },
+    "battery": {
+      "format": "{icon}",
+      "format-charging": "󱐋",
+      "format-icons": [
+        "󰂎",
+        "󰁺",
+        "󰁻",
+        "󰁼",
+        "󰁽",
+        "󰁾",
+        "󰁿",
+        "󰂀",
+        "󰂁",
+        "󰂂",
+        "󰁹"
+      ],
+      "format-plugged": "󰚥",
+      "states": {
+        "critical": 20,
+        "warning": 30
+      },
+      "tooltip-format": "{timeTo}, {capacity}%"
+    },
+    "clock": {
+      "actions": {
+        "on-scroll-down": "shift_down",
+        "on-scroll-up": "shift_up"
+      },
+      "calendar": {
+        "format": {
+          "days": "<span color='#b5bfe2'><b>{}</b></span>",
+          "months": "<span color='#c6d0f5'><b>{}</b></span>",
+          "today": "<span color='#c6d0f5'><b><u>{}</u></b></span>",
+          "weekdays": "<span color='#8caaee'><b>{}</b></span>"
+        },
+        "mode": "month",
+        "on-scroll": 1
+      },
+      "format": "{:%H:%M}",
+      "format-alt": "{:%A, %B %d, %Y (%R)}",
+      "rotate": 270,
+      "tooltip-format": "<tt><small>{calendar}</small></tt>"
+    },
+    "custom/exit": {
+      "format": "󰈆",
+      "on-click": "/nix/store/xjiifrz7ha6s29gp0p0j3w0155phxmia-systemd-255.6/bin/loginctl terminate-user $USER",
+      "tooltip": false
+    },
+    "custom/lock": {
+      "format": "󰌾",
+      "on-click": "/nix/store/xjiifrz7ha6s29gp0p0j3w0155phxmia-systemd-255.6/bin/loginctl lock-session",
+      "tooltip": false
+    },
+    "custom/logo": {
+      "format": " ",
+      "on-click": "anyrun",
+      "tooltip": false
+    },
+    "custom/notification": {
+      "escape": true,
+      "exec": "/nix/store/r4dkxly6nj7qzxnr0xg1araxnlp7qljl-script/bin/script",
+      "format": "{icon}",
+      "format-icons": {
+        "dnd-inhibited-none": "󰪑",
+        "dnd-inhibited-notification": "󰂛",
+        "dnd-none": "󰪑",
+        "dnd-notification": "󰂛",
+        "inhibited-none": "󰪑",
+        "inhibited-notification": "󰂛",
+        "none": "󰂜",
+        "notification": "󰂚"
+      },
+      "on-click": "kitty --class kitty-dunst-nctui -o window_padding_width=0 --title dunst-nctui -e dunst-nctui",
+      "on-click-right": "/nix/store/d1v08rhm792sfa8f5q7lsf6z95m5x1rp-dunst-1.11.0/bin/dunstctl set-paused toggle",
+      "return-type": "json",
+      "tooltip": true
+    },
+    "custom/power": {
+      "format": "󰐥",
+      "on-click": "/nix/store/xjiifrz7ha6s29gp0p0j3w0155phxmia-systemd-255.6/bin/systemctl poweroff",
+      "tooltip": false
+    },
+    "custom/power-placeholder": {
+      "format": "󰐦",
+      "tooltip": false
+    },
+    "custom/reboot": {
+      "format": "󰜉",
+      "on-click": "/nix/store/xjiifrz7ha6s29gp0p0j3w0155phxmia-systemd-255.6/bin/systemctl reboot",
+      "tooltip": false
+    },
+    "custom/suspend": {
+      "format": "󰤄",
+      "on-click": "/nix/store/xjiifrz7ha6s29gp0p0j3w0155phxmia-systemd-255.6/bin/systemctl suspend",
+      "tooltip": false
+    },
+    "custom/toggle-theme": {
+      "format": "󰔎",
+      "on-click": "/nix/store/j13gsdkc8f9n3zidzpsar154mr7km79p-script/bin/script"
+    },
+    "exclusive": true,
+    "fixed-center": true,
+    "group/audio-slider": {
+      "drawer": {
+        "children-class": "audio-slider-child",
+        "transition-duration": 300,
+        "transition-left-to-right": false
+      },
+      "modules": [
+        "pulseaudio",
+        "pulseaudio/slider"
+      ],
+      "orientation": "inherit"
+    },
+    "group/light-slider": {
+      "drawer": {
+        "children-class": "light-slider-child",
+        "transition-duration": 300,
+        "transition-left-to-right": false
+      },
+      "modules": [
+        "backlight",
+        "backlight/slider"
+      ],
+      "orientation": "inherit"
+    },
+    "group/network-pulseaudio-backlight-battery": {
+      "modules": [
+        "network",
+        "group/audio-slider",
+        "group/light-slider",
+        "battery"
+      ],
+      "orientation": "inherit"
+    },
+    "group/powermenu": {
+      "drawer": {
+        "children-class": "powermenu-child",
+        "transition-duration": 300,
+        "transition-left-to-right": false
+      },
+      "modules": [
+        "custom/power-placeholder",
+        "custom/exit",
+        "custom/lock",
+        "custom/suspend",
+        "custom/reboot",
+        "custom/power"
+      ],
+      "orientation": "inherit"
+    },
+    "gtk-layer-shell": true,
+    "hyprland/workspaces": {
+      "active-only": false,
+      "all-outputs": true,
+      "disable-scroll": true,
+      "format": "{icon}",
+      "format-icons": {
+        "1": "●",
+        "10": "0",
+        "2": "●",
+        "3": "●",
+        "4": "●",
+        "5": "●",
+        "6": "●",
+        "7": "●",
+        "8": "8",
+        "9": "9"
+      },
+      "on-click": "activate",
+      "persistent-workspaces": {
+        "*": 7
+      }
+    },
+    "layer": "top",
+    "margin-bottom": 0,
+    "margin-left": 0,
+    "margin-right": 0,
+    "margin-top": 0,
+    "modules-center": [
+      "clock"
+    ],
+    "modules-left": [
+      "hyprland/workspaces"
+    ],
+    "modules-right": [
+      "tray",
+      "custom/toggle-theme",
+      "custom/notification",
+      "group/network-pulseaudio-backlight-battery",
+      "group/powermenu"
+    ],
+    "network": {
+      "format-disconnected": "󰖪",
+      "format-ethernet": "󰈀",
+      "format-wifi": "󰖩",
+      "on-click": "/nix/store/5y3h2wr5w7g0kylkpb1ymp6hxx4a9n31-network-manager-applet-1.36.0/bin/nm-connection-editor",
+      "tooltip-format-disconnected": "Disconnected",
+      "tooltip-format-ethernet": "Ethernet: {ifname}\n󰅃 {bandwidthUpBytes} 󰅀 {bandwidthDownBytes}",
+      "tooltip-format-wifi": "WiFi: {essid} ({signalStrength}%)\n󰅃 {bandwidthUpBytes} 󰅀 {bandwidthDownBytes}"
+    },
+    "output": "DP-1",
+    "position": "left",
+    "pulseaudio": {
+      "format": "{icon}",
+      "format-bluetooth": "󰂯",
+      "format-icons": {
+        "default": [
+          "󰕿",
+          "󰖀",
+          "󰕾"
+        ]
+      },
+      "format-muted": "󰖁",
+      "on-click": "/nix/store/14sqzylwq65cylfb6l6lbg584zqd5fnd-pamixer-1.6/bin/pamixer --toggle-mute",
+      "on-click-right": "/nix/store/i7v48x9qskd4nf8krv0pgi438j2lsdrq-pavucontrol-5.0/bin/pavucontrol",
+      "on-scroll-down": "/nix/store/14sqzylwq65cylfb6l6lbg584zqd5fnd-pamixer-1.6/bin/pamixer --increase 1",
+      "on-scroll-up": "/nix/store/14sqzylwq65cylfb6l6lbg584zqd5fnd-pamixer-1.6/bin/pamixer --decrease 1",
+      "tooltip-format": "Volume: {volume}%"
+    },
+    "pulseaudio/slider": {
+      "max": 100,
+      "min": 0,
+      "orientation": "vertical"
+    },
+    "spacing": 0,
+    "tray": {
+      "icon-size": 16,
+      "show-passive-items": true,
+      "spacing": 8
+    }
+  }
+]
