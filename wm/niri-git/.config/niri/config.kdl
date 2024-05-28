@@ -1,0 +1,129 @@
+spawn-at-startup "run-as-service" "waybar"
+spawn-at-startup "swaybg" "-i" "~/Downloads/eberhard-grossgasteiger-SMyqIcE2NXs-unsplash.jpg"
+
+environment {
+	SDL_VIDEODRIVER "wayland"
+}
+
+input {
+    keyboard {
+        xkb {
+            layout "us"
+            variant "nodeadkeys"
+        }
+    }
+    mouse { accel-speed 0.000000; }
+}
+
+output "DP-1" {
+    position x=0 y=0
+    mode "3820x2160@59.997"
+}
+
+output "DP-2" {
+    position x=-1920 y=0
+    mode "1920x1080@143.996"
+}
+
+animations {
+	off
+}
+
+layout {
+    gaps 16
+
+    focus-ring {
+        width 2
+        active-color "#f4b8e4"
+        inactive-color "#737994"
+    }
+    border { off; }
+
+    preset-column-widths {
+        proportion 0.333000
+        proportion 0.500000
+        proportion 0.666000
+    }
+    default-column-width { proportion 0.500000; }
+
+    center-focused-column "never"
+}
+
+window-rule {
+	geometry-corner-radius 12
+	clip-to-geometry true
+}
+
+cursor {
+    xcursor-theme "default"
+    xcursor-size 24
+}
+
+// hotkey-overlay { skip-at-startup; }
+binds {
+    Mod+Return { spawn "kitty"; }
+    Mod+D { spawn "anyrun"; }
+    // Mod+V { spawn "sh" "-c" "cliphist list | fuzzel --dmenu | cliphist decode | wl-copy"; }
+
+    Mod+Q { close-window; }
+
+    // Mod+Shift+L { spawn "gtklock"; }
+    Mod+Shift+P { power-off-monitors; }
+
+    Super+C { center-column; }
+    Super+F { maximize-column; }
+    Super+Shift+F { fullscreen-window; }
+
+    // focus
+    Super+H { focus-column-left; }
+    Super+L { focus-column-right; }
+    Super+J { focus-workspace-down; }
+    Super+K { focus-workspace-up; }
+
+    // move
+    Super+Ctrl+H { move-column-left; }
+    Super+Ctrl+L { move-column-right; }
+    Super+Ctrl+J { move-window-down; }
+    Super+Ctrl+K { move-window-up; }
+
+    // monitor focus
+    Super+Shift+H { focus-monitor-left; }
+    Super+Shift+J { focus-monitor-down; }
+    Super+Shift+K { focus-monitor-up; }
+    Super+Shift+L { focus-monitor-right; }
+
+    // monitor move
+    Super+Shift+Ctrl+H { move-column-to-monitor-left; }
+    Super+Shift+Ctrl+J { move-column-to-monitor-down; }
+    Super+Shift+Ctrl+K { move-column-to-monitor-up; }
+    Super+Shift+Ctrl+L { move-column-to-monitor-right; }
+
+    Super+R { switch-preset-column-width; }
+    Super+Minus { set-column-width "-10%"; }
+    Super+Equal { set-column-width "+10%"; }
+    Super+Shift+Equal { set-window-height "+10%"; }
+    Super+Shift+Minus { set-window-height "-10%"; }
+
+    Super+I { move-workspace-up; }
+    Super+U { move-workspace-down; }
+
+    Super+Shift+S { screenshot; }
+    Super+Ctrl+S { screenshot-window; }
+    Super+Shift+Ctrl+s { screenshot-screen; }
+
+    Super+WheelScrollDown cooldown-ms=500 { focus-workspace-down; }
+    Super+WheelScrollLeft { focus-column-left; }
+    Super+WheelScrollRight { focus-column-right; }
+    Super+WheelScrollUp cooldown-ms=500 { focus-workspace-up; }
+
+    XF86AudioRaiseVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1+"; }
+    XF86AudioLowerVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1-"; }
+    XF86AudioMute        allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"; }
+    XF86AudioMicMute     allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"; }
+
+    XF86Bluetooth { spawn "bt"; }
+    XF86MonBrightnessDown { spawn "brightnessctl" "set" "5%-"; }
+    XF86MonBrightnessUp { spawn "brightnessctl" "set" "+5%"; }
+}
+screenshot-path "~/pics/ss/ss%Y-%m-%d %H-%M-%S.png"
+prefer-no-csd

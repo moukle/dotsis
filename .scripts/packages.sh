@@ -24,6 +24,7 @@ packages_cli=(
 )
 
 packages_gui=(
+    "nautilus"
     "code"
     "firefox"
     "kitty"
@@ -36,7 +37,12 @@ packages_wm=(
     "anyrun-git"
     "dunst"
     # "hyprland"
-    "niri"
+    
+    "niri-git"
+    "xdg-desktop-portal-gtk"
+    "xdg-desktop-portal-gnome"
+    "gnome-keyring"
+
     "libnotify"
     "pipewire"
     "waybar"
@@ -57,8 +63,6 @@ packages_fonts=(
 packages_gaming=(
     "ddnet"
     "steam"
-    "vulkan-icd-loader"
-    "lib32-vulkan-icd-loader"
 )
 
 packages_laptop=(

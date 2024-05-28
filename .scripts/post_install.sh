@@ -18,19 +18,19 @@ install_pkgs() {
 
 stow_pkgs()
 {
-    if [ ! -d $1 ]; then
+    if [ ! -d ../$1 ]; then
     	echo "No dots for $1"
 	return
     fi
 
-    cd $1
+    cd ../$1
 
     echo -n " Stowing: "
     for pkg in ${@:2}
     do
         if [ -d $pkg ]; then
             echo -n "$pkg "
-            # stow $pkg
+            stow --target=$HOME $pkg
         fi
     done
     echo
