@@ -15,7 +15,7 @@ packages_cli=(
     "git"
     "gotop"
     "neovim"
-    "pywal"
+    "python-pywal"
     "starship"
     "tmux"
     "unzip"
@@ -33,7 +33,7 @@ packages_gui=(
 )
 
 packages_wm=(
-    "anyrun"
+    "anyrun-git"
     "dunst"
     # "hyprland"
     "niri"

@@ -1,10 +1,10 @@
 #! /usr/bin/env bash
 
 echo -e -n "\t pacman beepbop"
-exit 0
+# exit 0
 
 # install yay
-if ! command -v yay &> /dev/null; then
+if ! command -v paru &> /dev/null; then
     cd /tmp
 
     pacman -Sy --needed git base-devel
@@ -15,4 +15,4 @@ if ! command -v yay &> /dev/null; then
     cd -
 fi
 
-yay -Sy --needed --noconfirm $@
+paru -Sy --needed --noconfirm $@

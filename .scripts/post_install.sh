@@ -11,14 +11,22 @@ install_pkgs() {
     then
         ./arch_install.sh $@
     else
+        #./arch_install.sh $@
         gum spin --title "..." --spinner dot --show-output -- ./arch_install.sh $@
     fi
 }
 
 stow_pkgs()
 {
+    if [ ! -d $1 ]; then
+    	echo "No dots for $1"
+	return
+    fi
+
+    cd $1
+
     echo -n " Stowing: "
-    for pkg in $@
+    for pkg in ${@:2}
     do
         if [ -d $pkg ]; then
             echo -n "$pkg "
@@ -26,6 +34,8 @@ stow_pkgs()
         fi
     done
     echo
+
+    cd -
 }
 
 gum_style_list() {
@@ -62,16 +72,16 @@ gum log "Selected: " ${select_options[@]}
 # install and stow
 for package_set in ${select_options[@]}; do
     echo $package_set
-    cd ../${package_set#*_}
     for pkgs in $package_set[@]
     do
         install_pkgs ${!pkgs}
-        stow_pkgs ${!pkgs}
+        stow_pkgs ${package_set#*_} ${!pkgs}
     done
-    cd -
     echo ""
 done
 
 # TODO: wal
 # ln -sf "${HOME}/.cache/wal/dunstrc"   "${HOME}/.config/dunst/dunstrc"
 # ln -sf "${HOME}/.cache/wal/zathurarc" "${HOME}/.config/zathura/zathurarc"
+#
+gum style --border normal --margin "1" --padding "1 2" --border-foreground 2 "Finished. $(gum style --foreground 2 'Have Fun!')."
