@@ -1,5 +1,3 @@
-source $HOME/.profile
-
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -24,8 +22,9 @@ zinit ice depth=1; zinit light romkatv/powerlevel10k
 
 # Add better Vim
 zinit ice depth=1; zinit light jeffreytse/zsh-vi-mode
+zvm_after_init_commands+=('[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh')
 
-# Add in zsh plugins
+# # Add in zsh plugins
 zinit light zsh-users/zsh-syntax-highlighting
 zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-autosuggestions
@@ -85,17 +84,23 @@ alias lla='la -l'
 alias vim='nvim'
 alias v='vim'
 alias f='yazi'
+alias ..='cd ..'
+alias ...='cd ../..'
 
 # FZF
 export FZF_DEFAULT_OPTS=" \
 --color=bg+:#ccd0da,bg:-1,spinner:#dc8a78,hl:#d20f39 \
 --color=fg:-1,header:#d20f39,info:#8839ef,pointer:#dc8a78 \
 --color=marker:#dc8a78,fg+:#4c4f69,prompt:#8839ef,hl+:#d20f39"
+
 export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
---border="rounded" --border-label="" --preview-window="border-rounded"
+--border="none" --border-label="" --preview-window="border-rounded"
 --padding="0" --margin="1" --prompt=":: " --marker="+" --pointer="◆"
 --separator="─" --scrollbar="│" --layout="reverse"'
 
 # Shell integrations
-eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
+
+source <(fzf --zsh)
+source <(starship init zsh)
+source $HOME/.profile

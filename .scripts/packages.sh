@@ -2,7 +2,6 @@ options_packages=(
     "packages_cli"
     "packages_gui"
     "packages_wm"
-    "packages_nvidia"
     "packages_fonts"
     "packages_gaming"
     "packages_laptop"
@@ -10,7 +9,7 @@ options_packages=(
 
 packages_cli=(
     "curl"
-    "fish"
+    "zoxide"
     "fzf"
     "git"
     "gotop"
@@ -36,23 +35,22 @@ packages_gui=(
 packages_wm=(
     "anyrun-git"
     "dunst"
-    # "hyprland"
-    
-    "niri-git"
+
+    "hyprland"
+    # requirements for hyprpm
+    "hyprwayland-scanner"
+    "cpio"
+
+    # "niri-git"
     "xdg-desktop-portal-gtk"
     "xdg-desktop-portal-gnome"
     "gnome-keyring"
+    "wl-clipboard"
 
     "libnotify"
     "pipewire"
     "waybar"
     "wlsunset"
-)
-
-packages_nvidia=(
-    "nvidia"
-    "nvidia-utils"
-    "cuda"
 )
 
 packages_fonts=(

@@ -1,15 +1,29 @@
-spawn-at-startup "run-as-service" "waybar"
-spawn-at-startup "swaybg" "-i" "~/Downloads/eberhard-grossgasteiger-SMyqIcE2NXs-unsplash.jpg"
+spawn-at-startup "waybar"
+spawn-at-startup "swaybg" "-i" "/home/mori/Downloads/eberhard-grossgasteiger-SMyqIcE2NXs-unsplash.jpg"
+
+// debug {
+//     render-drm-device "/dev/dri/card0"
+// }
 
 environment {
+	DESKTOP ":0"
+	XDG_CURRENT_DESKTOP "niri"
+	XDG_SESSION_DESKTOP "niri"
+	XDG_SESSION_TYPE "wayland"
+	LIBVA_DRIVER_NAME "nvidia"
+	 GBM_BACKEND "nvidia-drm"
+	__GLX_VENDOR_LIBRARY_NAME "nvidia"
+	QT_QPA_PLATFORM "wayland"
+
 	SDL_VIDEODRIVER "wayland"
+	SDL_VIDEO_WAYLAND_PREFER_LIBDECOR "1"
 }
 
 input {
     keyboard {
         xkb {
             layout "us"
-            variant "nodeadkeys"
+            options "nodeadkeys"
         }
     }
     mouse { accel-speed 0.000000; }
@@ -66,6 +80,7 @@ binds {
     // Mod+V { spawn "sh" "-c" "cliphist list | fuzzel --dmenu | cliphist decode | wl-copy"; }
 
     Mod+Q { close-window; }
+    Mod+Shift+Ctrl+Q { quit; }
 
     // Mod+Shift+L { spawn "gtklock"; }
     Mod+Shift+P { power-off-monitors; }
@@ -77,8 +92,8 @@ binds {
     // focus
     Super+H { focus-column-left; }
     Super+L { focus-column-right; }
-    Super+J { focus-workspace-down; }
-    Super+K { focus-workspace-up; }
+    Super+J { focus-window-down; }
+    Super+K { focus-window-up; }
 
     // move
     Super+Ctrl+H { move-column-left; }
@@ -98,14 +113,20 @@ binds {
     Super+Shift+Ctrl+K { move-column-to-monitor-up; }
     Super+Shift+Ctrl+L { move-column-to-monitor-right; }
 
+    Mod+Comma  { consume-window-into-column; }
+    Mod+Period { expel-window-from-column; }
+
     Super+R { switch-preset-column-width; }
+    Mod+Shift+R { reset-window-height; }
     Super+Minus { set-column-width "-10%"; }
     Super+Equal { set-column-width "+10%"; }
     Super+Shift+Equal { set-window-height "+10%"; }
     Super+Shift+Minus { set-window-height "-10%"; }
 
-    Super+I { move-workspace-up; }
-    Super+U { move-workspace-down; }
+    Mod+U              { focus-workspace-down; }
+    Mod+I              { focus-workspace-up; }
+    Mod+Ctrl+U         { move-column-to-workspace-down; }
+    Mod+Ctrl+I         { move-column-to-workspace-up; }
 
     Super+Shift+S { screenshot; }
     Super+Ctrl+S { screenshot-window; }

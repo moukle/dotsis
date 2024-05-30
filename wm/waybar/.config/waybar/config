@@ -13,8 +13,8 @@
         "󰪤",
         "󰪥"
       ],
-      "on-scroll-down": "/nix/store/81id03dynf716msd4js4z6gj6xy2gqkb-brightnessctl-0.5.1/bin/brightnessctl set +1%",
-      "on-scroll-up": "/nix/store/81id03dynf716msd4js4z6gj6xy2gqkb-brightnessctl-0.5.1/bin/brightnessctl set 1%-",
+      "on-scroll-down": "brightnessctl set +1%",
+      "on-scroll-up": "brightnessctl set 1%-",
       "tooltip-format": "Backlight: {percent}%"
     },
     "backlight/slider": {
@@ -67,12 +67,12 @@
     },
     "custom/exit": {
       "format": "󰈆",
-      "on-click": "/nix/store/xjiifrz7ha6s29gp0p0j3w0155phxmia-systemd-255.6/bin/loginctl terminate-user $USER",
+      "on-click": "loginctl terminate-user $USER",
       "tooltip": false
     },
     "custom/lock": {
       "format": "󰌾",
-      "on-click": "/nix/store/xjiifrz7ha6s29gp0p0j3w0155phxmia-systemd-255.6/bin/loginctl lock-session",
+      "on-click": "loginctl lock-session",
       "tooltip": false
     },
     "custom/logo": {
@@ -95,13 +95,13 @@
         "notification": "󰂚"
       },
       "on-click": "kitty --class kitty-dunst-nctui -o window_padding_width=0 --title dunst-nctui -e dunst-nctui",
-      "on-click-right": "/nix/store/d1v08rhm792sfa8f5q7lsf6z95m5x1rp-dunst-1.11.0/bin/dunstctl set-paused toggle",
+      "on-click-right": "dunstctl set-paused toggle",
       "return-type": "json",
       "tooltip": true
     },
     "custom/power": {
       "format": "󰐥",
-      "on-click": "/nix/store/xjiifrz7ha6s29gp0p0j3w0155phxmia-systemd-255.6/bin/systemctl poweroff",
+      "on-click": "systemctl poweroff",
       "tooltip": false
     },
     "custom/power-placeholder": {
@@ -110,12 +110,12 @@
     },
     "custom/reboot": {
       "format": "󰜉",
-      "on-click": "/nix/store/xjiifrz7ha6s29gp0p0j3w0155phxmia-systemd-255.6/bin/systemctl reboot",
+      "on-click": "systemctl reboot",
       "tooltip": false
     },
     "custom/suspend": {
       "format": "󰤄",
-      "on-click": "/nix/store/xjiifrz7ha6s29gp0p0j3w0155phxmia-systemd-255.6/bin/systemctl suspend",
+      "on-click": "systemctl suspend",
       "tooltip": false
     },
     "custom/toggle-theme": {
@@ -174,6 +174,15 @@
       "orientation": "inherit"
     },
     "gtk-layer-shell": true,
+    "wlr/taskbar": {
+        "all-outputs": true,
+        // "format": "{icon} {title} {short_state}",
+        "format": "{icon}",
+        "tooltip-format": "{title} | {app_id}",
+        "on-click": "activate",
+        "on-click-middle": "close",
+        "on-click-right": "fullscreen"
+    },
     "hyprland/workspaces": {
       "active-only": false,
       "all-outputs": true,
@@ -205,7 +214,8 @@
       "clock"
     ],
     "modules-left": [
-      "hyprland/workspaces"
+      //"hyprland/workspaces"
+      "wlr/taskbar"
     ],
     "modules-right": [
       "tray",
@@ -218,7 +228,7 @@
       "format-disconnected": "󰖪",
       "format-ethernet": "󰈀",
       "format-wifi": "󰖩",
-      "on-click": "/nix/store/5y3h2wr5w7g0kylkpb1ymp6hxx4a9n31-network-manager-applet-1.36.0/bin/nm-connection-editor",
+      "on-click": "nm-connection-editor",
       "tooltip-format-disconnected": "Disconnected",
       "tooltip-format-ethernet": "Ethernet: {ifname}\n󰅃 {bandwidthUpBytes} 󰅀 {bandwidthDownBytes}",
       "tooltip-format-wifi": "WiFi: {essid} ({signalStrength}%)\n󰅃 {bandwidthUpBytes} 󰅀 {bandwidthDownBytes}"
@@ -236,10 +246,9 @@
         ]
       },
       "format-muted": "󰖁",
-      "on-click": "/nix/store/14sqzylwq65cylfb6l6lbg584zqd5fnd-pamixer-1.6/bin/pamixer --toggle-mute",
-      "on-click-right": "/nix/store/i7v48x9qskd4nf8krv0pgi438j2lsdrq-pavucontrol-5.0/bin/pavucontrol",
-      "on-scroll-down": "/nix/store/14sqzylwq65cylfb6l6lbg584zqd5fnd-pamixer-1.6/bin/pamixer --increase 1",
-      "on-scroll-up": "/nix/store/14sqzylwq65cylfb6l6lbg584zqd5fnd-pamixer-1.6/bin/pamixer --decrease 1",
+      "on-click": "pamixer --toggle-mute",
+      "on-click-right": "pamixer --increase 1",
+      "on-scroll-up": "pamixer --decrease 1",
       "tooltip-format": "Volume: {volume}%"
     },
     "pulseaudio/slider": {
