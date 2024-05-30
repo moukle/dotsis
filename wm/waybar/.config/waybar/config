@@ -120,7 +120,7 @@
     },
     "custom/toggle-theme": {
       "format": "󰔎",
-      "on-click": "/nix/store/j13gsdkc8f9n3zidzpsar154mr7km79p-script/bin/script"
+      "on-click": "toggle_theme.sh"
     },
     "exclusive": true,
     "fixed-center": true,

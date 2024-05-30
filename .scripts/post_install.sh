@@ -70,6 +70,8 @@ select_options=$(gum choose --no-limit \
 gum log "Selected: " ${select_options[@]}
 
 # install and stow
+mkdir -p ~/.local/bin/
+
 for package_set in ${select_options[@]}; do
     echo $package_set
     for pkgs in $package_set[@]
