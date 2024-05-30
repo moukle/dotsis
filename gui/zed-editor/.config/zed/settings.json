@@ -1,0 +1,17 @@
+{
+  "base_keymap": "VSCode",
+  "telemetry": {
+    "diagnostics": false,
+    "metrics": true
+  },
+  "relative_line_numbers": true,
+  "vim_mode": true,
+  "theme": "macOS Classic Dark",
+  "ui_font_size": 20,
+  "ui_font_family": "Lexend",
+  "buffer_font_family": "Maple Mono NF",
+  "buffer_font_size": 20,
+  "buffer_font_features": {
+    "calt": true
+  }
+}

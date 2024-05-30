@@ -25,6 +25,7 @@ packages_cli=(
 packages_gui=(
     "nautilus"
     "code"
+    "zed-editor"
     "firefox"
     "kitty"
     "mission-center"
