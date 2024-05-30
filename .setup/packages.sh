@@ -36,6 +36,7 @@ packages_gui=(
 packages_wm=(
     "anyrun-git"
     "dunst"
+    "reversal-icon-theme-git"
 
     "hyprland"
     # requirements for hyprpm

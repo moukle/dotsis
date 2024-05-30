@@ -13,5 +13,8 @@
   "buffer_font_size": 20,
   "buffer_font_features": {
     "calt": true
+  },
+  "git": {
+    "inline_blame": { "enabled": false }
   }
 }
