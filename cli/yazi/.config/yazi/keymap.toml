@@ -1,0 +1,4 @@
+[[manager.prepend_keymap]]
+on   = [ "<C-b>" ]
+run  = 'shell --confirm "set_wall.sh $1"'
+desc = "Just for test!"

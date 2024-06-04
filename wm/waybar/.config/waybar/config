@@ -82,7 +82,7 @@
     },
     "custom/notification": {
       "escape": true,
-      "exec": "/nix/store/r4dkxly6nj7qzxnr0xg1araxnlp7qljl-script/bin/script",
+      "exec": "",
       "format": "{icon}",
       "format-icons": {
         "dnd-inhibited-none": "󰪑",
@@ -247,8 +247,9 @@
       },
       "format-muted": "󰖁",
       "on-click": "pamixer --toggle-mute",
-      "on-click-right": "pamixer --increase 1",
-      "on-scroll-up": "pamixer --decrease 1",
+      "on-click-right": "pavucontrol",
+      "on-scroll-up": "pamixer --increase 1",
+      "on-scroll-down": "pamixer --decrease 1",
       "tooltip-format": "Volume: {volume}%"
     },
     "pulseaudio/slider": {

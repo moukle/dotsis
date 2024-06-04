@@ -16,8 +16,9 @@ style = "bg:none fg:black"
 [directory]
 format = "[]($style)[ ](bg:black fg:white)[$path](bg:black fg:white bold)[ ]($style)"
 style = "bg:none fg:black"
-truncate_to_repo = false
+truncate_to_repo = true
 truncation_length = 3
+truncation_symbol = '…/'
 
 [git_branch]
 format = "[]($style)[[ ](bg:black fg:white bold)$branch](bg:black fg:white)[ ]($style)"
@@ -26,6 +27,7 @@ style = "bg:none fg:black"
 [git_status]
 format = "[]($style)[$all_status$ahead_behind](bg:black fg:white)[ ]($style)"
 style = "bg:none fg:black"
+up_to_date = '✓'
 
 [palettes.catppuccin_frappe]
 base = "#303446"

@@ -2,7 +2,7 @@
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+  # source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
 # Set the directory we want to store zinit and plugins
@@ -18,7 +18,7 @@ fi
 source "${ZINIT_HOME}/zinit.zsh"
 
 # Add in Powerlevel10k
-zinit ice depth=1; zinit light romkatv/powerlevel10k
+# zinit ice depth=1; zinit light romkatv/powerlevel10k
 
 # Add better Vim
 zinit ice depth=1; zinit light jeffreytse/zsh-vi-mode
@@ -76,16 +76,24 @@ zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 
 # Aliases
-alias cat='bat'
+alias cat='bat --theme base16'
 alias ls='exa --icons --group-directories-first'
 alias la='ls -a'
 alias ll='ls -l'
 alias lla='la -l'
 alias vim='nvim'
 alias v='vim'
-alias f='yazi'
 alias ..='cd ..'
 alias ...='cd ../..'
+
+function f() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
+	yazi "$@" --cwd-file="$tmp"
+	if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+		cd -- "$cwd"
+	fi
+	rm -f -- "$tmp"
+}
 
 # FZF
 export FZF_DEFAULT_OPTS=" \
@@ -99,8 +107,9 @@ export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
 --separator="─" --scrollbar="│" --layout="reverse"'
 
 # Shell integrations
-eval "$(zoxide init --cmd cd zsh)"
-
+source <(zoxide init --cmd z zsh)
 source <(fzf --zsh)
 source <(starship init zsh)
+
+# Environment Variables
 source $HOME/.profile

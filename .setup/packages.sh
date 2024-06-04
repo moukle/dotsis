@@ -37,6 +37,7 @@ packages_wm=(
     "anyrun-git"
     "dunst"
     "reversal-icon-theme-git"
+    "matugen-bin"
 
     "hyprland"
     # requirements for hyprpm
