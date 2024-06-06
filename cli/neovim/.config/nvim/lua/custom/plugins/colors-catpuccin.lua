@@ -1,0 +1,33 @@
+require("catppuccin").setup({
+	color_overrides = {
+		all = {
+			rosewater = "#ffb3b2",
+			flamingo = "#f07074",
+			pink = "#b87ac3",
+			mauve = "#f3affd",
+			maroon = "#f07171",
+			red = "#ffb3b1",
+			peach = "#ffb689",
+			yellow = "#ffcda6",
+			green = "#cdcd34",
+			sapphire = "#a9a900",
+			teal = "#80d99c",
+			sky = "#65bd82",
+			blue = "#9bcbff",
+			lavender = "#5ca1e3",
+
+			text = "#f2dedd",
+			subtext1 = "#f2dedd",
+			subtext0 = "#ddc0be",
+			overlay2 = "#a58b89",
+			overlay1 = "#564241",
+			overlay0 = "#433636",
+			surface2 = "#3e3231",
+			surface1 = "#332727",
+			surface0 = "#281d1c",
+			base = "#1b1110",
+			mantle = "#150c0b",
+			crust = "#150c0b",
+		},
+	},
+})

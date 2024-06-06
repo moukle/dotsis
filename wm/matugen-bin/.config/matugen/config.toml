@@ -9,6 +9,10 @@ output_path = "~/.cache/matugen/colors-kitty.conf"
 input_path = "~/.config/matugen/dunstrc"
 output_path = "~/.config/dunst/dunstrc"
 
+[templates.vim]
+input_path = "~/.config/matugen/colors-catpuccin-vim.lua"
+output_path = "~/.config/nvim/lua/custom/plugins/colors-catpuccin.lua"
+
 [config]
 run_after = [
     [
@@ -44,9 +48,13 @@ font_sans = "Lexend"
 # cyan = "#00ffff"
 
 # ayu
-red = "#ff3333"
+red = "#f07171"
 green = "#86b200"
-yellow = "#f19618"
+yellow = "#F2AE49"
 blue = "#41a6d9"
-magenta = "#f07078"
+magenta = "#a37acc"
 cyan = "#4cbe99"
+
+# still ayu, but not only basic terminal colors
+orange = "#f19618"
+rosewater = "#f07078"

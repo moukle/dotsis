@@ -1,0 +1,33 @@
+require("catppuccin").setup({
+	color_overrides = {
+		all = {
+			rosewater = "{{ colors.rosewater.default.hex }}",
+			flamingo = "{{ colors.rosewater_container.default.hex }}",
+			pink = "{{ colors.magenta_container.default.hex }}",
+			mauve = "{{ colors.magenta.default.hex }}",
+			maroon = "{{ colors.red_container.default.hex }}",
+			red = "{{ colors.red.default.hex }}",
+			peach = "{{ colors.orange.default.hex }}",
+			yellow = "{{ colors.yellow.default.hex }}",
+			green = "{{ colors.green.default.hex }}",
+			sapphire = "{{ colors.green_container.default.hex }}",
+			teal = "{{ colors.cyan.default.hex }}",
+			sky = "{{ colors.cyan_container.default.hex }}",
+			blue = "{{ colors.blue.default.hex }}",
+			lavender = "{{ colors.blue_container.default.hex }}",
+
+			text = "{{ colors.on_background.default.hex }}",
+			subtext1 = "{{ colors.on_surface.default.hex }}",
+			subtext0 = "{{ colors.on_surface_variant.default.hex}}",
+			overlay2 = "{{ colors.outline.default.hex }}",
+			overlay1 = "{{ colors.outline_variant.default.hex }}",
+			overlay0 = "{{ colors.surface_bright.default.hex }}",
+			surface2 = "{{ colors.surface_container_highest.default.hex }}",
+			surface1 = "{{ colors.surface_container_high.default.hex }}",
+			surface0 = "{{ colors.surface_container.default.hex }}",
+			base = "{{ colors.background.default.hex }}",
+			mantle = "{{ colors.surface_container_lowest.default.hex}}",
+			crust = "{{ colors.surface_container_lowest.default.hex}}",
+		},
+	},
+})

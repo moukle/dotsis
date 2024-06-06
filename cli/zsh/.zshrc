@@ -97,9 +97,9 @@ function f() {
 
 # FZF
 export FZF_DEFAULT_OPTS=" \
---color=bg+:#ccd0da,bg:-1,spinner:#dc8a78,hl:#d20f39 \
---color=fg:-1,header:#d20f39,info:#8839ef,pointer:#dc8a78 \
---color=marker:#dc8a78,fg+:#4c4f69,prompt:#8839ef,hl+:#d20f39"
+--color=bg+:8,bg:-1,spinner:2,hl:2 \
+--color=fg:-1,header:7,info:6,pointer:2 \
+--color=marker:2,fg+:7,prompt:2,hl+:3"
 
 export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
 --border="none" --border-label="" --preview-window="border-rounded"
