@@ -76,6 +76,8 @@ zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 
 # Aliases
+alias cleanup="sudo pacman -Rsn $(pacman -Qtdq)"
+
 alias cat='bat --theme base16'
 alias ls='exa --icons --group-directories-first'
 alias la='ls -a'
