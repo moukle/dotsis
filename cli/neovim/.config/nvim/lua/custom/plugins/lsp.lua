@@ -13,6 +13,8 @@ return { -- LSP Configuration & Plugins
 		-- `neodev` configures Lua LSP for your Neovim config, runtime and plugins
 		-- used for completion, annotations and signatures of Neovim apis
 		{ "folke/neodev.nvim", opts = {} },
+
+		{ "smjonas/inc-rename.nvim", opts = {} },
 	},
 	config = function()
 		--  This function gets run when an LSP attaches to a particular buffer.
@@ -59,6 +61,7 @@ return { -- LSP Configuration & Plugins
 				-- Rename the variable under your cursor.
 				--  Most Language Servers support renaming across files, etc.
 				map("<leader>rn", vim.lsp.buf.rename, "[R]e[n]ame")
+				map("<leader>irn", ":IncRename", "[I]ncremental [R]e[n]ame")
 
 				-- Execute a code action, usually your cursor needs to be on top of an error
 				-- or a suggestion from your LSP for this to activate.

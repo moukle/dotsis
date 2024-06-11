@@ -36,7 +36,7 @@ return { -- Autocompletion
 		"hrsh7th/cmp-buffer",
 		"hrsh7th/cmp-cmdline",
 		"f3fora/cmp-spell",
-		"chrisgrieser/cmp_yanky",
+		-- "chrisgrieser/cmp_yanky",
 	},
 	config = function()
 		local cmp = require("cmp")
@@ -125,7 +125,7 @@ return { -- Autocompletion
 				{ name = "spell" },
 				{ name = "path" },
 				{ name = "nvim_lsp_signature_help" },
-				{ name = "cmp_yanky" },
+				-- { name = "cmp_yanky" },
 			},
 		})
 
