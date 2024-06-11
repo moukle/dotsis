@@ -497,6 +497,11 @@ require("lazy").setup({
 			"hrsh7th/cmp-nvim-lsp",
 			"hrsh7th/cmp-path",
 			"hrsh7th/cmp-nvim-lsp-signature-help",
+			"hrsh7th/cmp-calc",
+			"hrsh7th/cmp-emoji",
+			"hrsh7th/cmp-buffer",
+			"hrsh7th/cmp-cmdline",
+			"f3fora/cmp-spell",
 		},
 		config = function()
 			local cmp = require("cmp")
@@ -566,6 +571,9 @@ require("lazy").setup({
 				sources = {
 					{ name = "nvim_lsp" },
 					{ name = "luasnip" },
+					{ name = "calc" },
+					{ name = "emoji" },
+					{ name = "spell" },
 					{ name = "path" },
 					{ name = "nvim_lsp_signature_help" },
 				},
@@ -579,13 +587,102 @@ require("lazy").setup({
 		priority = 1000, -- Make sure to load this before all the other start plugins.
 		init = function()
 			require("catppuccin").setup({})
-			require("custom.plugins.colors-catpuccin")
+			require("custom.plugins.colors-catppuccin")
 			vim.cmd.colorscheme("catppuccin")
 
 			-- You can configure highlights by doing something like:
-			vim.cmd.hi("Comment gui=none")
 		end,
 	},
+	{
+		"navarasu/onedark.nvim",
+		priority = 1000, -- Make sure to load this before all the other start plugins.
+		init = function()
+			-- vim.cmd.colorscheme("onedark")
+		end,
+		opts = {
+			style = "warmer",
+			lualine = { transparent = false },
+			diagnostics = { darker = false },
+		},
+	},
+	{
+		"nvim-lualine/lualine.nvim",
+		dependencies = { "nvim-tree/nvim-web-devicons" },
+		config = function()
+			local custom_catppuccin = require("lualine.themes.catppuccin")
+			custom_catppuccin.normal.c.bg = "NONE"
+			custom_catppuccin.inactive.c.bg = "NONE"
+
+			require("lualine").setup({
+				options = {
+					disabled_filetypes = { winbar = {}, statusline = { "neo-tree" } },
+					component_separators = "",
+					section_separators = { left = "", right = "" },
+				},
+				sections = {
+					lualine_a = {
+						{
+							"mode",
+							fmt = function(str)
+								return str:sub(1, 1)
+							end,
+							separator = { left = "", right = "" },
+							right_padding = 2,
+						},
+					},
+					lualine_b = { "branch" },
+					lualine_c = { "%=", "filename" },
+					lualine_x = {},
+					lualine_y = { "filetype", "progress" },
+					lualine_z = {
+						{ "location", separator = { right = "" }, left_padding = 2 },
+					},
+				},
+				inactive_sections = {
+					lualine_a = {},
+					lualine_b = {},
+					lualine_c = {
+						"%=",
+						"filename",
+					},
+					lualine_x = {},
+					lualine_y = {},
+					lualine_z = {},
+				},
+			})
+		end,
+	},
+	{ "romgrk/barbar.nvim" },
+
+	{
+		"kevinhwang91/nvim-ufo",
+		dependencies = "kevinhwang91/promise-async",
+		-- enabled = false,
+		init = function()
+			vim.opt.foldcolumn = "0" -- '0' is not bad
+			vim.opt.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
+			vim.opt.foldlevelstart = 99
+			vim.opt.foldenable = true
+			vim.opt.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
+		end,
+		config = function()
+			require("ufo").setup()
+			vim.keymap.set("n", "zR", require("ufo").openAllFolds)
+			vim.keymap.set("n", "zM", require("ufo").closeAllFolds)
+
+			-- disable ufo and fold column for Neogit and etc
+			vim.api.nvim_create_autocmd("FileType", {
+				pattern = { "Neogit*" },
+				callback = function()
+					require("ufo").detach()
+					vim.opt_local.foldenable = false
+					vim.opt_local.foldcolumn = "0"
+				end,
+			})
+		end,
+	},
+
+	-- { "lukas-reineke/headlines.nvim", dependencies = "nvim-treesitter/nvim-treesitter", config = true },
 
 	-- Highlight todo, notes, etc in comments
 	{
@@ -612,21 +709,6 @@ require("lazy").setup({
 			-- - sd'   - [S]urround [D]elete [']quotes
 			-- - sr)'  - [S]urround [R]eplace [)] [']
 			require("mini.surround").setup()
-
-			-- Simple and easy statusline.
-			--  You could remove this setup call if you don't like it,
-			--  and try some other statusline plugin
-			local statusline = require("mini.statusline")
-			-- set use_icons to true if you have a Nerd Font
-			statusline.setup({ use_icons = vim.g.have_nerd_font })
-
-			-- You can configure sections in the statusline by overriding their
-			-- default behavior. For example, here we set the section for
-			-- cursor location to LINE:COLUMN
-			---@diagnostic disable-next-line: duplicate-set-field
-			statusline.section_location = function()
-				return "%2l:%-2v"
-			end
 
 			-- ... and there is more!
 			--  Check out: https://github.com/echasnovski/mini.nvim
@@ -677,6 +759,13 @@ require("lazy").setup({
 			vim.keymap.set("n", "<leader>g", ":Neogit<cr>", { desc = "Neo[G]it" })
 		end,
 	},
+	-- {
+	-- 	"nvim-neorg/neorg",
+	-- 	dependencies = { "luarocks.nvim" },
+	-- 	lazy = false, -- Disable lazy loading as some `lazy.nvim` distributions set `lazy = true` by default
+	-- 	version = "*", -- Pin Neorg to the latest stable release
+	-- 	config = true,
+	-- },
 
 	require("kickstart.plugins.debug"),
 	require("kickstart.plugins.indent_line"),

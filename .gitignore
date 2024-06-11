@@ -1,1 +1,2 @@
 gaming/ddnet/.local/share/ddnet/*
+cli/neovim/.config/nvim/lua/custom/plugins/colors-catppuccin.lua

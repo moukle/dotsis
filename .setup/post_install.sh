@@ -16,11 +16,10 @@ install_pkgs() {
     fi
 }
 
-stow_pkgs()
-{
+stow_pkgs() {
     if [ ! -d ../$1 ]; then
-    	echo "No dots for $1"
-	return
+        echo "No dots for $1"
+        return
     fi
 
     cd ../$1
@@ -45,7 +44,7 @@ gum_style_list() {
         --margin "0 1" --padding "1 2" \
         "$(gum style --foreground 1 $1)" "" \
         "${@:2}"
-}
+    }
 
 # install required pkgs
 packages_base=( "gum" "stow")
@@ -67,7 +66,7 @@ eval $gum_command
 select_options=$(gum choose --no-limit \
     --header "Installing <space>" ${options_packages[@]})
     # --selected=${options_packages[0]},${options_packages[1]} \
-gum log "Selected: " ${select_options[@]}
+    gum log "Selected: " ${select_options[@]}
 
 # install and stow
 mdir -p ~/.local/bin/
@@ -82,7 +81,7 @@ for package_set in ${select_options[@]}; do
     echo ""
 done
 
-# TODO: wal
+# [TODO): wal
 # ln -sf "${HOME}/.cache/wal/dunstrc"   "${HOME}/.config/dunst/dunstrc"
 # ln -sf "${HOME}/.cache/wal/zathurarc" "${HOME}/.config/zathura/zathurarc"
 #

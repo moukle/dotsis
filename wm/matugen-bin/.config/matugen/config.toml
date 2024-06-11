@@ -10,19 +10,10 @@ input_path = "~/.config/matugen/dunstrc"
 output_path = "~/.config/dunst/dunstrc"
 
 [templates.vim]
-input_path = "~/.config/matugen/colors-catpuccin-vim.lua"
-output_path = "~/.config/nvim/lua/custom/plugins/colors-catpuccin.lua"
+input_path = "~/.config/matugen/colors-catppuccin-vim.lua"
+output_path = "~/.config/nvim/lua/custom/plugins/colors-catppuccin.lua"
 
 [config]
-run_after = [
-    [
-        "dconf",
-        "write",
-        "/org/gnome/desktop/interface/color-scheme",
-        "'\"prefer-dark\"'",
-    ],
-]
-
 reload_apps = true
 set_wallpaper = true
 wallpaper_tool = 'Swww'
@@ -46,6 +37,8 @@ font_sans = "Lexend"
 # blue = "#0000ff"
 # green = "#00ff00"
 # cyan = "#00ffff"
+
+bg = "#000000"
 
 # ayu
 red = "#f07171"
