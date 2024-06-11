@@ -11,7 +11,7 @@ output_path = "~/.config/dunst/dunstrc"
 
 [templates.vim]
 input_path = "~/.config/matugen/colors-catppuccin-vim.lua"
-output_path = "~/.config/nvim/lua/custom/plugins/colors-catppuccin.lua"
+output_path = "~/.config/nvim/lua/custom/colors-catppuccin.lua"
 
 [config]
 reload_apps = true
@@ -42,7 +42,7 @@ bg = "#000000"
 
 # ayu
 red = "#f07171"
-green = "#86b200"
+green = "#86b300"
 yellow = "#F2AE49"
 blue = "#41a6d9"
 magenta = "#a37acc"
