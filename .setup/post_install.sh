@@ -69,7 +69,7 @@ select_options=$(gum choose --no-limit \
     gum log "Selected: " ${select_options[@]}
 
 # install and stow
-mdir -p ~/.local/bin/
+mkdir -p ~/.local/bin/
 
 for package_set in ${select_options[@]}; do
     echo $package_set
@@ -88,5 +88,5 @@ done
 gum style --border normal --margin "1" --padding "1 2" --border-foreground 2 "Finished. $(gum style --foreground 2 'Have Fun!')."
 
 # more misc
-chsh -s $(which zsh) $USER
-git remote set-url origin git@github.com:moukle/dotsis.giT
+chsh -s /usr/bin/zsh $USER
+# git remote set-url origin git@github.com:moukle/dotsis.git

@@ -5,6 +5,11 @@ options_packages=(
     "packages_fonts"
     "packages_gaming"
     "packages_laptop"
+    "packages_languages"
+)
+
+packages_languages=(
+    "julia"
 )
 
 packages_cli=(

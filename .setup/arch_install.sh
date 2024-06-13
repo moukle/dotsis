@@ -4,7 +4,7 @@ echo -e -n "\t pacman beepbop"
 # exit 0
 
 # install yay
-if ! command -v paru &> /dev/null; then
+if ! command -v yay &> /dev/null; then
     cd /tmp
 
     pacman -Sy --needed git base-devel
@@ -15,4 +15,4 @@ if ! command -v paru &> /dev/null; then
     cd -
 fi
 
-paru -Sy --needed --noconfirm $@
+yay -Sy --needed --noconfirm $@
