@@ -120,7 +120,7 @@
     },
     "custom/toggle-theme": {
       "format": "󰔎",
-      "on-click": "toggle_theme.sh"
+      "on-click": "toggle_theme.sh &"
     },
     "exclusive": true,
     "fixed-center": true,

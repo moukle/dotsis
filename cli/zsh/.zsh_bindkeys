@@ -1,0 +1,15 @@
+# Keybindings
+bindkey '^K' history-search-backward
+bindkey '^J' history-search-forward
+bindkey '^L' forward-word
+bindkey '^H' backward-word
+
+# Sudo plugin
+bindkey -r '^[^['
+bindkey -rpM emacs '\e\e' # faster vim mode...
+bindkey -rpM vicmd '\e\e' # faster vim mode...
+bindkey -rpM viins '\e\e' # faster vim mode...
+
+bindkey -M emacs '^F' sudo-command-line
+bindkey -M vicmd '^F' sudo-command-line
+bindkey -M viins '^F' sudo-command-line

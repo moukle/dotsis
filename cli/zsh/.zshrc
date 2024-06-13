@@ -22,13 +22,15 @@ source "${ZINIT_HOME}/zinit.zsh"
 
 # Add better Vim
 zinit ice depth=1; zinit light jeffreytse/zsh-vi-mode
-zvm_after_init_commands+=('[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh')
+zvm_after_init_commands+=('[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh && source ~/.zsh_bindkeys')
 
 # # Add in zsh plugins
 zinit light zsh-users/zsh-syntax-highlighting
 zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-autosuggestions
 zinit light Aloxaf/fzf-tab
+zinit light b4b4r07/enhancd
+zinit light MichaelAquilina/zsh-auto-notify
 
 # Add in snippets
 zinit snippet OMZP::git
@@ -43,16 +45,6 @@ zinit cdreplay -q
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
-# Keybindings
-bindkey '^K' history-search-backward
-bindkey '^J' history-search-forward
-
-# Sudo plugin
-bindkey -r '\e\e' # faster vim mode...
-bindkey -M emacs '^F' sudo-command-line
-bindkey -M vicmd '^F' sudo-command-line
-bindkey -M viins '^F' sudo-command-line
 
 # History
 HISTSIZE=5000
@@ -105,11 +97,11 @@ export FZF_DEFAULT_OPTS=" \
 
 export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
 --border="none" --border-label="" --preview-window="border-rounded"
---padding="0" --margin="1" --prompt=":: " --marker="+" --pointer="◆"
+--padding="0" --margin="0" --prompt=":: " --marker="+" --pointer="◆"
 --separator="─" --scrollbar="│" --layout="reverse"'
 
 # Shell integrations
-source <(zoxide init --cmd z zsh)
+# source <(zoxide init --cmd z zsh)
 source <(fzf --zsh)
 source <(starship init zsh)
 

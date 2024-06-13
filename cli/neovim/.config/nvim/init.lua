@@ -12,6 +12,24 @@ vim.opt.rtp:prepend(lazypath)
 
 -- [[ Configure and install plugins ]]
 require("lazy").setup({
+	{ "navarasu/onedark.nvim" },
+	{
+		"akinsho/toggleterm.nvim",
+		version = "*",
+		config = function()
+			require("toggleterm").setup({
+				open_mapping = [[<c-`>]],
+				shade_terminals = false,
+				highlights = {
+					normal = {
+						link = "StatusLine",
+					},
+				},
+			})
+			vim.opt.hidden = true
+		end,
+	},
+
 	require("kickstart.plugins.debug"),
 	require("kickstart.plugins.indent_line"),
 	require("kickstart.plugins.lint"),
