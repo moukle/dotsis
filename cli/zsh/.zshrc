@@ -10,8 +10,8 @@ ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 
 # Download Zinit, if it's not there yet
 if [ ! -d "$ZINIT_HOME" ]; then
-   mkdir -p "$(dirname $ZINIT_HOME)"
-   git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
+  mkdir -p "$(dirname $ZINIT_HOME)"
+  git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
 fi
 
 # Source/Load zinit
@@ -25,6 +25,7 @@ zinit ice depth=1; zinit light jeffreytse/zsh-vi-mode
 zvm_after_init_commands+=('[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh && source ~/.zsh_bindkeys')
 
 # # Add in zsh plugins
+zinit light zsh-users/zsh-history-substring-search
 zinit light zsh-users/zsh-syntax-highlighting
 zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-autosuggestions
@@ -37,6 +38,9 @@ zinit snippet OMZP::git
 zinit snippet OMZP::sudo
 zinit snippet OMZP::archlinux
 zinit snippet OMZP::command-not-found
+zinit snippet OMZP::colored-man-pages
+zinit snippet OMZP::fancy-ctrl-z
+zinit snippet OMZP::extract
 
 # Load completions
 autoload -Uz compinit && compinit
@@ -67,9 +71,14 @@ zstyle ':completion:*:descriptions' format '[%d]'
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 
+# Run rehash on completion so new installed program are found automatically
+_force_rehash() {
+  (( CURRENT == 1 )) && rehash
+  return 1  # Because we didn't really complete anything
+}
+
 # Aliases
 alias cleanup="sudo pacman -Rsn $(pacman -Qtdq)"
-
 alias cat='bat --theme base16'
 alias ls='exa --icons --group-directories-first'
 alias la='ls -a'
@@ -77,28 +86,37 @@ alias ll='ls -l'
 alias lla='la -l'
 alias vim='nvim'
 alias v='vim'
+
 alias ..='cd ..'
 alias ...='cd ../..'
+alias ....=' cd ../../..'
+alias .....=' cd ../../../..'
+
+alias mkdir='mkdir -vp'
+alias cp='cp -vR'
 
 function f() {
-	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
-	yazi "$@" --cwd-file="$tmp"
-	if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
-		cd -- "$cwd"
-	fi
-	rm -f -- "$tmp"
+  local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
+  yazi "$@" --cwd-file="$tmp"
+  if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+    cd -- "$cwd"
+  fi
+  rm -f -- "$tmp"
 }
 
 # FZF
 export FZF_DEFAULT_OPTS=" \
---color=bg+:8,bg:-1,spinner:2,hl:2 \
---color=fg:-1,header:7,info:6,pointer:2 \
---color=marker:2,fg+:7,prompt:2,hl+:3"
+  --color=bg+:8,bg:-1,spinner:2,hl:2 \
+  --color=fg:-1,header:7,info:6,pointer:2 \
+  --color=marker:2,fg+:7,prompt:2,hl+:3"
 
 export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
 --border="none" --border-label="" --preview-window="border-rounded"
 --padding="0" --margin="0" --prompt=":: " --marker="+" --pointer="◆"
 --separator="─" --scrollbar="│" --layout="reverse"'
+
+export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow -g "!{.git,node_modules}" 2> /dev/null'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 # Shell integrations
 # source <(zoxide init --cmd z zsh)

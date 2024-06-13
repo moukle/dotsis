@@ -13,3 +13,10 @@ bindkey -rpM viins '\e\e' # faster vim mode...
 bindkey -M emacs '^F' sudo-command-line
 bindkey -M vicmd '^F' sudo-command-line
 bindkey -M viins '^F' sudo-command-line
+
+# Gets the n-th argument from the last command by pressing Alt+1, Alt+2, … Alt+5.
+bindkey -s '\e1' "!:0-0 \t"
+bindkey -s '\e2' "!:1-1 \t"
+bindkey -s '\e3' "!:2-2 \t"
+bindkey -s '\e4' "!:3-3 \t"
+bindkey -s '\e5' "!:4-4 \t"

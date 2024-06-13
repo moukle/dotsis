@@ -16,7 +16,9 @@ return { -- Fuzzy Finder (files, lsp, etc)
 		{
 			"ahmedkhalf/project.nvim",
 			config = function()
-				require("project_nvim").setup({})
+				require("project_nvim").setup({
+					show_hidden = true,
+				})
 				require("telescope").load_extension("projects")
 			end,
 		},

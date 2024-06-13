@@ -11,15 +11,16 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 
 -- [[Theming]]
 -- change color of terminal to match vim theme
-vim.api.nvim_create_autocmd("VimLeave", {
-	callback = function()
-		io.stdout:write("\027]111;;\027\\")
-	end,
-})
-
-vim.api.nvim_create_autocmd("ColorScheme", {
+-- https://www.reddit.com/r/neovim/comments/1b66s2c/sync_terminal_background_with_neovim_background/
+vim.api.nvim_create_autocmd({ "ColorScheme", "UIEnter", "VimResume" }, {
 	callback = function()
 		local bg = vim.api.nvim_get_hl(0, { name = "Normal", link = false }).bg
 		io.stdout:write(("\027]11;#%06x\027\\"):format(bg))
+	end,
+})
+
+vim.api.nvim_create_autocmd({ "VimLeave", "VimSuspend" }, {
+	callback = function()
+		io.stdout:write("\027]111;;\027\\")
 	end,
 })

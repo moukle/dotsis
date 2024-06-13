@@ -16,6 +16,25 @@ return { -- Collection of various small independent plugins/modules
 		-- - sr)'  - [S]urround [R]eplace [)] [']
 		require("mini.surround").setup()
 
+		require("mini.notify").setup()
+
+		require("mini.splitjoin").setup({ mappings = { toggle = "gS", split = "", join = "" } })
+
+		require("mini.basics").setup({
+			-- Extra UI features ('winblend', 'cmdheight=0', ...)
+			options = { extra_ui = true },
+
+			-- Window navigation with <C-hjkl>, resize with <C-arrow>
+			mappings = { windows = true },
+		})
+
+		require("mini.align").setup({
+			mappings = {
+				start = "ga",
+				start_with_preview = "gA",
+			},
+		})
+
 		-- ... and there is more!
 		--  Check out: https://github.com/echasnovski/mini.nvim
 	end,
