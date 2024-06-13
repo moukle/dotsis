@@ -4,8 +4,13 @@ return {
 	priority = 1000, -- Make sure to load this before all the other start plugins.
 	init = function()
 		require("catppuccin").setup({
+			integrations = {
+				telescope = { enabled = true, style = "nvchad" },
+			},
 			custom_highlights = function(C)
 				return {
+					FloatBorder = { fg = C.red },
+					-- Pmenu = { fg = C. },
 					CmpItemKindSnippet = { fg = C.base, bg = C.mauve },
 					CmpItemKindKeyword = { fg = C.base, bg = C.red },
 					CmpItemKindText = { fg = C.base, bg = C.teal },
@@ -35,7 +40,7 @@ return {
 				}
 			end,
 		})
-		require("custom.colors-catppuccin")
+		-- require("custom.colors-catppuccin")
 		vim.cmd.colorscheme("catppuccin")
 
 		-- You can configure highlights by doing something like:

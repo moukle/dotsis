@@ -16,6 +16,8 @@ packages_cli=(
     "curl"
     "zoxide"
     "fzf"
+    "eza"
+    "openssh"
     "git"
     "gotop"
     "neovim"

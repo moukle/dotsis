@@ -58,9 +58,9 @@ return { -- Autocompletion
 			-- No, but seriously. Please read `:help ins-completion`, it is really good!
 			mapping = cmp.mapping.preset.insert({
 				-- Select the [n]ext item
-				["<C-k>"] = cmp.mapping.select_next_item(),
+				["<C-j>"] = cmp.mapping.select_next_item(),
 				-- Select the [p]revious item
-				["<C-j>"] = cmp.mapping.select_prev_item(),
+				["<C-k>"] = cmp.mapping.select_prev_item(),
 
 				-- Scroll the documentation window [b]ack / [f]orward
 				["<C-b>"] = cmp.mapping.scroll_docs(-4),
@@ -90,14 +90,14 @@ return { -- Autocompletion
 				end, { "i", "s" }),
 			}),
 			window = {
-				completion = cmp.config.window.bordered({
+				completion = {
 					col_offset = -3,
 					side_padding = 0,
-					winhighlight = "Normal:Normal,FloatBorder:Pmenu,CursorLine:Visual,Search:None",
-				}),
-				documentation = cmp.config.window.bordered({
 					winhighlight = "Normal:Normal,FloatBorder:FloatBorder,CursorLine:Visual,Search:None",
-				}),
+				},
+				documentation = {
+					winhighlight = "Normal:Normal,FloatBorder:FloatBorder,CursorLine:Visual,Search:None",
+				},
 			},
 			formatting = {
 				fields = { "kind", "abbr", "menu" },

@@ -123,6 +123,27 @@ return { -- LSP Configuration & Plugins
 		local capabilities = vim.lsp.protocol.make_client_capabilities()
 		capabilities = vim.tbl_deep_extend("force", capabilities, require("cmp_nvim_lsp").default_capabilities())
 
+		vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
+			virtual_text = false,
+		})
+
+		vim.diagnostic.config({
+			signs = {
+				text = {
+					[vim.diagnostic.severity.ERROR] = "",
+					[vim.diagnostic.severity.WARN] = "",
+					[vim.diagnostic.severity.INFO] = "",
+					[vim.diagnostic.severity.HINT] = "",
+				},
+				numhl = {
+					[vim.diagnostic.severity.ERROR] = "DiagnosticError",
+					[vim.diagnostic.severity.WARN] = "DiagnosticWarn",
+					[vim.diagnostic.severity.INFO] = "DiagnosticInfo",
+					[vim.diagnostic.severity.HINT] = "DiagnosticHint",
+				},
+			},
+		})
+
 		local servers = {
 			julials = {},
 			-- clangd = {},
