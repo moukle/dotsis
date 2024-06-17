@@ -1,12 +1,17 @@
 add_newline = true
-format = "$character"
 palette = "catppuccin_frappe"
+format = "$jobs$character"
 right_format = "$directory$git_branch$git_status$cmd_duration"
 
 [character]
 error_symbol = "[](red)"
 success_symbol = "[](green bold)"
 vicmd_symbol = "[](yellow)"
+
+[jobs]
+symbol = ""
+format = "[]($style)[$symbol$number](bg:yellow fg:white)[ ]($style)"
+style = "fg:yellow"
 
 [cmd_duration]
 disabled = false

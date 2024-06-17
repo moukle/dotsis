@@ -9,7 +9,8 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 	end,
 })
 
--- [[Theming]]
+-- [[ Theming ]]
+-- Colorscheme
 -- change color of terminal to match vim theme
 -- https://www.reddit.com/r/neovim/comments/1b66s2c/sync_terminal_background_with_neovim_background/
 vim.api.nvim_create_autocmd({ "ColorScheme", "UIEnter", "VimResume" }, {
@@ -24,3 +25,16 @@ vim.api.nvim_create_autocmd({ "VimLeave", "VimSuspend" }, {
 		io.stdout:write("\027]111;;\027\\")
 	end,
 })
+
+-- Kitty
+-- change padding
+vim.cmd([[
+augroup kitty_mp
+    autocmd!
+    au VimLeave * if !empty($KITTY_WINDOW_ID) | :silent !kitty @ set-spacing padding=10
+    au VimSuspend * if !empty($KITTY_WINDOW_ID) | :silent !kitty @ set-spacing padding=10
+
+    au VimEnter * if !empty($KITTY_WINDOW_ID) | :silent !kitty @ set-spacing padding=0
+    au VimResume * if !empty($KITTY_WINDOW_ID) | :silent !kitty @ set-spacing padding=0
+augroup END
+]])

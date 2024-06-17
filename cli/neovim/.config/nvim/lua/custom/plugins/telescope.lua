@@ -18,6 +18,11 @@ return { -- Fuzzy Finder (files, lsp, etc)
 			config = function()
 				require("project_nvim").setup({
 					show_hidden = true,
+					detection_methods = {
+						-- "lsp",
+						"pattern",
+					},
+					patterns = { ".git", "_darcs", ".hg", ".bzr", ".svn", "Makefile", "package.json" },
 				})
 				require("telescope").load_extension("projects")
 			end,
