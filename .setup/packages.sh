@@ -13,19 +13,21 @@ packages_languages=(
 )
 
 packages_cli=(
+    "bat"
     "curl"
-    "zoxide"
-    "fzf"
     "eza"
-    "openssh"
+    "fzf"
     "git"
     "gotop"
+    "libnotify"
     "neovim"
+    "openssh"
     "python-pywal"
     "starship"
     "tmux"
     "unzip"
     "yazi"
+    "zoxide"
     "zsh"
 )
 

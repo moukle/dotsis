@@ -73,8 +73,9 @@ mkdir -p ~/.local/bin/
 
 for package_set in "${select_options[@]}"; do
     echo "$package_set"
-    for pkgs in "${package_set[@]}"
+    for pkgs in "$package_set[@]"
     do
+	    echo ${!pkgs}
         install_pkgs "${!pkgs}"
         stow_pkgs "${package_set#*_}" "${!pkgs}"
     done
