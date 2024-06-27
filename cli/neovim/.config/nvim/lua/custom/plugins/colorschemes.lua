@@ -1,5 +1,6 @@
 return {
 	{ "navarasu/onedark.nvim" },
+	{ "nyoom-engineering/oxocarbon.nvim" },
 	{
 		"catppuccin/nvim",
 		priority = 1000, -- Make sure to load this before all the other start plugins.
@@ -72,7 +73,7 @@ return {
 						surface2 = "#b5b5b5",
 						surface1 = "#c4c4c4",
 						surface0 = "#d4d4d4",
-						base = "#f2f2f2",
+						base = "#fafafa",
 						mantle = "#ebebeb",
 						crust = "#e3e3e3",
 					},

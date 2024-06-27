@@ -14,6 +14,7 @@ packages_languages=(
 
 packages_cli=(
     "bat"
+    "progress"
     "curl"
     "eza"
     "fzf"
@@ -27,7 +28,7 @@ packages_cli=(
     "tmux"
     "unzip"
     "yazi"
-    "zoxide"
+    "zellij"
     "zsh"
 )
 
