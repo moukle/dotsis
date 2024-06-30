@@ -123,6 +123,7 @@ return { -- Autocompletion
 				{ name = "calc" },
 				{ name = "emoji" },
 				{ name = "spell" },
+				{ name = "buffer" },
 				{ name = "path" },
 				{ name = "nvim_lsp_signature_help" },
 				-- { name = "cmp_yanky" },

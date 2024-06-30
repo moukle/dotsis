@@ -1,6 +1,6 @@
 return {
 	"romgrk/barbar.nvim",
-	enabled = true,
+	enabled = false,
 	config = function()
 		require("barbar").setup({
 			auto_hide = true,

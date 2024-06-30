@@ -15,6 +15,11 @@ return { -- LSP Configuration & Plugins
 		{ "folke/neodev.nvim", opts = {} },
 
 		{ "smjonas/inc-rename.nvim", opts = {} },
+		{
+			"dgagn/diagflow.nvim",
+			event = "LspAttach",
+			opts = {},
+		},
 	},
 	config = function()
 		--  This function gets run when an LSP attaches to a particular buffer.
@@ -131,10 +136,10 @@ return { -- LSP Configuration & Plugins
 			virtual_text = false,
 			signs = {
 				text = {
-					[vim.diagnostic.severity.ERROR] = "",
-					[vim.diagnostic.severity.WARN] = "",
-					[vim.diagnostic.severity.INFO] = "",
-					[vim.diagnostic.severity.HINT] = "",
+					[vim.diagnostic.severity.ERROR] = "▉",
+					[vim.diagnostic.severity.WARN] = "▉",
+					[vim.diagnostic.severity.INFO] = "▉",
+					[vim.diagnostic.severity.HINT] = "▉",
 				},
 				numhl = {
 					[vim.diagnostic.severity.ERROR] = "DiagnosticError",

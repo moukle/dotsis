@@ -1,5 +1,7 @@
 return {
 	{ "navarasu/onedark.nvim" },
+	{ "comfysage/evergarden" },
+	{ "rose-pine/neovim", as = "rose-pine" },
 	{ "nyoom-engineering/oxocarbon.nvim" },
 	{
 		"catppuccin/nvim",
