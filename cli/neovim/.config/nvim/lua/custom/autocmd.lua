@@ -9,6 +9,14 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 	end,
 })
 
+-- autocmd TermOpen * setlocal nonumber norelativenumber
+vim.api.nvim_create_autocmd("TermOpen", {
+	callback = function()
+		vim.opt_local.number = false
+		vim.opt_local.relativenumber = false
+	end,
+})
+
 -- [[ Theming ]]
 -- Colorscheme
 -- change color of terminal to match vim theme
