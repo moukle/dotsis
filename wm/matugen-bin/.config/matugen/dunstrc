@@ -36,14 +36,12 @@
   progress_bar_corner_radius = 4
 
   enable_recursive_icon_lookup = true;
-  icon_theme = Reversal-green-dark
-  # icon_path = /usr/share/icons/Adwaita/32x32/status/:/usr/share/icons/Adwaita/32x32/devices/:/usr/share/icons/Adwaita/32x32/legacy/:/usr/share/icons/Adwaita/32x32/emblems:/usr/share/icons/Reversal-green/status/symbolic/
+  icon_theme = WhiteSur
   max_icon_size = 32
   icon_corner_radius = 0
   icon_position = "left";
 
   show_indicators = no
-# mouse_left_click = do_action
 
 [urgency_low]
   background = "{{colors.background.default.hex}}"

@@ -12,7 +12,8 @@ install_pkgs() {
         ./arch_install.sh "$@"
     else
         #./arch_install.sh $@
-        gum spin --title "..." --spinner dot --show-output -- ./arch_install.sh "$@"
+        # gum spin --title "..." --spinner dot --show-output -- ./arch_install.sh "$@"
+        ./arch_install.sh "$@"
     fi
 }
 
@@ -71,11 +72,11 @@ select_options=$(gum choose --no-limit \
 # install and stow
 mkdir -p ~/.local/bin/
 
-for package_set in "${select_options[@]}"; do
+for package_set in ${select_options[@]}; do
     echo "$package_set"
-    for pkgs in "$package_set[@]"
+    for pkgs in $package_set[@]
     do
-	    echo ${!pkgs}
+        echo ${!pkgs}
         install_pkgs "${!pkgs}"
         stow_pkgs "${package_set#*_}" "${!pkgs}"
     done
@@ -86,7 +87,16 @@ done
 # ln -sf "${HOME}/.cache/wal/dunstrc"   "${HOME}/.config/dunst/dunstrc"
 # ln -sf "${HOME}/.cache/wal/zathurarc" "${HOME}/.config/zathura/zathurarc"
 
-chsh -s /usr/bin/zsh "$USER"
-# git remote set-url origin git@github.com:moukle/dotsis.git
+# set shell
+if ! $(cat /etc/passwd | grep -q zsh); then
+    chsh -s /usr/bin/zsh "$USER"
+fi
+
+# mirror & colors & nvidia drm/fbdev
+sudo cp -rf ../etc/pacman.conf /etc/pacman.conf
+sudo cp -rf ../etc/grub /etc/default/grub
+
+# make it a ssh repo...
+git remote set-url origin git@github.com:moukle/dotsis.git
 
 gum style --border normal --margin "1" --padding "1 2" --border-foreground 2 "Finished. $(gum style --foreground 2 'Have Fun!')."

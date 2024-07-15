@@ -46,10 +46,12 @@ packages_gui=(
 packages_wm=(
     "anyrun-git"
     "dunst"
-    "reversal-icon-theme-git"
+    "whitesur-icon-theme-git"
     "matugen-bin"
+    "swww"
 
     "hyprland"
+    "hyprdim"
     # requirements for hyprpm
     "hyprwayland-scanner"
     "cpio"
@@ -74,6 +76,7 @@ packages_fonts=(
 packages_gaming=(
     "ddnet"
     "steam"
+    "discord"
 )
 
 packages_laptop=(

@@ -1,7 +1,7 @@
 # Keybindings
 bindkey '^K' history-search-backward
 bindkey '^J' history-search-forward
-bindkey '^L' forward-word
+# bindkey '^L' forward-word
 bindkey '^H' backward-word
 
 # Sudo plugin

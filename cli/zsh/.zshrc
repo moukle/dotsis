@@ -17,12 +17,14 @@ fi
 # Source/Load zinit
 source "${ZINIT_HOME}/zinit.zsh"
 
-# Add in Powerlevel10k
-# zinit ice depth=1; zinit light romkatv/powerlevel10k
-
 # Add better Vim
 zinit ice depth=1; zinit light jeffreytse/zsh-vi-mode
-zvm_after_init_commands+=('[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh && source ~/.zsh_bindkeys')
+function zvm_after_init() {
+  source <(fzf --zsh)
+  source ~/.zsh_bindkeys
+}
+
+# zinit ice lucid wait; zinit snippet OMZP::fzf
 
 # # Add in zsh plugins
 zinit light zsh-users/zsh-history-substring-search
@@ -87,10 +89,10 @@ alias lla='la -l'
 alias vim='nvim'
 alias v='vim'
 
-alias ..='cd ..'
-alias ...='cd ../..'
-alias ....=' cd ../../..'
-alias .....=' cd ../../../..'
+alias ..='\cd ..'
+alias ...='\cd ../..'
+alias ....='\cd ../../..'
+alias .....='\cd ../../../..'
 
 alias mkdir='mkdir -vp'
 alias cp='cp -vR'
@@ -119,8 +121,6 @@ export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow -g "!{.git,
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 # Shell integrations
-# source <(zoxide init --cmd z zsh)
-source <(fzf --zsh)
 source <(starship init zsh)
 
 # Environment Variables
