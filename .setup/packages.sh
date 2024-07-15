@@ -70,6 +70,7 @@ packages_wm=(
 
 packages_fonts=(
     "ttf-maple"
+    "apple-fonts"
     "lexend-fonts-git"
 )
 
