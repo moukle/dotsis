@@ -1,0 +1,5 @@
+Defaults env_reset,pwfeedback
+Defaults passwd_timeout=0
+
+root ALL=(ALL:ALL) ALL
+@includedir /etc/sudoers.d

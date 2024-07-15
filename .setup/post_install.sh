@@ -92,9 +92,9 @@ if ! $(cat /etc/passwd | grep -q zsh); then
     chsh -s /usr/bin/zsh "$USER"
 fi
 
-# mirror & colors & nvidia drm/fbdev
-sudo cp -rf ../etc/pacman.conf /etc/pacman.conf
-sudo cp -rf ../etc/grub /etc/default/grub
+sudo cp -rf ../etc/pacman.conf /etc/pacman.conf  # colors, chaotic, ...
+sudo cp -rf ../etc/grub /etc/default/grub        # nvidia ...
+sudo cp -rf ../etc/sudoers /etc/sudoers          # show ***
 
 # make it a ssh repo...
 git remote set-url origin git@github.com:moukle/dotsis.git
