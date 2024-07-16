@@ -24,8 +24,6 @@ function zvm_after_init() {
   source ~/.zsh_bindkeys
 }
 
-# zinit ice lucid wait; zinit snippet OMZP::fzf
-
 # # Add in zsh plugins
 zinit light zsh-users/zsh-history-substring-search
 zinit light zsh-users/zsh-syntax-highlighting

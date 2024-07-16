@@ -41,6 +41,7 @@ packages_gui=(
     "mission-center"
     "pavucontrol"
     "zathura"
+    "zathura-pdf-mupdf"
 )
 
 packages_wm=(
@@ -52,6 +53,7 @@ packages_wm=(
 
     "hyprland"
     "hyprdim"
+    "hypridle"
     # requirements for hyprpm
     "hyprwayland-scanner"
     "cpio"
