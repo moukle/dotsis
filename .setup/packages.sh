@@ -72,6 +72,7 @@ packages_wm=(
 
 packages_fonts=(
     "ttf-maple"
+    "noto-fonts-emoji"
     "apple-fonts"
     "lexend-fonts-git"
 )
