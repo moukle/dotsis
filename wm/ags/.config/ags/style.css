@@ -1,0 +1,88 @@
+.bar {
+	/* min-height: 180px; */
+	font-family: SF Pro Rounded;
+	font-weight: 600;
+	font-size: 1.0em;
+	margin: 0.0 0.5rem;
+
+	color: dimgray;
+
+	background-image: linear-gradient(180deg, #ffffff, #a2a2a2), url('./res/noise.png');
+	background-blend-mode: multiply;
+}
+
+slider {
+	background-color: transparent;
+}
+
+.tray .toggle {
+	font-size: 50px;
+}
+
+.player .cover {
+	min-width: 55px;
+	min-height: 55px;
+	background-size: cover;
+	background-position: center;
+	border-radius: 13px;
+	margin-right: 1em;
+}
+
+.player .title {
+	font-size: 1.2em;
+}
+
+button {
+	min-width: 0;
+	padding-right: 0;
+	padding-left: 0;
+	padding-top: 0;
+	padding-bottom: 0;
+	background-color: transparent;
+	background-image: none;
+	border-color: transparent;
+	box-shadow: none;
+	text-shadow: none;
+}
+
+.clock {
+	padding-top: 1.5rem;
+	font-style: italic;
+}
+
+.date {
+	margin-top: 0.5rem;
+	font-size: 1.5em;
+	font-weight: 700;
+}
+
+.datebox {
+	padding-left: 1.3rem;
+	padding-right: 1.3rem;
+	/* background: linear-gradient(0deg, blue 50%, #ffed4b 50%); */
+	background-image: url('./res/spacepotato/calendar.png');
+	background-size: 55px 55px;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.workspaces_box {
+	margin: -0.2rem 0.0rem;
+}
+
+.workspaces {
+	margin: 0.5rem 0.5rem;
+}
+
+.workspaces button {
+	font-size: 1rem;
+	color: gray;
+}
+
+.workspaces button.focused {
+	color: cornflowerblue;
+}
+
+.workspaces button.active {
+	color: black;
+}
