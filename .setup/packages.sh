@@ -47,9 +47,11 @@ packages_gui=(
 packages_wm=(
     "anyrun-git"
     "dunst"
-    "whitesur-icon-theme-git"
     "matugen-bin"
     "swww"
+
+    "whitesur-icon-theme-git"
+    "phinger-cursors"
 
     "hyprland"
     "hyprdim"
