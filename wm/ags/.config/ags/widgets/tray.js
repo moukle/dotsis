@@ -26,8 +26,8 @@ export function SysTrayIndicator() {
 				child:
 					Widget.Icon({
 						icon: isVisible.bind().as(v => v ?
-							"./res/arrow_right_black_24dp.svg" :
-							"./res/arrow_left_black_24dp.svg")
+							"arrow_right_black_24dp" :
+							"arrow_left_black_24dp")
 					}),
 				// onHover: ({ }) => isVisible.value = true,
 				on_primary_click: ({ }) => isVisible.value = !isVisible.value,

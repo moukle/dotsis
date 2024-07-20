@@ -11,12 +11,42 @@
 	background-blend-mode: multiply;
 }
 
-slider {
-	background-color: transparent;
+separator {
+	min-width: 3px;
+	margin-left: 1.5rem;
+	margin-right: 1.5rem;
+	border-radius: 10%;
+}
+
+.dock .icon {
+	font-size: 55px;
+}
+
+.volume {
+	min-width: 120px;
+}
+
+.volume highlight {
+	min-height: 15px;
+	background-color: dimgray;
+	border: none;
+}
+
+.volume trough {
+	min-height: 15px;
+	background-color: darkgray;
+}
+
+.volume slider {
+	background-image: none;
+	border: none;
+	box-shadow: none;
 }
 
 .tray .toggle {
 	font-size: 50px;
+	opacity: 0.4;
+	;
 }
 
 .player .cover {
@@ -47,6 +77,8 @@ button {
 
 .clock {
 	padding-top: 1.5rem;
+	/* margin-left: -0.5rem; */
+	/* margin-right: 0.5rem; */
 	font-style: italic;
 }
 
@@ -60,7 +92,7 @@ button {
 	padding-left: 1.3rem;
 	padding-right: 1.3rem;
 	/* background: linear-gradient(0deg, blue 50%, #ffed4b 50%); */
-	background-image: url('./res/spacepotato/calendar.png');
+	background-image: url('./res/spacepotato/space_calendar.png');
 	background-size: 55px 55px;
 	background-position: center;
 	background-repeat: no-repeat;

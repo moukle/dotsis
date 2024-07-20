@@ -1,6 +1,9 @@
 import { Workspaces } from './widgets/hyrpland.js'
-import { DateClock } from './widgets/date.js'
+
 import { players } from './widgets/media.js'
+
+import { Dock } from './widgets/dock.js'
+import { DateClock } from './widgets/date.js'
 import { Volume } from './widgets/audio.js'
 import { SysTrayIndicator } from './widgets/tray.js'
 
@@ -30,9 +33,10 @@ function Center() {
 function Right() {
 	return Widget.Box({
 		hpack: "end",
-		spacing: 8,
+		spacing: 20,
 		children: [
 			DateClock(),
+			Dock(),
 			separator,
 			Volume(),
 			SysTrayIndicator()
@@ -61,3 +65,5 @@ App.config({
 	style: './style.css',
 	windows: [Bar(1)],
 });
+
+App.addIcons("/home/mori/.config/ags/res/spacepotato/")

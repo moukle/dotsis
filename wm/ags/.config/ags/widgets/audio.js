@@ -14,7 +14,7 @@ const micSlider = VolumeSlider('microphone')
 export function Volume() {
 	return Widget.Box({
 		class_name: "volume",
-		css: "min-width: 90px",
+		// css: "min-width: 90px",
 		children: [speakerSlider],
 	})
 }

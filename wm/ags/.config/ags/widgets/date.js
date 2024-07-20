@@ -26,7 +26,6 @@ function Clock() {
 
 export function DateClock() {
 	return Widget.Box({
-		spacing: 8,
 		children: [Date(), Clock()],
 	})
 }
