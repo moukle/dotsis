@@ -24,9 +24,8 @@ function workspace_button_box(id_start, id_end) {
 		spacing: 3,
 		children: Array.from({ length: id_end - id_start }, (_, i) => i + 1 + id_start).map(id => workspace_button(id)),
 
-		// remove this setup hook if you want fixed number of buttons
 		setup: self => self.hook(hyprland, () => self.children.forEach(btn => {
-			if (btn.class_name == '') {
+			if (btn.class_name != 'focused') {
 				btn.class_name = hyprland.workspaces.some(ws => ws.id === btn.attribute) ? 'active' : ''
 			}
 		})),

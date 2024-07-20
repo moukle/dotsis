@@ -23,7 +23,6 @@ function Clock() {
 	})
 }
 
-
 export function DateClock() {
 	return Widget.Box({
 		children: [Date(), Clock()],

@@ -1,7 +1,8 @@
 const { query } = await Service.import("applications")
 
 function launch(binName) {
-	Utils.execAsync(['bash', '-c', binName])
+	let app = query(binName)[0]
+	app.launch()
 }
 
 function AppIcon(binName, iconPath) {
@@ -16,10 +17,12 @@ export function Dock() {
 		class_name: "dock",
 		spacing: 20,
 		children: [
+			AppIcon("DDNet", "space_ddnet"),
 			AppIcon("firefox", "spacy_chrome"),
+			AppIcon("nautilus", "space_explorer"),
 			AppIcon("discord", "space_discord"),
 			AppIcon("spotify", "space_musicbee"),
-			AppIcon("kitty", "spacy_sublime"),
+			AppIcon("kitty", "spacy_sublime")
 		]
 	})
 }

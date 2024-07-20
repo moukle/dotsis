@@ -30,9 +30,43 @@ function Player(player) {
 		label.class_name = 'title';
 	})
 
+	const titlePause = Widget.Button({
+		onClicked: () => player.playPause(),
+		child: title
+	})
+
+	let isHovered = Variable(false)
+	const prevSong = Widget.Revealer({
+		transitionDuration: 500,
+		transition: 'slide_left',
+		revealChild: isHovered.bind(),
+		child: Widget.Button({
+			class_name: 'controls',
+			onClicked: () => player.previous(),
+			child: Widget.Icon('arrow_left_black_24dp')
+		})
+	})
+
+	const nextSong = Widget.Revealer({
+		transitionDuration: 500,
+		transition: 'slide_right',
+		revealChild: isHovered.bind(),
+		child: Widget.Button({
+			class_name: 'controls',
+			onClicked: () => player.next(),
+			child: Widget.Icon('arrow_right_black_24dp')
+		})
+	})
+
+	const titleControls = Widget.EventBox({
+		on_hover: () => isHovered.value = true,
+		on_hover_lost: () => isHovered.value = false,
+		child: Widget.Box([prevSong, titlePause, nextSong])
+	})
+
 	return Widget.Box({
 		class_name: 'player',
-		children: [coverButton, title]
+		children: [coverButton, titleControls]
 	})
 }
 

@@ -17,27 +17,25 @@ export function SysTray() {
 
 var isVisible = Variable(false)
 export function SysTrayIndicator() {
-	return Widget.Box({
+	return Widget.EventBox({
+		on_hover: () => isVisible.value = true,
+		on_hover_lost: () => isVisible.value = false,
 		class_name: 'tray',
-		spacing: 0,
-		children: [
-			Widget.Button({
-				class_name: 'toggle',
-				child:
-					Widget.Icon({
-						icon: isVisible.bind().as(v => v ?
-							"arrow_right_black_24dp" :
-							"arrow_left_black_24dp")
-					}),
-				// onHover: ({ }) => isVisible.value = true,
-				on_primary_click: ({ }) => isVisible.value = !isVisible.value,
-			}),
-			Widget.Revealer({
-				revealChild: isVisible.bind(),
-				transitionDuration: 500,
-				transition: 'slide_right',
-				child: SysTray()
-			})
-		]
+		child: Widget.Box({
+			children: [
+				Widget.Icon({
+					class_name: 'toggle',
+					icon: isVisible.bind().as(v => v ?
+						"arrow_right_black_24dp" :
+						"arrow_left_black_24dp")
+				}),
+				Widget.Revealer({
+					revealChild: isVisible.bind(),
+					transitionDuration: 500,
+					transition: 'slide_right',
+					child: SysTray()
+				})
+			]
+		})
 	})
 }

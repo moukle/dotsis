@@ -22,8 +22,16 @@ separator {
 	font-size: 55px;
 }
 
-.volume {
+.volume .slider {
 	min-width: 120px;
+}
+
+.speakerIcons {
+	font-size: 35px;
+}
+
+.speakerIcons .inactive {
+	opacity: 0.3;
 }
 
 .volume highlight {
@@ -43,6 +51,12 @@ separator {
 	box-shadow: none;
 }
 
+.themeToggle {
+	font-size: 30px;
+	opacity: 0.4;
+	;
+}
+
 .tray .toggle {
 	font-size: 50px;
 	opacity: 0.4;
@@ -60,6 +74,11 @@ separator {
 
 .player .title {
 	font-size: 1.2em;
+}
+
+.player .controls {
+	font-size: 3em;
+	opacity: 0.5;
 }
 
 button {
