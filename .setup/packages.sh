@@ -27,7 +27,12 @@ packages_cli=(
     "starship"
     "tmux"
     "unzip"
+
     "yazi"
+    "unarchiver"
+    "ffmpegthumbnailer"
+    "poppler"
+
     "zellij"
     "zsh"
 )
