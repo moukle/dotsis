@@ -1,1 +1,1 @@
-return { "rcarriga/nvim-notify", enabled = false }
+return { "rcarriga/nvim-notify", enabled = true }

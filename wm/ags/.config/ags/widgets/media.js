@@ -1,5 +1,15 @@
 const mpris = await Service.import('mpris')
 
+function truncate(str, max_length = 30) {
+	if (str.length > max_length) {
+		str = str.substring(0, max_length - 3) + "...";
+	}
+
+	print(str)
+
+	return str
+}
+
 /** @param {import('types/service/mpris').MprisPlayer} player */
 function Player(player) {
 	const coverTitle = Widget.Label({
@@ -26,7 +36,7 @@ function Player(player) {
 
 	const title = Widget.Label().hook(player, label => {
 		const { track_artists, track_title } = player;
-		label.label = `${track_artists.join(', ')} - ${track_title}`;
+		label.label = truncate(`${track_artists.join(', ')} - ${track_title}`);
 		label.class_name = 'title';
 	})
 
@@ -71,5 +81,6 @@ function Player(player) {
 }
 
 export const players = Widget.Box({
+	spacing: 20,
 	children: mpris.bind('players').as(p => p.map(Player))
 })

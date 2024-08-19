@@ -26,7 +26,7 @@ function workspace_button_box(id_start, id_end) {
 
 		setup: self => self.hook(hyprland, () => self.children.forEach(btn => {
 			if (btn.class_name != 'focused') {
-				btn.class_name = hyprland.workspaces.some(ws => ws.id === btn.attribute) ? 'active' : ''
+				btn.class_name = hyprland.workspaces.some(ws => ws.id === btn.attribute && ws.windows > 0) ? 'active' : ''
 			}
 		})),
 	})
