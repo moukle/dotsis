@@ -1,0 +1,29 @@
+<?xml version="1.0" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100">
+<defs>
+</defs>
+    <mask id="iconMask">
+    	<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="-304 -304 608 608">
+			<path fill="#fff" d="M0,288
+			C126.2,288,196.3563,288,242.1782,242.1782
+			C288,196.3563,288,126.2,288,0
+			C288,-126.2,288,-196.3563,242.1782,-242.1782
+			C196.3563,-288,126.2,-288,0,-288
+			C-126.2,-288,-196.3563,-288,-242.1782,-242.1782
+			C-288,-196.3563,-288,-126.2,-288,0
+			C-288,126.2,-288,196.3563,-242.1782,242.1782
+			C-196.3563,288,-126.2,288,0,288Z"/>
+		</svg>
+	</mask>
+	<g mask="url(#iconMask)">
+		<path d="M 50 30 h 100 v 100 L 20 120 L 67.3205080757 60Z" fill="transparent" style="fill: #FFCD42" />
+		<g transform="rotate(120,50,50)">
+			<path d="M 50 30 h 100 v 100 L 20 120 L 67.3205080757 60Z" fill="transparent" style="fill: #159F5C"/>
+		</g>
+		<g transform="rotate(240,50,50)">
+			<path d="M 50 30 h 100 v 100 L 20 120 L 67.3205080757 60Z" fill="transparent" style="fill: #DC4D41"/>
+		</g>
+	</g>
+	<circle cx="50" cy="50" r="20" style="fill: #fafafa"/>
+	<circle cx="50" cy="50" r="16" style="fill: #4C8BF4"/>
+</svg>

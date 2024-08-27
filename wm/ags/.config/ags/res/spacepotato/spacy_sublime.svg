@@ -1,0 +1,75 @@
+<?xml version="1.0" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100">
+    <mask id="iconMask">
+    	<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="-304 -304 608 608">
+			<path fill="#fafafa" d="M0,288
+			C126.2,288,196.3563,288,242.1782,242.1782
+			C288,196.3563,288,126.2,288,0
+			C288,-126.2,288,-196.3563,242.1782,-242.1782
+			C196.3563,-288,126.2,-288,0,-288
+			C-126.2,-288,-196.3563,-288,-242.1782,-242.1782
+			C-288,-196.3563,-288,-126.2,-288,0
+			C-288,126.2,-288,196.3563,-242.1782,242.1782
+			C-196.3563,288,-126.2,288,0,288Z"/>
+		</svg>
+    </mask>
+	<rect x="-50" width="200" height="200" mask="url(#iconMask)" fill="#161820"/>
+
+	<path d="M15 025 h00" style="stroke: #454C6E; stroke-width: 2px; stroke-linecap: round;" />
+	<path d="M23 025 h00" style="stroke: #D9A67E; stroke-width: 2px; stroke-linecap: round;" />
+	<path d="M29 025 h00" style="stroke: #92B7C0; stroke-width: 2px; stroke-linecap: round;" />
+	<path d="M35 025 h00" style="stroke: #89A0C3; stroke-width: 2px; stroke-linecap: round;" />
+	<path d="M39 025 h00" style="stroke: #C6C8D0; stroke-width: 2px; stroke-linecap: round;" />
+	<path d="M43 025 h00" style="stroke: #89A0C3; stroke-width: 2px; stroke-linecap: round;" />
+	<path d="M49 025 h02" style="stroke: #92B7C0; stroke-width: 2px; stroke-linecap: round;" />
+	<path d="M57 025 h04" style="stroke: #89A0C3; stroke-width: 2px; stroke-linecap: round;" />
+	<path d="M65 025 h00" style="stroke: #C6C8D0; stroke-width: 2px; stroke-linecap: round;" />
+	<path d="M69 025 h00" style="stroke: #89A0C3; stroke-width: 2px; stroke-linecap: round;" />
+	<path d="M75 025 h02" style="stroke: #92B7C0; stroke-width: 2px; stroke-linecap: round;" />
+
+	<path d="M15 032 h00" style="stroke: #454C6E; stroke-width: 2px; stroke-linecap: round;" />
+
+	<path d="M15 039 h00" style="stroke: #454C6E; stroke-width: 2px; stroke-linecap: round;" />
+	<path d="M23 039 h08" style="stroke: #89A0C3; stroke-width: 2px; stroke-linecap: round;" />
+	<path d="M37 039 h00" style="stroke: #92B7C0; stroke-width: 2px; stroke-linecap: round;" />
+	<path d="M43 039 h00" style="stroke: #89A0C3; stroke-width: 2px; stroke-linecap: round;" />
+	<path d="M47 039 h00" style="stroke: #C6C8D0; stroke-width: 2px; stroke-linecap: round;" />
+	<path d="M51 039 h00" style="stroke: #92B7C0; stroke-width: 2px; stroke-linecap: round;" />
+	<path d="M57 039 h00" style="stroke: #C6C8D0; stroke-width: 2px; stroke-linecap: round;" />
+	<path d="M61 039 h00" style="stroke: #89A0C3; stroke-width: 2px; stroke-linecap: round;" />
+	<path d="M67 039 h02" style="stroke: #92B7C0; stroke-width: 2px; stroke-linecap: round;" />
+
+	<path d="M15 046 h00" style="stroke: #454C6E; stroke-width: 2px; stroke-linecap: round;" />
+	<path d="M33 046 h00" style="stroke: #89A0C3; stroke-width: 2px; stroke-linecap: round;" />
+	<path d="M37 046 h00" style="stroke: #D9A67E; stroke-width: 2px; stroke-linecap: round;" />
+	<path d="M43 046 h00" style="stroke: #89A0C3; stroke-width: 2px; stroke-linecap: round;" />
+	<path d="M47 046 h00" style="stroke: #C6C8D0; stroke-width: 2px; stroke-linecap: round;" />
+	<path d="M51 046 h00" style="stroke: #89A0C3; stroke-width: 2px; stroke-linecap: round;" />
+	<path d="M57 046 h02" style="stroke: #92B7C0; stroke-width: 2px; stroke-linecap: round;" />
+
+	<path d="M15 053 h00" style="stroke: #454C6E; stroke-width: 2px; stroke-linecap: round;" />
+	<path d="M47 053 h00" style="stroke: #89A0C3; stroke-width: 2px; stroke-linecap: round;" />
+	<path d="M51 053 h00" style="stroke: #C6C8D0; stroke-width: 2px; stroke-linecap: round;" />
+	<path d="M55 053 h00" style="stroke: #89A0C3; stroke-width: 2px; stroke-linecap: round;" />
+	<path d="M61 053 h02" style="stroke: #92B7C0; stroke-width: 2px; stroke-linecap: round;" />
+
+
+	<path d="M15 060 h00" style="stroke: #454C6E; stroke-width: 2px; stroke-linecap: round;" />
+	<path d="M61 060 h06" style="stroke: #C6C8D0; stroke-width: 2px; stroke-linecap: round;" />
+	<path d="M73 060 h00" style="stroke: #92B7C0; stroke-width: 2px; stroke-linecap: round;" />
+	<path d="M79 060 h02" style="stroke: #89A0C3; stroke-width: 2px; stroke-linecap: round;" />
+
+
+	<path d="M15 067 h00" style="stroke: #454C6E; stroke-width: 2px; stroke-linecap: round;" />
+	<path d="M61 067 h10" style="stroke: #89A0C3; stroke-width: 2px; stroke-linecap: round;" />
+	<path d="M77 067 h06" style="stroke: #C6C8D0; stroke-width: 2px; stroke-linecap: round;" />
+
+	<path d="M15 074 h00" style="stroke: #454C6E; stroke-width: 2px; stroke-linecap: round;" />
+
+	<path d="M15 081 h00" style="stroke: #454C6E; stroke-width: 2px; stroke-linecap: round;" />
+	<path d="M23 081 h10" style="stroke: #89A0C3; stroke-width: 2px; stroke-linecap: round;" />
+	<path d="M39 081 h08" style="stroke: #C6C8D0; stroke-width: 2px; stroke-linecap: round;" />
+	<path d="M53 081 h00" style="stroke: #D9A67E; stroke-width: 2px; stroke-linecap: round;" />
+	<path d="M57 081 h00" style="stroke: #92B7C0; stroke-width: 2px; stroke-linecap: round;" />
+	<path d="M63 081 h02" style="stroke: #D9A67E; stroke-width: 2px; stroke-linecap: round;" />
+</svg>
