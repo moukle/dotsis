@@ -4,9 +4,6 @@ function truncate(str, max_length = 30) {
 	if (str.length > max_length) {
 		str = str.substring(0, max_length - 3) + "...";
 	}
-
-	print(str)
-
 	return str
 }
 

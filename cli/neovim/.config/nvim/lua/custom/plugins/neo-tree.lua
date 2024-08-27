@@ -14,8 +14,30 @@ return {
 		{ "\\", ":Neotree reveal<CR>", { desc = "NeoTree reveal" } },
 	},
 	opts = {
+		default_component_configs = {
+			indent = {
+				with_markers = false,
+			},
+			icon = {
+				folder_closed = "",
+				folder_open = "",
+				folder_empty = "",
+			},
+			name = {
+				use_git_status_colors = true,
+			},
+		},
 		close_if_last_window = true,
 		filesystem = {
+			filtered_items = {
+				hide_dotfiles = false,
+				hide_by_name = {
+					".git",
+				},
+			},
+			follow_current_file = {
+				enabled = true,
+			},
 			window = {
 				mappings = {
 					["\\"] = "close_window",

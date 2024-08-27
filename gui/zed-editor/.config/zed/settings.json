@@ -1,4 +1,15 @@
 {
+  "assistant": {
+    "default_model": {
+      "provider": "copilot_chat",
+      "model": "gpt-3.5-turbo"
+    },
+    "version": "2"
+  },
+  "project_panel": {
+    "default_width": 150,
+    "dock": "right"
+  },
   "base_keymap": "VSCode",
   "telemetry": {
     "diagnostics": false,
@@ -6,7 +17,7 @@
   },
   "relative_line_numbers": true,
   "vim_mode": true,
-  "theme": "Min Dark",
+  "theme": "Ayu Light",
   "ui_font_size": 20,
   "ui_font_family": "Maple Mono SC NF",
   "buffer_font_family": "Maple Mono SC NF",

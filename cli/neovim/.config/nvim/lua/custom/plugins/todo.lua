@@ -8,7 +8,7 @@ return { -- Highlight todo, notes, etc in comments
 			CITE = { icon = "", color = "cite" },
 		},
 		colors = {
-			cite = { "Comment" },
+			cite = { "DiagnosticInfo", "Comment" },
 		},
 	},
 }
