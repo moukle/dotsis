@@ -17,6 +17,9 @@ fi
 # Source/Load zinit
 source "${ZINIT_HOME}/zinit.zsh"
 
+# Environment Variables
+source $HOME/.profile
+
 # Add better Vim
 zinit ice depth=1; zinit light jeffreytse/zsh-vi-mode
 function zvm_after_init() {
@@ -119,8 +122,10 @@ export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
 export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow -g "!{.git,node_modules}" 2> /dev/null'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
+# clean home
+export HISTFILE="$XDG_STATE_HOME"/zsh/history
+alias wget=wget --hsts-file="$XDG_DATA_HOME/wget-hsts"
+compinit -d "$XDG_CACHE_HOME"/zsh/zcompdump-"$ZSH_VERSION"
+
 # Shell integrations
 source <(starship init zsh)
-
-# Environment Variables
-source $HOME/.profile
