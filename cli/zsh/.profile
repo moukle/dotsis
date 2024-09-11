@@ -16,4 +16,4 @@ export CARGO_HOME="$XDG_DATA_HOME"/cargo
 export CUDA_CACHE_PATH="$XDG_CACHE_HOME"/nv
 export IPYTHONDIR="$XDG_CONFIG_HOME/ipython"
 export JULIA_DEPOT_PATH="$XDG_DATA_HOME/julia:$JULIA_DEPOT_PATH"
-export ZDOTDIR="$HOME"/.config/zsh
+# export ZDOTDIR="$HOME"/.config/zsh

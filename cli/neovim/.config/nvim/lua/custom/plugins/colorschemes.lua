@@ -1,4 +1,6 @@
 return {
+	{ "folke/tokyonight.nvim" },
+	{ "neanias/everforest-nvim" },
 	{ "navarasu/onedark.nvim" },
 	{ "comfysage/evergarden" },
 	{ "rose-pine/neovim", as = "rose-pine" },

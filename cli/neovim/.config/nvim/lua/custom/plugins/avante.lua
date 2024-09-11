@@ -1,5 +1,6 @@
 return {
 	"yetone/avante.nvim",
+	enabled = false,
 	event = "VeryLazy",
 	build = "make", -- This is Optional, only if you want to use tiktoken_core to calculate tokens count
 	opts = {

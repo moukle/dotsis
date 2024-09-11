@@ -17,9 +17,6 @@ fi
 # Source/Load zinit
 source "${ZINIT_HOME}/zinit.zsh"
 
-# Environment Variables
-source $HOME/.profile
-
 # Add better Vim
 zinit ice depth=1; zinit light jeffreytse/zsh-vi-mode
 function zvm_after_init() {
@@ -129,3 +126,6 @@ compinit -d "$XDG_CACHE_HOME"/zsh/zcompdump-"$ZSH_VERSION"
 
 # Shell integrations
 source <(starship init zsh)
+
+# Environment Variables
+source $HOME/.profile

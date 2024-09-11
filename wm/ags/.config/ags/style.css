@@ -126,7 +126,8 @@ button {
 }
 
 .workspaces button {
-	font-size: 1rem;
+	font-size: 0.7rem;
+	padding: 0.15rem;
 	color: gray;
 }
 
