@@ -41,10 +41,12 @@ function SpeakerBackends() {
 }
 
 function SpeakerIcon(speakerStream) {
-	let icon = speakerStream.name.includes('hdmi') ? 'spacy_speaker' : 'spacy_headphones'
+	// let icon = speakerStream.name.includes('hdmi') ? 'spacy_speaker' : 'spacy_headphones'
+	let label = speakerStream.name.includes('hdmi') ? '󰓃' : ''
 	let isActive = speakerStream.name == audio.speaker.name
 	return Widget.Button({
-		child: Widget.Icon({ icon: icon, class_name: isActive ? 'active' : 'inactive' }),
+		// child: Widget.Icon({ icon: icon, class_name: isActive ? 'active' : 'inactive' }),
+		child: Widget.Label({ label: label, class_name: isActive ? 'active' : 'inactive' }),
 		on_primary_click: () => { audio.speaker = speakerStream }
 	})
 }

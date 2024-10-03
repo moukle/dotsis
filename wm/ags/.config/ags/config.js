@@ -41,8 +41,8 @@ function Right() {
 		spacing: 20,
 		children: [
 			DateClock(),
-			Dock(),
-			Separator(),
+			// Dock(),
+			// Separator(),
 			Volume(),
 			SysTrayIndicator()
 		],
@@ -67,6 +67,7 @@ function Bar(monitor = 0) {
 
 
 App.config({
+	// icons: `${getDirectory()}/res/spacepotato`,
 	style: './style.css',
 	windows: [Bar(0)],
 });

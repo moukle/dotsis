@@ -23,11 +23,12 @@ export function SysTrayIndicator() {
 		class_name: 'tray',
 		child: Widget.Box({
 			children: [
-				Widget.Icon({
+				Widget.Label({
 					class_name: 'toggle',
-					icon: isVisible.bind().as(v => v ?
-						"arrow_right_black_24dp" :
-						"arrow_left_black_24dp")
+					label: isVisible.bind().as(v => v ? "" : "" ),
+					// icon: isVisible.bind().as(v => v ?
+					// 	"arrow_right_black_24dp" :
+					// 	"arrow_left_black_24dp")
 				}),
 				Widget.Revealer({
 					revealChild: isVisible.bind(),

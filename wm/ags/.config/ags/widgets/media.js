@@ -50,7 +50,8 @@ function Player(player) {
 		child: Widget.Button({
 			class_name: 'controls',
 			onClicked: () => player.previous(),
-			child: Widget.Icon('arrow_left_black_24dp')
+			// child: Widget.Icon('arrow_left_black_24dp')
+			label: ""
 		})
 	})
 
@@ -61,7 +62,8 @@ function Player(player) {
 		child: Widget.Button({
 			class_name: 'controls',
 			onClicked: () => player.next(),
-			child: Widget.Icon('arrow_right_black_24dp')
+			// child: Widget.Icon('arrow_right_black_24dp'),
+			label: ""
 		})
 	})
 

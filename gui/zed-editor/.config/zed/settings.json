@@ -11,27 +11,32 @@
     "dock": "right"
   },
   "base_keymap": "VSCode",
-  "telemetry": {
-    "diagnostics": false,
-    "metrics": true
+  "theme": {
+    "mode": "system",
+    "light": "flat᛫light",
+    "dark": "One Dark"
   },
   "relative_line_numbers": true,
   "vim_mode": true,
-  "theme": "flat᛫light",
   "ui_font_size": 20,
-  "ui_font_family": "Maple Mono SC NF",
-  "buffer_font_family": "Maple Mono SC NF",
+  "ui_font_family": "JetBrainsMono Nerd Font",
+  "buffer_font_family": "JetBrainsMono Nerd Font",
   "buffer_font_size": 20,
   "buffer_font_features": {
     "calt": true,
     "liga": true,
-    "cv01": true,
-    "ss01": true,
     "ss02": true,
-    "ss04": true,
-    "ss05": true
+    "ss19": false,
+    "cv18": true,
+    "cv14": true
+    // "cv01": true,
+    // "ss01": true,
+    // "ss02": true,
+    // "ss04": true,
+    // "ss05": true
   },
   "git": {
     "inline_blame": { "enabled": false }
-  }
+  },
+  "wrap_guides": [80, 120]
 }

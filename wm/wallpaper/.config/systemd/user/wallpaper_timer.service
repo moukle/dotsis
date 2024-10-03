@@ -2,4 +2,4 @@
 Description=Wallpaper changer
 
 [Service]
-ExecStart=/home/mori/.local/bin/wallpaper_timer.sh
+ExecStart=/home/mori/.local/bin/wallpaper_timer.sh /home/mori/Pictures/Walls/Küste 4 23

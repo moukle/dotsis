@@ -1,14 +1,19 @@
 .bar {
 	/* min-height: 180px; */
-	font-family: SF Pro Rounded;
+	font-family: SF Pro Rounded, Symbols Nerd Font;
 	font-weight: 600;
 	font-size: 1.0em;
 	margin: 0.0 0.5rem;
 
-	color: dimgray;
+	color: white;
+	/* color: dimgray; */
 
-	background-image: linear-gradient(180deg, #ffffff, #a2a2a2), url('./res/noise.png');
-	background-blend-mode: multiply;
+	background: rgba(128, 128, 128, 0.15);
+	/* background-image: linear-gradient(180deg, #ffffff00, #a2a2a200), url('./res/noise.png'); */
+	/* background-blend-mode: multiply; */
+	/* background-image: linear-gradient(180deg, #000000, #000000), url('./res/noise.png'); */
+	/* background-image: linear-gradient(180deg, #a2a2a2, #ffffff), url('./res/noise.png'); */
+	/* background-blend-mode: exclusion; */
 }
 
 separator {
@@ -30,19 +35,27 @@ separator {
 	font-size: 35px;
 }
 
+.speakerIcons .active {
+	color: white;
+	opacity: 0.8;
+}
+
 .speakerIcons .inactive {
+	color: white;
 	opacity: 0.3;
 }
 
 .volume highlight {
-	min-height: 15px;
-	background-color: dimgray;
+	min-height: 10px;
+	background-color: white;
 	border: none;
 }
 
 .volume trough {
-	min-height: 15px;
-	background-color: darkgray;
+	min-height: 10px;
+	background-color: rgba(128, 128, 128, 0.55);
+	border: none;
+	opacity: 0.3;
 }
 
 .volume slider {
@@ -54,16 +67,17 @@ separator {
 .themeToggle {
 	font-size: 30px;
 	opacity: 0.4;
-	;
+	color: white;
 }
 
 .tray .toggle {
-	font-size: 50px;
+	font-size: 1.5em;
+	padding: 1rem;
 	opacity: 0.4;
-	;
 }
 
 .player .cover {
+	margin-top: 0.5rem;
 	min-width: 55px;
 	min-height: 55px;
 	background-size: cover;
@@ -74,11 +88,14 @@ separator {
 
 .player .title {
 	font-size: 1.2em;
+	color: white;
 }
 
 .player .controls {
-	font-size: 3em;
-	opacity: 0.5;
+	font-size: 2em;
+	padding: 1rem;
+	/* opacity: 0.5; */
+	color: white;
 }
 
 button {
@@ -96,18 +113,21 @@ button {
 
 .clock {
 	padding-top: 1.5rem;
-	/* margin-left: -0.5rem; */
-	/* margin-right: 0.5rem; */
-	font-style: italic;
+	padding-right: 0.3rem;
+	/* font-style: italic; */
+	color: white;
+	font-size: 1.1em;
 }
 
 .date {
 	margin-top: 0.5rem;
 	font-size: 1.5em;
 	font-weight: 700;
+	color: dimgray;
 }
 
 .datebox {
+	/* opacity: 0.8; */
 	padding-left: 1.3rem;
 	padding-right: 1.3rem;
 	/* background: linear-gradient(0deg, blue 50%, #ffed4b 50%); */
@@ -128,7 +148,7 @@ button {
 .workspaces button {
 	font-size: 0.7rem;
 	padding: 0.15rem;
-	color: gray;
+	color: rgba(128, 128, 128, 0.5);
 }
 
 .workspaces button.focused {
@@ -136,5 +156,5 @@ button {
 }
 
 .workspaces button.active {
-	color: black;
+	color: white;
 }

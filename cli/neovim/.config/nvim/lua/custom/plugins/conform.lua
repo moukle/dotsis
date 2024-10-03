@@ -3,7 +3,7 @@ return { -- Autoformat
 	lazy = false,
 	keys = {
 		{
-			"<leader>f",
+			"<leader>ff",
 			function()
 				require("conform").format({ async = true, lsp_fallback = true })
 			end,
@@ -27,6 +27,7 @@ return { -- Autoformat
 		end,
 		formatters_by_ft = {
 			lua = { "stylua" },
+
 			-- Conform can also run multiple formatters sequentially
 			-- python = { "isort", "black" },
 			--
