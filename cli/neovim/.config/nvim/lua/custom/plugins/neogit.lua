@@ -6,7 +6,13 @@ return {
 		"nvim-telescope/telescope.nvim", -- optional
 	},
 	config = function()
-		require("neogit").setup({})
+		require("neogit").setup({
+			disable_hint = true,
+			integrations = {
+				telescope = true,
+				diffview = true,
+			},
+		})
 		vim.keymap.set("n", "<leader>g", ":Neogit<cr>", { desc = "Neo[G]it" })
 	end,
 }
