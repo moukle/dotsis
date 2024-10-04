@@ -33,7 +33,9 @@ function Player(player) {
 
 	const title = Widget.Label().hook(player, label => {
 		const { track_artists, track_title } = player;
-		label.label = truncate(`${track_artists.join(', ')} - ${track_title}`);
+		const artists = truncate(track_artists.join(', '), 20)
+		const joined = artists.length > 0 ? `${artists} - ${track_title}` : track_title;
+		label.label = truncate(joined);
 		label.class_name = 'title';
 	})
 
