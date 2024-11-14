@@ -42,6 +42,7 @@ return { -- Fuzzy Finder (files, lsp, etc)
 				},
 			},
 			defaults = {
+				file_sorter = require("telescope.sorters").get_fzy_sorter,
 				file_ignore_patterns = { ".git/" },
 				mappings = {
 					i = { ["<c-enter>"] = "to_fuzzy_refine" },

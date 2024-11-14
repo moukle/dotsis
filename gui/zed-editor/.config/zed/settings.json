@@ -13,7 +13,7 @@
   "base_keymap": "VSCode",
   "theme": {
     "mode": "system",
-    "light": "flat᛫light",
+    "light": "Ayu Light",
     "dark": "One Dark"
   },
   "relative_line_numbers": true,

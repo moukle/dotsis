@@ -1,9 +1,10 @@
 return {
 	"nvim-focus/focus.nvim",
+	enabled = false,
 	version = false,
 	config = function()
 		require("focus").setup({
-			autoresize = { minwidth = 40 },
+			-- autoresize = { minwidth = 80 },
 		})
 
 		local ignore_filetypes = { "neo-tree" }

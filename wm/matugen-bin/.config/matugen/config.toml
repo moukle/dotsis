@@ -15,10 +15,11 @@ output_path = "~/.config/nvim/lua/custom/colors-catppuccin.lua"
 
 [config]
 reload_apps = true
-set_wallpaper = true
-wallpaper_tool = 'Swww'
-prefix = '@'
-swww_options = ["--transition-type", "any", "--transition-step", "255"]
+
+[config.wallpaper]
+command = 'swww'
+set = true
+arguments = ["img", "--transition-type", "any", "--transition-step", "255"]
 
 [config.reload_apps_list]
 waybar = true

@@ -1,8 +1,12 @@
 return {
 	"chrisgrieser/nvim-spider",
-	enabled = false,
+	enabled = true,
 	lazy = true,
-	opts = { skipInsignificantPunctuation = false },
+	opts = {
+		skipInsignificantPunctuation = false,
+		consistentOperatorPending = false,
+		subwordMovement = true,
+	},
 	keys = {
 		{
 			"b",
