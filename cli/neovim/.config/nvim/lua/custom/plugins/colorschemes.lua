@@ -7,6 +7,7 @@ return {
 	{ "nyoom-engineering/oxocarbon.nvim" },
 	{
 		"catppuccin/nvim",
+		enabled = false,
 		priority = 1000, -- Make sure to load this before all the other start plugins.
 		init = function()
 			require("catppuccin").setup({
@@ -84,7 +85,7 @@ return {
 				},
 			})
 			-- require("custom.colors-catppuccin")
-			vim.cmd.colorscheme("catppuccin")
+			-- vim.cmd.colorscheme("catppuccin")
 
 			-- You can configure highlights by doing something like:
 			-- vim.cmd.hi 'Comment gui=none'

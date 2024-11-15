@@ -4,7 +4,7 @@ return {
 		-- name = "nvim-cmp", -- Otherwise highlighting gets messed up
 		"hrsh7th/nvim-cmp",
 		enabled = true,
-		event = "InsertEnter",
+		-- event = "InsertEnter",
 		dependencies = {
 			-- Snippet Engine & its associated nvim-cmp source
 			{
@@ -56,10 +56,6 @@ return {
 				},
 				completion = { completeopt = "menu,menuone,noinsert" },
 
-				-- For an understanding of why these mappings were
-				-- chosen, you will need to read `:help ins-completion`
-				--
-				-- No, but seriously. Please read `:help ins-completion`, it is really good!
 				mapping = cmp.mapping.preset.insert({
 					["<C-j>"] = cmp.mapping.select_next_item(),
 					["<C-k>"] = cmp.mapping.select_prev_item(),
@@ -94,8 +90,9 @@ return {
 				window = {
 					completion = {
 						col_offset = -3,
-						side_padding = 0,
-						winhighlight = "Normal:Normal,FloatBorder:FloatBorder,CursorLine:Visual,Search:None",
+						-- side_padding = 0,
+						-- winhighlight = "Normal:Normal,FloatBorder:FloatBorder,CursorLine:Visual,Search:None",
+						winhighlight = "Normal:Pmenu,FloatBorder:Pmenu,Search:None",
 					},
 					-- documentation = {
 					-- 	winhighlight = "Normal:Normal,FloatBorder:FloatBorder,CursorLine:Visual,Search:None",
@@ -112,7 +109,7 @@ return {
 							require("lspkind").cmp_format({ mode = "symbol_text", maxwidth = 50 })(entry, vim_item)
 						local strings = vim.split(kind.kind, "%s", { trimempty = true })
 						kind.kind = " " .. (strings[1] or "") .. " "
-						kind.menu = "    (" .. (strings[2] or "") .. ")"
+						-- kind.menu = "    (" .. (strings[2] or "") .. ")"
 
 						return kind
 					end,
@@ -127,6 +124,7 @@ return {
 				-- diagnostics = { virtual_text = { prefix = "icons" } },
 
 				sources = {
+					{ name = "nvim_lsp_signature_help" },
 					{ name = "nvim_lsp" },
 					{ name = "luasnip" },
 					{ name = "calc" },
@@ -134,7 +132,6 @@ return {
 					{ name = "spell" },
 					{ name = "buffer" },
 					{ name = "path" },
-					{ name = "nvim_lsp_signature_help" },
 					-- { name = "cmp_yanky" },
 				},
 			})

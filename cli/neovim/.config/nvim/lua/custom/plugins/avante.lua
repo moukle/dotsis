@@ -1,6 +1,6 @@
 return {
 	"yetone/avante.nvim",
-	enabled = true,
+	enabled = false,
 	event = "VeryLazy",
 	version = false, -- set this if you want to always pull the latest change
 	build = "make", -- This is Optional, only if you want to use tiktoken_core to calculate tokens count
