@@ -7,7 +7,7 @@ return {
 	{ "nyoom-engineering/oxocarbon.nvim" },
 	{
 		"catppuccin/nvim",
-		enabled = false,
+		enabled = true,
 		priority = 1000, -- Make sure to load this before all the other start plugins.
 		init = function()
 			require("catppuccin").setup({
@@ -63,10 +63,10 @@ return {
 						overlay0 = "#999999",
 						surface2 = "#424242",
 						surface1 = "#3d3d3d",
-						surface0 = "#383838",
-						base = "#202020",
-						mantle = "#262626",
-						crust = "#2b2b2b",
+						surface0 = "#202020",
+						base = "#000000",
+						mantle = "#000000",
+						crust = "#101010",
 					},
 					latte = {
 						text = "#4f4f4f",
@@ -85,10 +85,12 @@ return {
 				},
 			})
 			-- require("custom.colors-catppuccin")
-			-- vim.cmd.colorscheme("catppuccin")
+			vim.cmd.colorscheme("catppuccin")
 
 			-- You can configure highlights by doing something like:
-			-- vim.cmd.hi 'Comment gui=none'
+			vim.cmd.hi("CursorLine guibg=none")
+			vim.cmd.hi("CursorLine guibg=none")
+			vim.cmd.hi("Cursor guibg=NONE guifg=NONE gui=reverse")
 		end,
 	},
 }

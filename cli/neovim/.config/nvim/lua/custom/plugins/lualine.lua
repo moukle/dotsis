@@ -1,13 +1,9 @@
 return {
-	enabled = false,
+	enabled = true,
 	"nvim-lualine/lualine.nvim",
 	dependencies = { "nvim-tree/nvim-web-devicons" },
 	config = function()
 		vim.opt.laststatus = 3
-
-		-- local custom_catppuccin = require("lualine.themes.catppuccin")
-		-- custom_catppuccin.normal.c.bg = "NONE"
-		-- custom_catppuccin.inactive.c.bg = "NONE"
 
 		require("lualine").setup({
 			globalstatus = true,
@@ -23,17 +19,18 @@ return {
 						fmt = function(str)
 							return str:sub(1, 1)
 						end,
-						separator = { left = "", right = "" },
+						-- separator = { left = "", right = "" },
+						separator = { left = "", right = "" },
 						right_padding = 2,
 					},
 				},
-				lualine_b = { "branch" },
-				-- lualine_c = { "%=", "filename" },
+				lualine_b = {},
 				lualine_c = {},
 				lualine_x = {},
-				lualine_y = { "filetype", "progress" },
+				lualine_y = {},
 				lualine_z = {
-					{ "location", separator = { right = "" }, left_padding = 2 },
+					-- { "branch", separator = { left = "", right = "" }, left_padding = 2 },
+					{ "branch", separator = { left = "", right = "" } },
 				},
 			},
 			inactive_sections = {
