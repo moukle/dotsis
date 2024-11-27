@@ -15,10 +15,25 @@ return { -- LSP Configuration & Plugins
 		{ "folke/neodev.nvim", opts = {} },
 
 		{ "smjonas/inc-rename.nvim", opts = {} },
+		-- {
+		-- 	"dgagn/diagflow.nvim",
+		-- 	event = "LspAttach",
+		-- 	opts = {},
+		-- },
 		{
-			"dgagn/diagflow.nvim",
-			event = "LspAttach",
-			opts = {},
+			"rachartier/tiny-inline-diagnostic.nvim",
+			event = "VeryLazy", -- Or `LspAttach`
+			priority = 1000, -- needs to be loaded in first
+			config = function()
+				require("tiny-inline-diagnostic").setup({
+					opts = {
+						options = {
+							multiple_diag_under_cursor = true,
+							multilines = true,
+						},
+					},
+				})
+			end,
 		},
 	},
 	config = function()

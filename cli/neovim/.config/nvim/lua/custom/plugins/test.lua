@@ -1,12 +1,5 @@
 return {
 	{
-		"hrsh7th/nvim-insx",
-		dependencies = { "andymass/vim-matchup" },
-		init = function()
-			require("insx.preset.standard").setup()
-		end,
-	},
-	{
 		"hrsh7th/nvim-pasta",
 		init = function()
 			vim.keymap.set({ "n", "x" }, "p", require("pasta.mapping").p)

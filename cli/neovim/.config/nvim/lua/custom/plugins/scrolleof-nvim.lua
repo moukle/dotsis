@@ -1,1 +1,5 @@
-return { "Aasim-A/scrollEOF.nvim", event = { "CursorMoved", "WinScrolled" }, opts = {} }
+return {
+	"Aasim-A/scrollEOF.nvim",
+	event = { "CursorMoved", "WinScrolled" },
+	opts = {},
+}

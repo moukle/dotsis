@@ -28,6 +28,14 @@ return { -- Collection of various small independent plugins/modules
 			mappings = { windows = true },
 		})
 
+		require("mini.splitjoin").setup({
+			mappings = {
+				toggle = "gS",
+				split = "",
+				join = "",
+			},
+		})
+
 		require("mini.align").setup({
 			mappings = {
 				start = "ga",
