@@ -47,12 +47,19 @@ autoload -Uz compinit && compinit
 
 zinit cdreplay -q
 
+# clean home
+export XDG_CONFIG_HOME="$HOME/.local/state"
+alias wget=wget --hsts-file="$XDG_DATA_HOME/wget-hsts"
+compinit -d "$XDG_CACHE_HOME"/zsh/zcompdump-"$ZSH_VERSION"
+mkdir -p $XDG_CONFIG_HOME/zsh
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # History
 HISTSIZE=5000
-HISTFILE=~/.zsh_history
+export HISTFILE="$XDG_STATE_HOME"/zsh/history
+# HISTFILE=~/.zsh_history
 SAVEHIST=$HISTSIZE
 HISTDUP=erase
 setopt appendhistory
@@ -62,6 +69,7 @@ setopt hist_ignore_all_dups
 setopt hist_save_no_dups
 setopt hist_ignore_dups
 setopt hist_find_no_dups
+
 
 # Completion styling
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
@@ -119,10 +127,6 @@ export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
 export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow -g "!{.git,node_modules}" 2> /dev/null'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
-# clean home
-export HISTFILE="$XDG_STATE_HOME"/zsh/history
-alias wget=wget --hsts-file="$XDG_DATA_HOME/wget-hsts"
-compinit -d "$XDG_CACHE_HOME"/zsh/zcompdump-"$ZSH_VERSION"
 
 # Shell integrations
 source <(starship init zsh)
