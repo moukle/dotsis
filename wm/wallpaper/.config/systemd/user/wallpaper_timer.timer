@@ -1,8 +1,8 @@
 [Unit]
-Description=Runs wallpaper changer 10 minutes
+Description=Runs wallpaper changer 30 minutes
 
 [Timer]
-OnCalendar=*:0/10
+OnCalendar=*:0/30
 Persistent=true
 
 [Install]

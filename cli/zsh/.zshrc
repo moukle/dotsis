@@ -115,18 +115,17 @@ function f() {
 
 # FZF
 export FZF_DEFAULT_OPTS=" \
-  --color=bg+:8,bg:-1,spinner:2,hl:2 \
+  --color=bg+:-1,bg:-1,spinner:2,hl:2 \
   --color=fg:-1,header:7,info:6,pointer:2 \
   --color=marker:2,fg+:7,prompt:2,hl+:3"
 
 export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
 --border="none" --border-label="" --preview-window="border-rounded"
---padding="0" --margin="0" --prompt=":: " --marker="+" --pointer="◆"
+--padding="0" --margin="0" --prompt=" " --marker="┃" --pointer=""
 --separator="─" --scrollbar="│" --layout="reverse"'
 
 export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow -g "!{.git,node_modules}" 2> /dev/null'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-
 
 # Shell integrations
 source <(starship init zsh)

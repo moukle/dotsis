@@ -2,4 +2,4 @@
 Description=Wallpaper changer
 
 [Service]
-ExecStart=/home/mori/.local/bin/wallpaper_timer.sh /home/mori/Pictures/Walls/Krumm 4 23
+ExecStart=/home/mori/.local/bin/wallpaper_timer.sh /home/mori/Pictures/Walls/annie "random" 8 23 

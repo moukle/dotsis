@@ -1,4 +1,4 @@
-Defaults env_reset,pwfeedback
+Defaults env_reset,pwfeedback,insults
 Defaults passwd_timeout=0
 
 root ALL=(ALL:ALL) ALL

@@ -1,1 +1,1 @@
-return { "chrisgrieser/nvim-various-textobjs", lazy = false, opts = { useDefaultKeymaps = true } }
+return { "chrisgrieser/nvim-various-textobjs", lazy = false, opts = { useDefaults = true } }

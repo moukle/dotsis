@@ -7,8 +7,8 @@
   width = (0, 700)
   height = 120
 
-  origin = top-right
-  offset = 20x20
+  origin = top-center
+  offset = 50x50
   scale = 1
   corner_radius = 18
 
@@ -40,7 +40,7 @@
   # format = "<b>%s</b>\n%b"
   # format = "<b>%a</b>\n<i>%s</i>%p\n%b"
   # format = "<span rise='-4000' font_desc='icomoon 21'></span>  <span foreground='#f4f3ee'>%s</span>\n<span foreground='#3A435A' rise='-4000' font_desc='icomoon 21'></span>  <span foreground='#f4f3ee'>%b</span>"
-  format = "<span rise='-4000' font_desc='icomoon 21'></span>  <span foreground='#f4f3ee'>%s</span>\n<span foreground='#3A435A' rise='-4000' font_desc='icomoon 21'></span>  <span foreground='#f4f3ee'>%b</span>"
+  format = "<span foreground='#f4f3ee'><b>%s</b></span>\n<span foreground='#3A435A' rise='-4000' font_desc='icomoon 21'></span>  <span foreground='#f4f3ee'>%b</span>"
   ignore_newline = yes
   stack_duplicates = true
 hide_duplicate_count = false

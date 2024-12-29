@@ -14,6 +14,6 @@ return {
 				diffview = true,
 			},
 		})
-		vim.keymap.set("n", "<leader>g", ":Neogit kind=floating<cr>", { desc = "Neo[G]it" })
+		vim.keymap.set("n", "<leader>gg", ":Neogit kind=floating<cr>", { desc = "Neo[G]it" })
 	end,
 }
