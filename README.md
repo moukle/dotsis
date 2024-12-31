@@ -42,7 +42,7 @@ To install, run:
 
 ```shell
 cd .setup
-./post_install.sh
+./setup.sh
 ```
 
 This will guide you through the installation thanks to [gum](https://github.com/charmbracelet/gum) 🪄.

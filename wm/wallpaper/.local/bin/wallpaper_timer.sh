@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-if ! hyprctl activewindow | rg -q "fullscreen: 0"; then
+if ! $(hyprctl activewindow | rg -q "fullscreen: 0"); then
     echo "Current window is in fullscreen, not changing wallpaper"
     exit 1
 fi

@@ -88,6 +88,8 @@ packages_gaming=(
     "ddnet"
     "steam"
     "discord"
+    "mangohud"
+    "gamemode"
 )
 
 packages_laptop=(

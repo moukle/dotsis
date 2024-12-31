@@ -27,10 +27,10 @@ return {
 			},
 			documentation = {
 				auto_show = true,
-				auto_show_delay_ms = 200,
+				auto_show_delay_ms = 300,
 			},
 			ghost_text = {
-				enabled = vim.g.ai_cmp,
+				enabled = true,
 			},
 		},
 
@@ -44,15 +44,11 @@ return {
 			["<C-k>"] = { "select_prev", "fallback" },
 			["<C-l>"] = { "accept", "fallback" },
 
-			-- disable a keymap from the preset
-			["<C-e>"] = {},
+			["<Tab>"] = { "snippet_forward", "fallback" },
+			["<S-Tab>"] = { "snippet_backward", "fallback" },
 
-			-- show with a list of providers
-			["<C-space>"] = {
-				function(cmp)
-					cmp.show({ providers = { "snippets" } })
-				end,
-			},
+			["<C-e>"] = { "hide" },
+			["<C-space>"] = { "show", "show_documentation", "hide_documentation" },
 		},
 	},
 	opts_extend = { "sources.default" },
