@@ -5,10 +5,10 @@
   follow = mouse
 
   width = (0, 700)
-  height = 120
+  height = (120, 120)
 
   origin = top-center
-  offset = 50x50
+  offset = (50,50)
   scale = 1
   corner_radius = 18
 
@@ -40,7 +40,7 @@
   # format = "<b>%s</b>\n%b"
   # format = "<b>%a</b>\n<i>%s</i>%p\n%b"
   # format = "<span rise='-4000' font_desc='icomoon 21'></span>  <span foreground='#f4f3ee'>%s</span>\n<span foreground='#3A435A' rise='-4000' font_desc='icomoon 21'></span>  <span foreground='#f4f3ee'>%b</span>"
-  format = "<span foreground='#f4f3ee'><b>%s</b></span>\n<span foreground='#3A435A' rise='-4000' font_desc='icomoon 21'></span>  <span foreground='#f4f3ee'>%b</span>"
+  format = "<span foreground='{foreground}'><b>%s</b></span>\n<span foreground='{color3}' font_desc='icomoon 21'></span>  <span foreground='{foreground}'>%b</span>"
   ignore_newline = yes
   stack_duplicates = true
 hide_duplicate_count = false
@@ -61,7 +61,7 @@ show_indicators = false
   icon_position = "left";
   # icon_position = off
   enable_recursive_icon_lookup = true;
-  icon_theme = Reversal-green-dark
+  icon_theme = WhiteSur
   # icon_path = /usr/share/icons/Adwaita/32x32/status/:/usr/share/icons/Adwaita/32x32/devices/:/usr/share/icons/Adwaita/32x32/legacy/:/usr/share/icons/Adwaita/32x32/emblems:/usr/share/icons/Reversal-green/status/symbolic/
   min_icon_size = 60
   max_icon_size = 80

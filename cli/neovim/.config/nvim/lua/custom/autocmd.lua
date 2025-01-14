@@ -39,10 +39,10 @@ vim.api.nvim_create_autocmd({ "VimLeave", "VimSuspend" }, {
 vim.cmd([[
 augroup kitty_mp
     autocmd!
-    au VimLeave * if !empty($KITTY_WINDOW_ID) | :silent !kitty @ set-spacing padding=10
-    au VimSuspend * if !empty($KITTY_WINDOW_ID) | :silent !kitty @ set-spacing padding=10
-
-    au VimEnter * if !empty($KITTY_WINDOW_ID) | :silent !kitty @ set-spacing padding=0
-    au VimResume * if !empty($KITTY_WINDOW_ID) | :silent !kitty @ set-spacing padding=0
+    " au VimLeave * if !empty($KITTY_WINDOW_ID) | :silent !kitty @ set-spacing padding=10
+    " au VimSuspend * if !empty($KITTY_WINDOW_ID) | :silent !kitty @ set-spacing padding=10
+    "
+    " au VimEnter * if !empty($KITTY_WINDOW_ID) | :silent !kitty @ set-spacing padding=0
+    " au VimResume * if !empty($KITTY_WINDOW_ID) | :silent !kitty @ set-spacing padding=0
 augroup END
 ]])

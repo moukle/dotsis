@@ -5,9 +5,13 @@ return {
 	config = function()
 		vim.opt.laststatus = 3
 
+		local custom_catppuccin = require("catppuccin.utils.lualine")("macchiato")
+		custom_catppuccin.normal.c.bg = "NONE"
+
 		require("lualine").setup({
 			globalstatus = true,
 			options = {
+				theme = custom_catppuccin,
 				disabled_filetypes = { winbar = {}, statusline = { "neo-tree" } },
 				component_separators = "",
 				section_separators = { left = "", right = "" },
@@ -19,8 +23,8 @@ return {
 						fmt = function(str)
 							return str:sub(1, 1)
 						end,
-						-- separator = { left = "", right = "" },
-						separator = { left = "", right = "" },
+						separator = { left = "", right = "" },
+						-- separator = { left = "", right = "" },
 						right_padding = 2,
 					},
 				},
@@ -29,8 +33,8 @@ return {
 				lualine_x = {},
 				lualine_y = {},
 				lualine_z = {
-					-- { "branch", separator = { left = "", right = "" }, left_padding = 2 },
-					{ "branch", separator = { left = "", right = "" } },
+					{ "branch", separator = { left = "", right = "" }, left_padding = 2 },
+					-- { "branch", separator = { left = "", right = "" } },
 				},
 			},
 			inactive_sections = {

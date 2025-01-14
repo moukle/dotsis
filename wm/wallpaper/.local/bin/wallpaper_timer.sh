@@ -49,9 +49,9 @@ else
     image_index=$(echo $((1 + $RANDOM % N)))
 fi
 
-
 # Desired wallpaper
-desired_wallpaper="$WALLPAPER_DIR/$image_index.jpg"
+list=($(ls $WALLPAPER_DIR))
+desired_wallpaper="$WALLPAPER_DIR/${list[$image_index]}"
 
 # Get the current wallpapers for all monitors
 current_wallpapers=$(swww query | grep 'currently displaying:' | awk -F 'currently displaying: ' '{print $2}' | sed 's/^image://g' | tr -d '[:space:]')

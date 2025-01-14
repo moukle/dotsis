@@ -1,7 +1,16 @@
 return {
 	{ "folke/tokyonight.nvim" },
 	{ "neanias/everforest-nvim" },
-	{ "navarasu/onedark.nvim" },
+	{
+		"navarasu/onedark.nvim",
+		init = function()
+			require("onedark").setup({
+				-- Main options --
+				-- style = "dark", -- Default theme style. Choose between 'dark', 'darker', 'cool', 'deep', 'warm', 'warmer' and 'light'
+				-- transparent = true, -- Show/hide background
+			})
+		end,
+	},
 	{ "comfysage/evergarden" },
 	{ "rose-pine/neovim", as = "rose-pine" },
 	{ "nyoom-engineering/oxocarbon.nvim" },
@@ -15,6 +24,7 @@ return {
 					light = "latte",
 					dark = "macchiato",
 				},
+				-- transparent_background = true,
 				integrations = {
 					telescope = { enabled = true, style = "nvchad" },
 					barbar = true,
@@ -28,6 +38,10 @@ return {
 				},
 				custom_highlights = function(C)
 					return {
+						NeoTreeNormal = { bg = C.none },
+						NeoTreeNormalNC = { bg = C.none },
+						NeoTreeWinSeparator = { bg = C.none, fg = C.crust },
+
 						-- BufferDefaultTabpageFill = { bg = C.none },
 
 						FloatBorder = { fg = C.red },

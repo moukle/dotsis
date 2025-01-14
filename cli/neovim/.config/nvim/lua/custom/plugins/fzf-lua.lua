@@ -1,6 +1,7 @@
 return {
 	"ibhagwan/fzf-lua",
 	lazy = false,
+	enabled = false,
 	-- optional for icon support
 	dependencies = {
 		"nvim-tree/nvim-web-devicons",
@@ -56,6 +57,10 @@ return {
 			files = {
 				prompt = " ",
 				cwd_prompt = false,
+			},
+
+			grep = {
+				rg_opts = "--hidden --column --line-number --no-heading --color=always --smart-case --max-columns=4096 -e",
 			},
 
 			defaults = {
