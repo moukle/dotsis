@@ -1,0 +1,25 @@
+font-family = JetBrainsMono Nerd Font
+font-size = 18
+# adjust-font-baseline = 110
+
+shell-integration-features = cursor, no-cursor, sudo, no-sudo, title, no-title
+cursor-invert-fg-bg = true
+
+window-decoration = false
+# window-height = 05
+# window-width = 05
+window-padding-x = 10
+window-padding-y = 10
+window-padding-balance = true
+window-theme = ghostty
+
+# working-directory = inherit
+copy-on-select = true
+confirm-close-surface = false
+
+theme = catppuccin-mocha
+background = 000000
+palette = 0=#252525
+palette = 8=#454545
+
+

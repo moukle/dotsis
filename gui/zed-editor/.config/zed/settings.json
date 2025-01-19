@@ -1,4 +1,8 @@
 {
+  "show_inline_completions": false,
+  "inline_completions": {
+    "disabled_globs": [".env", "src/_playground/bipartite_graph.jl"]
+  },
   "assistant": {
     "default_model": {
       "provider": "copilot_chat",

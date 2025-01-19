@@ -127,7 +127,7 @@ return {
 					filename = shorten_path_styled(vim.api.nvim_buf_get_name(props.buf), {
 						short_len = 3,
 						tail_count = 1,
-						head_max = 1,
+						head_max = 2,
 						head_style = { group = "Comment" },
 						tail_style = { guifg = ft_color },
 					})

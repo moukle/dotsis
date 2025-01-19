@@ -12,6 +12,9 @@ return { -- Autoformat
 		},
 	},
 	init = function()
+		local conform = require("conform")
+		conform.formatters.stylua = { prepend_args = { "--config-path=" .. vim.env.HOME .. "/.config/stylua.toml" } }
+
 		vim.keymap.set("", "<leader>f", function()
 			require("conform").format({ async = true }, function(err)
 				if not err then
