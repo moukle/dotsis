@@ -66,4 +66,4 @@ else
     swww img "$desired_wallpaper" -t random
 fi
 
-exit 1
+exit 0

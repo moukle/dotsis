@@ -88,14 +88,19 @@ _force_rehash() {
 # Aliases
 alias DDNet='mangohud gamemoderun \DDNet'
 # alias DDTet='mangohud gamemoderun \DDTet' # shit lags for hf
-alias hx="helix"
+
 alias fetch="fastfetch -c 'examples/8'"
+
 alias cleanup="sudo pacman -Rsn $(pacman -Qtdq)"
+
 alias cat='bat --theme base16'
+
 alias ls='exa --icons --group-directories-first'
 alias la='ls -a'
 alias ll='ls -l'
 alias lla='la -l'
+
+alias hx="helix"
 alias vim='nvim'
 alias v='vim'
 
@@ -106,6 +111,9 @@ alias .....='\cd ../../../..'
 
 alias mkdir='mkdir -vp'
 alias cp='cp -vR'
+
+alias jl='julia'
+alias jp='julia --project'
 
 function f() {
   local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"

@@ -1,4 +1,7 @@
 return {
-	"ecthelionvi/NeoColumn.nvim",
-	opts = {},
+    "ecthelionvi/NeoColumn.nvim",
+    enabled = false,
+    opts = {
+        NeoColumn = 120,
+    },
 }

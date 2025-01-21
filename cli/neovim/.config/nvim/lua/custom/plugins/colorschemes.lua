@@ -8,9 +8,7 @@ return {
     {
         "navarasu/onedark.nvim",
         init = function()
-            require(
-                "onedark"
-            ).setup({
+            require("onedark").setup({
                 -- Main options --
                 -- style = "dark", -- Default theme style. Choose between 'dark', 'darker', 'cool', 'deep', 'warm', 'warmer' and 'light'
                 -- transparent = true, -- Show/hide background
@@ -32,9 +30,7 @@ return {
         enabled = true,
         priority = 1000, -- Make sure to load this before all the other start plugins.
         init = function()
-            require(
-                "catppuccin"
-            ).setup({
+            require("catppuccin").setup({
                 background = {
                     light = "latte",
                     dark = "macchiato",
@@ -54,29 +50,14 @@ return {
                     which_key = true,
                     fzf = true,
                 },
-                custom_highlights = function(
-                    C
-                )
+                custom_highlights = function(C)
                     return {
-                        NeoTreeNormal = {
-                            bg = C.none,
-                        },
-                        NeoTreeNormalNC = {
-                            bg = C.none,
-                        },
-                        NeoTreeWinSeparator = {
-                            bg = C.none,
-                            fg = C.crust,
-                        },
-
-                        -- BufferDefaultTabpageFill = { bg = C.none },
-
-                        FloatBorder = {
-                            fg = C.surface0,
-                        },
-                        NormalFloat = {
-                            bg = C.crust,
-                        },
+                        NeoTreeNormal = { bg = C.none },
+                        NeoTreeNormalNC = { bg = C.none },
+                        NeoTreeWinSeparator = { bg = C.none, fg = C.crust },
+                        SnacksPicker = { bg = C.base },
+                        FloatBorder = { fg = C.surface0 },
+                        NormalFloat = { bg = C.crust },
 
                         -- CmpItemKindSnippet = { fg = C.base, bg = C.mauve },
                         -- CmpItemKindKeyword = { fg = C.base, bg = C.red },
@@ -138,20 +119,12 @@ return {
                 },
             })
             -- require("custom.colors-catppuccin")
-            vim.cmd.colorscheme(
-                "catppuccin"
-            )
+            vim.cmd.colorscheme("catppuccin")
 
             -- You can configure highlights by doing something like:
-            vim.cmd.hi(
-                "CursorLine guibg=none"
-            )
-            vim.cmd.hi(
-                "CursorLine guibg=none"
-            )
-            vim.cmd.hi(
-                "Cursor guibg=NONE guifg=NONE gui=reverse"
-            )
+            vim.cmd.hi("CursorLine guibg=none")
+            vim.cmd.hi("CursorLine guibg=none")
+            vim.cmd.hi("Cursor guibg=NONE guifg=NONE gui=reverse")
         end,
     },
 }

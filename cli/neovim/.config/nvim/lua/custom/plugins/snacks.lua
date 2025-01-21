@@ -3,9 +3,6 @@ return {
     enabled = true,
     priority = 1000,
     lazy = false,
-    init = function()
-        vim.cmd([[highlight SnacksPicker guibg=#000000]])
-    end,
     opts = {
         notifier = {},
         dim = {
@@ -15,9 +12,8 @@ return {
         },
         picker = {
             prompt = "  ",
-            files = {
-                hidden = true,
-            },
+            files = { hidden = true },
+            projects = { confirm = "" },
             layout = {
                 layout = {
                     box = "vertical",
@@ -57,7 +53,7 @@ return {
             preset = {
                 keys = {
                     {
-                        icon = " ",
+                        icon = "",
                         key = "f",
                         desc = "Find File",
                         action = ":lua Snacks.dashboard.pick('files')",
@@ -160,12 +156,43 @@ return {
         -- picker
 
         -- find
-        { "<leader>ff", function() Snacks.picker.files() end, desc = "Find Files", },
+        { "<leader>ff", function() Snacks.picker.files({hidden = true}) end, desc = "Find Files", },
+        -- { "<leader>ff", function() Snacks.picker.files() end, desc = "Find Files", },
         { "<leader>fr", function() Snacks.picker.recent() end, desc = "Recent" },
         { "<leader>fg", function() Snacks.picker.git_files() end, desc = "Find Files (git-files)" },
 
         { "<leader>bb", function() Snacks.picker.buffers() end, desc = "Buffers" },
-        { "<leader>pp", function() Snacks.picker.projects() end, desc = "Projects", },
+
+        {
+            "<leader>pp",
+            function()
+                Snacks.picker.projects({
+                    finder = "recent_projects",
+                    format = "file",
+                    win = {
+                        preview = {
+                            minimal = true,
+                        },
+                    },
+                    confirm = function(picker, item)
+                        picker:close()
+                        vim.fn.chdir(Snacks.git.get_root(item.text))
+                        if item then
+                            vim.schedule(function()
+                                Snacks.picker.recent({
+                                    filter = {
+                                        cwd = Snacks.git.get_root(item.text),
+                                    },
+                                    finder = "recent_files",
+                                    format = "file",
+                                })
+                            end)
+                        end
+                    end,
+                })
+            end,
+            desc = "Projects and recent",
+        },
 
         -- search
         { "<leader>:", function() Snacks.picker.command_history() end, desc = "Command History" },
