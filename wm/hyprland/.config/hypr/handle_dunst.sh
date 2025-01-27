@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-sleep 1
+sleep 1 # TODO: currently not starting from hyprs exec-once :(
 prev_was_ddnet=false
 
 function handle {
