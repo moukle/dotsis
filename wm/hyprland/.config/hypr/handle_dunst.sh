@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+sleep 1
 prev_was_ddnet=false
 
 function handle {

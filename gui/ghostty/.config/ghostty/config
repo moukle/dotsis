@@ -17,9 +17,9 @@ window-theme = ghostty
 copy-on-select = true
 confirm-close-surface = false
 
-theme = catppuccin-mocha
-background = 000000
-palette = 0=#252525
-palette = 8=#454545
+# theme = catppuccin-mocha
+# background = 000000
+# palette = 0=#252525
+# palette = 8=#454545
 
-
+theme = "/home/mori/.cache/wal/colors-ghostty.conf"
