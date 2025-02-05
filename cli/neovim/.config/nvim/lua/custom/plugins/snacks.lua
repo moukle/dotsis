@@ -53,30 +53,35 @@ return {
             preset = {
                 keys = {
                     {
-                        icon = "",
-                        key = "f",
-                        desc = "Find File",
-                        action = ":lua Snacks.dashboard.pick('files')",
-                    },
-                    {
                         icon = " ",
-                        key = "n",
+                        key = "i",
                         desc = "New File",
                         action = ":ene | startinsert",
                     },
-                    -- { icon = " ", key = "p", desc = "Projects", action = "require('telescope').extensions.projects.projects({})", },
+                    -- {
+                    --     icon = " ",
+                    --     key = "f",
+                    --     desc = "Find File",
+                    --     action = ":lua Snacks.dashboard.pick('files')",
+                    -- },
+                    -- {
+                    --     icon = " ",
+                    --     key = "p",
+                    --     desc = "Projects",
+                    --     action = ":lua Snacks.dashboard.pick('projects'})",
+                    -- },
                     {
                         icon = " ",
                         key = "c",
                         desc = "Config",
                         action = ":lua Snacks.dashboard.pick('files', {cwd = vim.fn.stdpath('config')})",
                     },
-                    {
-                        icon = " ",
-                        key = "s",
-                        desc = "Restore Session",
-                        section = "session",
-                    },
+                    -- {
+                    --     icon = " ",
+                    --     key = "s",
+                    --     desc = "Restore Session",
+                    --     section = "session",
+                    -- },
                     {
                         icon = " ",
                         key = "q",
@@ -101,24 +106,24 @@ return {
                     title = "Keymaps",
                     section = "keys",
                     indent = 2,
-                    padding = 1,
+                    padding = 2,
                 },
                 {
                     pane = 1,
-                    icon = " ",
+                    icon = " ",
                     title = "Recent Files",
                     section = "recent_files",
                     indent = 2,
-                    padding = 1,
+                    padding = 2,
                 },
-                {
-                    pane = 1,
-                    icon = " ",
-                    title = "Projects",
-                    section = "projects",
-                    indent = 2,
-                    padding = 1,
-                },
+                -- {
+                --     pane = 1,
+                --     icon = " ",
+                --     title = "Projects",
+                --     section = "projects",
+                --     indent = 2,
+                --     padding = 1,
+                -- },
                 {
                     section = "startup",
                 },
@@ -179,11 +184,12 @@ return {
                         vim.fn.chdir(Snacks.git.get_root(item.text))
                         if item then
                             vim.schedule(function()
-                                Snacks.picker.recent({
+                                Snacks.picker.files({
                                     filter = {
                                         cwd = Snacks.git.get_root(item.text),
                                     },
-                                    finder = "recent_files",
+                                    -- finder = "recent_files",
+                                    hidden = true,
                                     format = "file",
                                 })
                             end)
@@ -196,6 +202,7 @@ return {
 
         -- search
         { "<leader>:", function() Snacks.picker.command_history() end, desc = "Command History" },
+        { "<leader>/", function() Snacks.picker.grep({hidden=true}) end, desc = "Grep" },
         { "<leader>sC", function() Snacks.picker.commands() end, desc = "Commands" },
         { "<leader>sB", function() Snacks.picker.grep_buffers() end, desc = "Grep Open Buffers" },
         { "<leader>sH", function() Snacks.picker.highlights() end, desc = "Highlights" },

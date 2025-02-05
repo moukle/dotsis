@@ -1,5 +1,5 @@
 font-family = JetBrainsMono Nerd Font
-font-size = 18
+font-size = 16
 # adjust-font-baseline = 110
 
 shell-integration-features = cursor, no-cursor, sudo, no-sudo, title, no-title
