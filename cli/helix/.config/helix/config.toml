@@ -1,8 +1,9 @@
-theme = "catppuccin_oled"
+theme = "catppuccin_light"
 
 [editor]
 line-number = "relative"
-mouse = false
+bufferline = "always"
+# mouse = false
 
 [editor.cursor-shape]
 insert = "bar"
@@ -13,7 +14,9 @@ select = "underline"
 hidden = false
 
 [editor.statusline]
-left = ["mode", "spinner"]
-separator = ""
-right = ["file-name"]
-# mode-separator = ""
+left = ["mode", "file-modification-indicator","spinner"]
+separator = "  "
+center = ["file-name"]
+right = ["diagnostics", "selections", "version-control"]
+
+# mode-separator = "right"

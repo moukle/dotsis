@@ -46,8 +46,8 @@
 "markup.heading.2" = "peach"
 "markup.heading.3" = "yellow"
 "markup.heading.4" = "green"
-"markup.heading.5" = "blue"
-"markup.heading.6" = "mauve"
+"markup.heading.5" = "sapphire"
+"markup.heading.6" = "lavender"
 "markup.list" = "teal"
 "markup.list.unchecked" = "overlay2"
 "markup.list.checked" = "green"
@@ -70,14 +70,14 @@
 "ui.linenr.selected" = { fg = "lavender" }
 
 "ui.statusline" = { fg = "subtext1", bg = "base" }
-"ui.statusline.inactive" = { fg = "surface2", bg = "mantle" }
+"ui.statusline.inactive" = { fg = "surface2", bg = "base" }
 "ui.statusline.normal" = { fg = "base", bg = "lavender", modifiers = ["bold"] }
 "ui.statusline.insert" = { fg = "base", bg = "green", modifiers = ["bold"]  }
 "ui.statusline.select" = { fg = "base", bg = "flamingo", modifiers = ["bold"]  }
 
-"ui.popup" = { fg = "text", bg = "base0" }
+"ui.popup" = { fg = "text", bg = "base" }
 "ui.window" = { fg = "crust" }
-"ui.help" = { fg = "overlay2", bg = "surface0" }
+"ui.help" = { fg = "overlay2", bg = "base" }
 
 "ui.bufferline" = { fg = "subtext0", bg = "mantle" }
 "ui.bufferline.active" = { fg = "rosewater", bg = "crust", modifiers = ["bold"] }
@@ -127,34 +127,34 @@ info = "sky"
 hint = "teal"
 
 [palette]
-rosewater = "#f4dbd6"
-flamingo = "#f0c6c6"
-pink = "#f5bde6"
-mauve = "#c6a0f6"
-red = "#ed8796"
-maroon = "#ee99a0"
-peach = "#f5a97f"
-yellow = "#eed49f"
-green = "#a6da95"
-teal = "#8bd5ca"
-sky = "#91d7e3"
-sapphire = "#7dc4e4"
-blue = "#8aadf4"
-lavender = "#b7bdf8"
-text = "#f5f5f5"
-subtext1 = "#ebebeb"
-subtext0 = "#e0e0e0"
-overlay2 = "#cccccc"
-overlay1 = "#b3b3b3"
-overlay0 = "#999999"
-surface2 = "#424242"
-surface1 = "#3d3d3d"
-surface0 = "#202020"
-base = "#000000"
-mantle = "#101010"
-crust = "#1a1a1a"
+rosewater = "#dc8a78"
+flamingo = "#dd7878"
+pink = "#ea76cb"
+mauve = "#8839ef"
+red = "#d20f39"
+maroon = "#e64553"
+peach = "#fe640b"
+yellow = "#df8e1d"
+green = "#40a02b"
+teal = "#179299"
+sky = "#04a5e5"
+sapphire = "#209fb5"
+blue = "#1e66f5"
+lavender = "#7287fd"
+text = "#4c4f69"
+subtext1 = "#5c5f77"
+subtext0 = "#6c6f85"
+overlay2 = "#7c7f93"
+overlay1 = "#8c8fa1"
+overlay0 = "#9ca0b0"
+surface2 = "#acb0be"
+surface1 = "#bcc0cc"
+surface0 = "#f0f0f0"
+base = "#fcfcfc"
+mantle = "#e6e9ef"
+crust = "#dce0e8"
 
-cursorline = "#303347"
-secondary_cursor = "#b6a6a7"
-secondary_cursor_normal = "#b6a6a7"
-secondary_cursor_insert = "#80a57a"
+cursorline = "#e8ecf1"
+secondary_cursor = "#e1a99d"
+secondary_cursor_normal = "#e1a99d"
+secondary_cursor_insert = "#74b867"
