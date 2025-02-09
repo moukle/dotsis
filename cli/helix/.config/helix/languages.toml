@@ -1,3 +1,7 @@
+[[language]]
+name = "julia"
+auto-format = true
+
 # [language-server.julia]
 # command = "julia"
 # args = [ "--project=@LanguageServer", "--startup-file=no", "--history-file=no", "-e", "using LanguageServer; runserver()" ]

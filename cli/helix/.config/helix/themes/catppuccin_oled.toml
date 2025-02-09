@@ -75,7 +75,7 @@
 "ui.statusline.insert" = { fg = "base", bg = "green", modifiers = ["bold"]  }
 "ui.statusline.select" = { fg = "base", bg = "flamingo", modifiers = ["bold"]  }
 
-"ui.popup" = { fg = "text", bg = "base0" }
+"ui.popup" = { fg = "text", bg = "base" }
 "ui.window" = { fg = "crust" }
 "ui.help" = { fg = "overlay2", bg = "surface0" }
 

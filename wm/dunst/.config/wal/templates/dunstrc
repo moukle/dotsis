@@ -7,7 +7,7 @@
   width = (0, 700)
   height = (120, 120)
 
-  origin = top-center
+  origin = bottom-center
   offset = (50,50)
   scale = 1
   corner_radius = 18

@@ -3,7 +3,11 @@ theme = "catppuccin_light"
 [editor]
 line-number = "relative"
 bufferline = "always"
-# mouse = false
+end-of-line-diagnostics = "disable" # "hint"
+soft-wrap.enable = true
+
+[editor.inline-diagnostics]
+cursor-line = "warning"
 
 [editor.cursor-shape]
 insert = "bar"
@@ -15,8 +19,15 @@ hidden = false
 
 [editor.statusline]
 left = ["mode", "file-modification-indicator","spinner"]
-separator = "  "
 center = ["file-name"]
-right = ["diagnostics", "selections", "version-control"]
+right = ["diagnostics", "selections"] #, "version-control"]
 
-# mode-separator = "right"
+[keys.normal]
+X = "extend_to_line_end"
+
+# rempapping not yet supported :(
+# https://docs.helix-editor.com/master/keymap.html#completion-menu
+# [keys.completion-menu]
+# Ctrl-j = "next_entry"
+# Ctrl-k = "previous_entry"
+
