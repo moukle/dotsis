@@ -114,6 +114,7 @@ alias cp='cp -vR'
 
 alias jl='julia'
 alias jp='julia --project'
+alias lg='lazygit'
 
 function f() {
   local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"

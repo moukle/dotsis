@@ -15,9 +15,11 @@ if [ $test $(dconf read /org/gnome/desktop/interface/color-scheme) = "'prefer-da
     dconf write /org/gnome/desktop/interface/color-scheme "'prefer-light'"
     walr.sh ayu -l
     set_helix_theme "catppuccin_light"
+    sed -i "s/--dark/--light/" "${HOME}/.config/lazygit/config.yml"
 else
     # switch to dark
     dconf write /org/gnome/desktop/interface/color-scheme "'prefer-dark'"
     walr.sh hal
     set_helix_theme "catppuccin_oled"
+    sed -i "s/--light/--dark/" "${HOME}/.config/lazygit/config.yml"
 fi
