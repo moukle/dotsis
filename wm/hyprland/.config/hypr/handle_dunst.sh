@@ -1,13 +1,14 @@
 #!/usr/bin/env bash
 
-sleep 1 # TODO: currently not starting from hyprs exec-once :(
+sleep 2 # TODO: currently not starting from hyprs exec-once :(
 prev_was_ddnet=false
 
 function handle {
 				if [[ ${1:0:14} == "activewindow>>" ]]; then
-								if [[ $1 == "DDNet"* ]]; then
+								if [[ $1 == *"DDNet"* ]]; then
 												prev_was_ddnet=true
 												dunstctl set-paused true
+												echo $1
 								elif $prev_was_ddnet; then
 												prev_was_ddnet=false
 												dunstctl set-paused false

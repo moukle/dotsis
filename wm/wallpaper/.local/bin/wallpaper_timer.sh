@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 
 if ! $(hyprctl activewindow | rg -q "fullscreen: 0"); then
     echo "Current window is in fullscreen, not changing wallpaper"
@@ -14,7 +14,7 @@ WALLPAPER_DIR="$1"
 # Number of wallpapers (calculate from the folder)
 N=$(ls "$WALLPAPER_DIR" | wc -l)
 
-if test $MODE = "by_day_time"; then
+if [[ $MODE == "by_day_time" ]] ; then
     # Start and End hours from arguments (default values if not provided)
     START_HOUR=${3:-4}  # Default: 4 AM
     END_HOUR=${4:-20}   # Default: 8 PM
@@ -50,8 +50,8 @@ else
 fi
 
 # Desired wallpaper
-list=($(ls $WALLPAPER_DIR))
-desired_wallpaper="$WALLPAPER_DIR/${list[$image_index]}"
+list=($(ls $WALLPAPER_DIR/*))
+desired_wallpaper="${list[$image_index]}"
 
 # Get the current wallpapers for all monitors
 current_wallpapers=$(swww query | grep 'currently displaying:' | awk -F 'currently displaying: ' '{print $2}' | sed 's/^image://g' | tr -d '[:space:]')
@@ -63,6 +63,9 @@ if echo "$current_wallpapers" | grep -q "$desired_wallpaper"; then
 else
     echo "$(date +%H:%M) Displaying Wallpaper: $desired_wallpaper"
     # notify-send "$(date +%H:%M) Displaying Wallpaper: $desired_wallpaper"
+    # echo $list
+    # echo $image_index
+    echo $desired_wallpaper
     swww img "$desired_wallpaper" -t random
 fi
 

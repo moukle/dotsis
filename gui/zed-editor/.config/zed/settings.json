@@ -1,4 +1,9 @@
 {
+  "languages": {
+    "Julia": {
+      "show_inline_completions": false
+    }
+  },
   "assistant": {
     "default_model": {
       "provider": "copilot_chat",

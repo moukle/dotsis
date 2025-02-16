@@ -1,13 +1,21 @@
-theme = "catppuccin_light"
+theme = "catppuccin_oled"
 
 [editor]
 line-number = "relative"
+color-modes = true
+# cursorline = true
 bufferline = "always"
 end-of-line-diagnostics = "disable" # "hint"
 soft-wrap.enable = true
+indent-guides.render = true
+clipboard-provider = "wayland"
 
 [editor.inline-diagnostics]
 cursor-line = "warning"
+
+[editor.lsp]
+display-messages = true
+# display-inlay-hints = true
 
 [editor.cursor-shape]
 insert = "bar"
@@ -22,8 +30,19 @@ left = ["mode", "file-modification-indicator","spinner"]
 center = ["file-name"]
 right = ["diagnostics", "selections"] #, "version-control"]
 
+[editor.statusline.mode]
+normal = "N"
+insert = "I"
+select = "S"
+
 [keys.normal]
-X = "extend_to_line_end"
+X = "extend_line_above"
+
+C-h = ["jump_view_left"]
+C-j = ["jump_view_down"]
+C-k = ["jump_view_up"]
+C-l = ["jump_view_right"]
+
 
 # rempapping not yet supported :(
 # https://docs.helix-editor.com/master/keymap.html#completion-menu

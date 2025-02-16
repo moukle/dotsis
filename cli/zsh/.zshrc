@@ -99,6 +99,9 @@ alias ls='exa --icons --group-directories-first'
 alias la='ls -a'
 alias ll='ls -l'
 alias lla='la -l'
+alias lt='exa --group --header --group-directories-first --tree --level 1'
+alias ltl='exa --group --header --group-directories-first --tree --level $1'
+alias lo='exa --group --header --group-directories-first --oneline'
 
 alias hx="helix"
 alias vim='nvim'
