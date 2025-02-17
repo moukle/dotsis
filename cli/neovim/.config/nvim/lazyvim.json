@@ -1,0 +1,18 @@
+{
+  "extras": [
+    "lazyvim.plugins.extras.coding.neogen",
+    "lazyvim.plugins.extras.coding.yanky",
+    "lazyvim.plugins.extras.editor.dial",
+    "lazyvim.plugins.extras.editor.inc-rename",
+    "lazyvim.plugins.extras.editor.mini-move",
+    "lazyvim.plugins.extras.editor.neo-tree",
+    "lazyvim.plugins.extras.lang.markdown",
+    "lazyvim.plugins.extras.ui.indent-blankline",
+    "lazyvim.plugins.extras.util.mini-hipatterns"
+  ],
+  "install_version": 8,
+  "news": {
+    "NEWS.md": "10960"
+  },
+  "version": 8
+}
