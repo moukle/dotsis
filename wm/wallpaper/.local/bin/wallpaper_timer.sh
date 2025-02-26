@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 
-if ! $(hyprctl activewindow | rg -q "fullscreen: 0"); then
+if $(hyprctl activewindow | rg -q "fullscreen: 2"); then
     echo "Current window is in fullscreen, not changing wallpaper"
     exit 1
 fi

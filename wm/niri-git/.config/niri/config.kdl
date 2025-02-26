@@ -30,13 +30,6 @@ input {
 }
 
 output "DP-1" {
-    position x=0 y=0
-    mode "3820x2160@59.997"
-}
-
-output "DP-2" {
-    position x=-1920 y=0
-    mode "1920x1080@143.996"
 }
 
 animations {
@@ -75,7 +68,7 @@ cursor {
 
 // hotkey-overlay { skip-at-startup; }
 binds {
-    Mod+Return { spawn "kitty"; }
+    Mod+Return { spawn "ghostty"; }
     Mod+D { spawn "anyrun"; }
     // Mod+V { spawn "sh" "-c" "cliphist list | fuzzel --dmenu | cliphist decode | wl-copy"; }
 

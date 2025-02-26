@@ -33,6 +33,8 @@ zinit light Aloxaf/fzf-tab
 zinit light b4b4r07/enhancd
 zinit light MichaelAquilina/zsh-auto-notify
 
+ZSH_HIGHLIGHT_STYLES[path]='fg=blue,underline'
+
 # Add in snippets
 zinit snippet OMZP::git
 zinit snippet OMZP::sudo
@@ -44,6 +46,10 @@ zinit snippet OMZP::extract
 
 # Load completions
 autoload -Uz compinit && compinit
+
+# Let me delete sub-words (paths)
+autoload -U select-word-style
+select-word-style bash
 
 zinit cdreplay -q
 
@@ -86,7 +92,6 @@ _force_rehash() {
 }
 
 # Aliases
-alias DDNet='mangohud gamemoderun \DDNet'
 # alias DDTet='mangohud gamemoderun \DDTet' # shit lags for hf
 
 alias fetch="fastfetch -c 'examples/8'"
@@ -114,10 +119,25 @@ alias .....='\cd ../../../..'
 
 alias mkdir='mkdir -vp'
 alias cp='cp -vR'
+alias cpv='rsync -ah --progress'
 
 alias jl='julia'
 alias jp='julia --project'
 alias lg='lazygit'
+
+alias gnome='XDG_SESSION_TYPE=wayland dbus-run-session gnome-session'
+
+function DDNet() {
+    # mute notifications when ddnet focused
+    . $HOME/.config/hypr/handle_dunst.sh &
+    BG_PID=$!
+
+    # run ddnet with stats
+    mangohud gamemoderun DDNet
+
+    # kill bg job
+    kill $BG_PID
+}
 
 function f() {
   local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"

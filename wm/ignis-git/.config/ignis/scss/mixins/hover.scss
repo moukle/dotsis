@@ -1,0 +1,12 @@
+@mixin hover($bg, $alpha: 1.0) {
+    background-color: rgba($bg, $alpha);
+
+    &:hover {
+        @if $darkmode == true {
+            background-color: rgba(lighten($bg, 5%), $alpha);
+        }
+        @else {
+            background-color: rgba(darken($bg, 5%), $alpha);
+        }
+    }
+}
