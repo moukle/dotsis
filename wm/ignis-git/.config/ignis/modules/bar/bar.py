@@ -32,7 +32,7 @@ class Bar(Widget.RevealerWindow):
             child=Widget.EventBox(
                 css_classes=["bar-widget"],
                 child=[bar_revealer],
-                on_hover = lambda x:bar_revealer.set_reveal_child(True),
+                # on_hover = lambda x:bar_revealer.set_reveal_child(True),
                 # on_hover_lost = lambda x:bar_revealer.set_reveal_child(False)
             ),
             css_classes=["unset"],

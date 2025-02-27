@@ -35,9 +35,9 @@ class AppItem(Widget.Button):
         )
 
 
-class Apps(Widget.Box):
+class Apps(Widget.EventBox):
     def __init__(self):
-        super().__init__(
+        apps_main = Widget.Box(
             child=applications.bind(
                 "pinned",
                 transform=lambda value: [AppItem(app) for app in value]
@@ -49,4 +49,18 @@ class Apps(Widget.Box):
                     )
                 ],
             )
+        )
+
+        apps_revealer = Widget.Revealer(
+            hexpand=True,
+            child = apps_main,
+            transition_type = 'slide_up',
+            transition_duration=0,
+            reveal_child = False,
+        )
+
+        super().__init__(
+                child=[apps_revealer],
+                on_hover = lambda x:apps_revealer.set_reveal_child(True),
+                on_hover_lost = lambda x:apps_revealer.set_reveal_child(False)
         )

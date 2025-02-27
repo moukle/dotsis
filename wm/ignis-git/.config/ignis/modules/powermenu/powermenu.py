@@ -43,15 +43,15 @@ class RebootButton(PowermenuButton):
         )
 
 
-class SuspendButton(PowermenuButton):
+class LockButton(PowermenuButton):
     def __init__(self):
         super().__init__(
-            label="Suspend", icon_name="night-light-symbolic", on_click=self.__invoke
+            label="Lock", icon_name="system-lock-screen-symbolic", on_click=self.__invoke
         )
 
     def __invoke(self, *args) -> None:
         app.close_window("ignis_POWERMENU")
-        create_exec_task("systemctl suspend && hyprlock")
+        create_exec_task("hyprlock")
 
 
 class HyprlandExitButton(PowermenuButton):
@@ -79,7 +79,7 @@ class Powermenu(Widget.Window):
                 ),
                 Widget.Box(
                     child=[
-                        SuspendButton(),
+                        LockButton(),
                         HyprlandExitButton(),
                     ]
                 ),
