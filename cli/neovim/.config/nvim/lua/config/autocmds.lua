@@ -36,3 +36,27 @@ augroup kitty_mp
     au VimResume * if !empty($KITTY_WINDOW_ID) | :silent !kitty @ set-spacing padding=0
 augroup END
 ]])
+
+-- Typst: Pin main file
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "typst",
+  callback = function(event)
+    -- Ensure vim.g.typst_pinned is initialized as a table
+    if vim.g.typst_pinned == nil then
+      vim.g.typst_pinned = {}
+    end
+
+    -- Function to check if main.typ exists in the project root
+    local function find_main_typ()
+      local root = vim.fn.getcwd() -- Get the current working directory
+      local main_file = root .. "/main.typ"
+      return vim.fn.filereadable(main_file) == 1 and main_file or nil
+    end
+
+    local main_file = find_main_typ()
+    if main_file and not vim.g.typst_pinned[main_file] then
+      vim.g.typst_pinned[main_file] = true -- Mark as pinned
+      vim.cmd.TypstPin(main_file)
+    end
+  end,
+})

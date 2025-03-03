@@ -11,7 +11,7 @@ gui:
 git:
   paging:
     colorArg: always
-    pager: delta --paging=never --dark
+    pager: delta --paging=never --light
 customCommands:
   - key: "C"
     command: 'git commit -m "{{ .Form.Type }}{{if .Form.Scopes}}({{ .Form.Scopes }}){{end}}: {{ .Form.Description }}"'

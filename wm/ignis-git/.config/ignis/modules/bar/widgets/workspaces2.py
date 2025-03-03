@@ -12,7 +12,8 @@ from ..services import MyHyprlandService
 def truncate_title(string: str, to: int) -> str:
     defaults = {
         "Spotify Premium" : "Spotify",
-        "Zen Browser": "Zen"
+        "Zen Browser": "Zen",
+        " - Discord": "Discord",
     }
 
     if string in defaults:

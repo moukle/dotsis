@@ -57,7 +57,13 @@ return {
     },
   },
   keys = {
-    -- find
+    -- {
+    --   "<leader>ff",
+    --   function()
+    --     Snacks.picker.files({ hidden = true })
+    --   end,
+    --   desc = "Find Files",
+    -- },
     {
       "<leader>fp",
       function()

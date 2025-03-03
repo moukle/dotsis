@@ -16,13 +16,33 @@ return {
         opts = function(_, opts)
             opts.diagnostics.virtual_text = false;
             opts.diagnostics.virtual_lines = {current_line = true};
-        end,
+            opts.inlay_hints.enabled = false;
+        end
     },
 
 
     {
         "nvim-neo-tree/neo-tree.nvim",
-        opts = { close_if_last_window = true} ,
+        opts = function (_, opts)
+            opts.close_if_last_window = true;
+            opts.filesystem.filtered_items = {
+                show_hidden_count = false,
+                hide_dotfiles = false,
+                hide_by_name = {".git"}
+            };
+            opts.commands = {
+                change_dir = function(state)
+                    local node = state.tree:get_node()
+                    local path = node:get_id()
+                    vim.fn.chdir(path)
+                end
+            };
+            opts.filesystem.window = {
+                mappings = {
+                    [","] = "change_dir"
+                }};
+
+        end
     },
 
     -- add more treesitter parsers
