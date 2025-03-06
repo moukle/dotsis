@@ -32,6 +32,8 @@ return {
           -- NormalFloat = { bg = C.crust },
           Folded = { bg = C.crust, fg = C.surface2 },
 
+          MarkviewInlineCode = { bg = C.none },
+
           WhichKey = { bg = C.base },
           WhichKeyNormal = { bg = C.base },
 
@@ -72,7 +74,7 @@ return {
           surface2 = "#b5b5b5",
           surface1 = "#c4c4c4",
           surface0 = "#d4d4d4",
-          base = "#fafafa",
+          base = "#fcfcfc",
           mantle = "#ebebeb",
           crust = "#e3e3e3",
         },

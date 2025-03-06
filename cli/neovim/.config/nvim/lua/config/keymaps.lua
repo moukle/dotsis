@@ -6,7 +6,7 @@ vim.keymap.set("n", "<leader>gg", ":Neogit kind=floating<cr>", { desc = "Neo[G]i
 vim.keymap.del("n", "<leader>gG")
 
 -- Must unbind for blink compl
-vim.keymap.del("n", "<C-k>")
+-- vim.keymap.del("n", "<C-k>")
 
 -- Inspired by helix's L/H
 vim.keymap.set("n", "gl", "$")

@@ -30,18 +30,6 @@
     }
 }
 
-.kb-layout {
-    border-radius: 0.5rem;
-    padding: 0 0.25rem;
-    margin: 0 0.25rem;
-    transition: 0.3s;
-    font-size: 1.3rem;
-}
-
-.kb-layout:hover {
-    background-color: rgba(white, 0.2);
-}
-
 .pinned-app {
     margin: 0 0.25rem;
     transition: 0.3s;
@@ -63,7 +51,7 @@
     // font-size: 1.3rem;
     border-radius: 1rem;
     // padding: 0.5rem;
-    margin: 1 0.5rem;
+    margin: 0rem 0.5rem;
     margin-left: 0;
 }
 
@@ -152,4 +140,36 @@
 .battery-percent {
     color: $onSurface;
     margin-right: 0.3rem;
+}
+
+.ddnet-open {
+    margin: 0rem 0.5rem;
+    // @include hover($primary)
+    &.active {
+        background-color: $primary;
+        color: $surface;
+
+        .record-indicator {
+            color: $surface;
+        }
+
+        @include hover($primary)
+    }
+}
+
+.ddnet-center {
+  @include window;
+  min-width: 20rem;
+
+  .ddnet-center-widget {
+    padding: 1rem;
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+  }
+}
+
+.separator {
+  padding: 0.04rem;
+  margin: 0.7rem 0.5rem;
+  background: rgba($onSurface, 0.5);
 }

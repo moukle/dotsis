@@ -1,15 +1,18 @@
-from ignis.widgets import Widget
-from .widgets import StatusPill, Tray, KeyboardLayout, Battery, Apps, Workspaces, Workspaces2
+from ignis.widgets import Widget, separator
+from .widgets import StatusPill, Tray, Battery, Apps, Workspaces, DDNet
 
 class Bar(Widget.RevealerWindow):
     __gtype_name__ = "Bar"
 
+
     def __init__(self, monitor: int):
+        separator = Widget.Separator(css_classes=["separator"])
+
         bar_main = Widget.CenterBox(
-            start_widget=Widget.Box(child=[Workspaces2()]),
+            start_widget=Widget.Box(child=[Workspaces()]),
             center_widget=Widget.Box(child=[Apps()]),
             end_widget=Widget.Box(
-                child=[Tray(), Battery(), StatusPill(monitor)]
+                child=[Tray(), DDNet(), Battery(), separator, StatusPill(monitor)]
             )
         )
 
