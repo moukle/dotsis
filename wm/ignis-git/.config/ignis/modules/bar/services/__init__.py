@@ -1,4 +1,4 @@
 from .hyprland import MyHyprlandService
-from .ddnet import DDNetService
+from .ddnet import DDNetService, OnlineFriend
 
-__all__ = [MyHyprlandService, DDNetService]
+__all__ = [MyHyprlandService, DDNetService, OnlineFriend]

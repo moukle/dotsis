@@ -1,4 +1,4 @@
-from ..services import DDNetService
+from ..services import DDNetService, OnlineFriend
 
 import ignis.widgets as Widget
 from ignis.app import IgnisApp
@@ -7,7 +7,20 @@ from ignis.app import IgnisApp
 ddnet = DDNetService.get_default()
 app = IgnisApp.get_default()
 
+
 class FriendsDetailed(Widget.Window):
+    def FriendButton(self, f: OnlineFriend):
+        return Widget.Button(
+            css_classes=["ddnet-friend-button", "unset"],
+            child= Widget.CenterBox(
+                vertical=False,
+                start_widget=Widget.Label(label=f.name),
+                # center_widget=Widget.Label(label=f.server),
+                end_widget=Widget.Label(label=f.map),
+            ),
+            on_click=lambda _: f.join()
+        )
+
     def __init__(self):
         super().__init__(
             visible=False,
@@ -28,19 +41,14 @@ class FriendsDetailed(Widget.Window):
                 child = ddnet.bind(
                         "friends_online",
                         transform= lambda friends_online: [
-                            Widget.CenterBox(
-                                vertical=False,
-                                start_widget=Widget.Label(label=f.name),
-                                # center_widget=Widget.Label(label=f.server),
-                                end_widget=Widget.Label(label=f.map),
-                            )
+                            self.FriendButton(f)
                             for f in friends_online]
+                            # # DDNet f"'connect + {f.url}'"
                 ),
             ),
         )
 
 FriendsDetailed()
-
 
 class DDNet(Widget.Button):
     def __init__(self):
@@ -66,7 +74,9 @@ class DDNet(Widget.Button):
                 else ["clock", "unset"],
             ),
 
-            on_click=self.__on_click
+            on_click=self.__on_click,
+            # on_hover=self._friends_detailed.set_property("visible",True),
+            # on_hover_lost=self._friends_detailed.set_property("visible",False),
         )
 
     def __on_click(self, _) -> None:

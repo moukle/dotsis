@@ -50,6 +50,7 @@ class DDNetService(BaseService):
             {
                 "name": client["name"], 
                 "server": server["info"]["name"],
+                "server_ip": server["addresses"][0],
                 "map": server["info"]["map"]["name"]
             }
             for server in servers

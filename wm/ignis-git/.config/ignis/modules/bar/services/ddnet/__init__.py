@@ -1,3 +1,3 @@
-from .service import DDNetService
+from .service import DDNetService, OnlineFriend
 
-__all__ = ["DDNetService"]
+__all__ = ["DDNetService", "OnlineFriend"]

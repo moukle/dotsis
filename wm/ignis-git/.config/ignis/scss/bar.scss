@@ -153,18 +153,24 @@
             color: $surface;
         }
 
-        @include hover($primary)
+        @include hover($primary);
     }
 }
 
 .ddnet-center {
   @include window;
-  min-width: 20rem;
+  min-width: 15rem;
 
   .ddnet-center-widget {
-    padding: 1rem;
-    margin-bottom: 1rem;
+    // padding: 1rem;
+    // margin-bottom: 1rem;
     font-size: 1.3rem;
+
+    .ddnet-friend-button {
+        @include hover($surface);
+        padding: 0.5rem;
+        border-radius: 0.5rem;
+    }
   }
 }
 
