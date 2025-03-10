@@ -2,7 +2,7 @@
 -- Default options that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/options.lua
 -- Add any additional options here
 vim.cmd.hi("Cursor guibg=NONE guifg=NONE gui=reverse")
-vim.opt.cursorline = false
+-- vim.opt.cursorline = false
 
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4

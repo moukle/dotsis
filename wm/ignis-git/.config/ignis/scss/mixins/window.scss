@@ -1,8 +1,8 @@
-@mixin window {
-    background-color: $surface;
+@mixin window($alpha: 1.0) {
+    background-color: rgba($surface, $alpha);
     border-radius: 1rem;
     padding: 1rem;
     color: $onSurface;
-    box-shadow: 0 0 4px 2px $shadow;
+    // box-shadow: 0 0 4px 2px $shadow;
     margin: 1rem;
 }

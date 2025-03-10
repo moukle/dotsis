@@ -1,5 +1,5 @@
 .launcher {
-    @include window;
+    @include window(0.9);
     margin-top: 20rem;
 }
 
@@ -9,7 +9,7 @@
 
 .launcher-search-box {
     padding: 0.75rem 1rem;
-    background-color: $surfaceContainer;
+    background-color: rgba($surfaceContainer, 0.8);
     border-radius: 1rem;
     min-width: 30rem;
 }
@@ -20,7 +20,7 @@
 
 .launcher-app {
     all: unset;
-    @include hover($surface);
+    @include hover($surface, 0.8);
     border-radius: 1rem;
     padding: 0.5rem 0.25rem;
     border: 2px solid $surface;

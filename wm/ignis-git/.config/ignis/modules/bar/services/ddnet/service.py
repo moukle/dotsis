@@ -34,7 +34,7 @@ class DDNetService(BaseService):
     @Utils.run_in_thread
     def __poll(self) -> None:
         while True:
-            sleep(10)
+            sleep(60)
             self.__update_friends_online()
 
     def __update_friends(self) -> None:

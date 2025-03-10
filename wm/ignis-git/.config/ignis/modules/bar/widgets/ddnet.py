@@ -43,7 +43,6 @@ class FriendsDetailed(Widget.Window):
                         transform= lambda friends_online: [
                             self.FriendButton(f)
                             for f in friends_online]
-                            # # DDNet f"'connect + {f.url}'"
                 ),
             ),
         )
@@ -57,9 +56,17 @@ class DDNet(Widget.Button):
         if ddnet.is_available:
             child = ddnet.bind(
                 "friends_online",
-                transform=lambda value: Widget.Label(
-                    label= "     " + str(len(value)),
-                    css_classes=["ddnet-open"]
+                transform=lambda value: Widget.Box(
+                    child = [
+                        Widget.Picture(
+                            image="/home/mori/Pictures/99_phacrum.png",
+                            width=32, height=32
+                        ),
+                        Widget.Label(
+                            label = str(len(value)),
+                            css_classes=["ddnet-open"]
+                        )
+                    ] if len(value) > 0 else []
                 )
             )
         else:
@@ -81,4 +88,3 @@ class DDNet(Widget.Button):
 
     def __on_click(self, _) -> None:
         self._friends_detailed.visible = not self._friends_detailed.visible
-
