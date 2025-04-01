@@ -1,10 +1,13 @@
 return {
   "OXY2DEV/markview.nvim",
-  lazy = false,
+  lazy = true,
+  -- event = VimEnter,
+  event = InsertEnter,
   init = function()
-    local presets = require("markview.presets").headings
+    local presets = require("markview.presets")
 
     require("markview").setup({
+      -- headings = presets.headings.decorated,
       highlight_groups = {
         MarkviewCode = { bg = "none" },
         MarkviewInlineCode = { bg = "none" },

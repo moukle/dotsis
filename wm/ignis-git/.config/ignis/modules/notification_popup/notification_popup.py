@@ -67,7 +67,7 @@ class PopupBox(Widget.Box):
 class NotificationPopup(Widget.Window):
     def __init__(self, monitor: int):
         super().__init__(
-            anchor=["right", "top", "bottom"],
+            anchor=["top"],
             monitor=monitor,
             namespace=f"ignis_NOTIFICATION_POPUP_{monitor}",
             layer="top",

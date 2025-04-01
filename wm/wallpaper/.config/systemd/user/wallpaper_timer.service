@@ -4,4 +4,5 @@ Description=Wallpaper changer
 [Service]
 ; ExecStart=/home/mori/.local/bin/wallpaper_timer.sh /home/mori/Pictures/Walls/psyww/walls/rotation "random" 8 23
 ; ExecStart=/home/mori/.local/bin/wallpaper_timer.sh /home/mori/Pictures/Walls/annie "random" 8 23
-ExecStart=/home/mori/.local/bin/wallpaper_timer.sh /home/mori/Pictures/Walls/Krumm "by_day_time" 4 20
+; ExecStart=/home/mori/.local/bin/wallpaper_timer.sh /home/mori/Pictures/Walls/Krumm "by_day_time" 4 20
+ExecStart=/home/mori/.local/bin/wallpaper_timer.sh /home/mori/Pictures/Walls/spring "by_day_time" 4 20

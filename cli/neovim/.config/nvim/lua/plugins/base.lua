@@ -1,4 +1,4 @@
--- since this is just an example spec, don't actually load anything here and return an empty spec
+-- Since this is just an example spec, don't actually load anything here and return an empty spec
 -- stylua: ignore
 return {
     -- disable bufferline
@@ -7,7 +7,7 @@ return {
     {
         "neovim/nvim-lspconfig",
         opts = function(_, opts)
-            -- opts.diagnostics.virtual_text = false;
+            opts.diagnostics.virtual_text = false;
             -- opts.diagnostics.virtual_lines = {current_line = true};
             opts.inlay_hints.enabled = false;
         end
@@ -16,7 +16,7 @@ return {
     {
         "rachartier/tiny-inline-diagnostic.nvim",
         event = "VeryLazy", -- Or `LspAttach`
-        priority = 1000, -- needs to be loaded in first
+        priority = 1000, -- Needs to be loaded in first
         config = function()
             require('tiny-inline-diagnostic').setup({
                 hi = { background = "none"}
@@ -25,7 +25,7 @@ return {
         end
     },
 
-    { -- Highlight todo, notes, etc in comments
+    { -- Highlight to-do, notes, etc in comments
         "folke/todo-comments.nvim",
         opts = {
             signs = true,
@@ -62,7 +62,7 @@ return {
         end
     },
 
-    -- add more treesitter parsers
+    -- Add more treesitter parsers
     {
         "nvim-treesitter/nvim-treesitter",
         opts = {
@@ -81,7 +81,7 @@ return {
         },
     },
 
-    -- add any tools you want to have installed below
+    -- Add any tools I want to have installed
     {
         "williamboman/mason.nvim",
         opts = {

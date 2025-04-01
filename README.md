@@ -53,3 +53,4 @@ This will guide you through the installation thanks to [gum](https://github.com/
 ## Extra
 
 - Firefox [Theme](https://github.com/artsyfriedchicken/EdgyArc-fr)
+- Zen Transparency: [css](https://github.com/sameerasw/my-internet) [mod](https://zen-browser.app/mods/642854b5-88b4-4c40-b256-e035532109df/)

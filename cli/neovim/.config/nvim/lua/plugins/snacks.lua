@@ -3,7 +3,8 @@ return {
   opts = {
     notifier = { enabled = false },
     words = { enabled = true },
-    scroll = { animate = { duration = { total = 100 } } },
+    -- scroll = { animate = { duration = { total = 100 } } },
+    scroll = { enabled = false },
     picker = {
       layout = {
         layout = {

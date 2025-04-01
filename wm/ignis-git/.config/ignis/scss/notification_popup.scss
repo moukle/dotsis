@@ -2,8 +2,13 @@
     @include window;
     min-width: 25rem;
 
+    & .notification-icon {
+      margin-right: 1.0rem;
+    }
+
     & .notification-close {
         @include hover($surface);
+        color: $surfaceBright;
     }
 
     & .notification-action {

@@ -70,6 +70,7 @@ class NormalLayout(Widget.Box):
                             image=notification.icon
                             if notification.icon
                             else "dialog-information-symbolic",
+                            css_classes=["notification-icon"],
                             pixel_size=48,
                             halign="start",
                             valign="start",

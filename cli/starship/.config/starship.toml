@@ -1,7 +1,19 @@
 add_newline = true
 palette = "catppuccin_frappe"
-format = "$jobs$character"
+format = """
+$julia$python\
+$hostname\
+$jobs$character
+"""
 right_format = "$directory$git_branch$git_status$cmd_duration"
+
+[python]
+format = "$symbol"
+
+[julia]
+format = "[$symbol]($style)"
+symbol = " "
+style = "bg:none fg:yellow"
 
 [character]
 error_symbol = "[](red)"
