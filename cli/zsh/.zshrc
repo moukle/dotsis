@@ -127,6 +127,10 @@ alias lg='lazygit'
 
 alias gnome='XDG_SESSION_TYPE=wayland dbus-run-session gnome-session'
 
+alias is_wsl='cat /proc/version | grep -q WSL2'
+alias copy='if is_wsl; then win32yank.exe -i; else wl-copy; fi'
+alias -g C='| copy'
+
 # function DDNet() {
 #     # mute notifications when ddnet focused
 #     . $HOME/.config/hypr/handle_dunst.sh &

@@ -3,7 +3,7 @@
 -- Add any additional keymaps here
 
 vim.keymap.set("n", "<leader>gg", ":Neogit kind=floating<cr>", { desc = "Neo[G]it" })
-vim.keymap.del("n", "<leader>gG")
+-- vim.keymap.del("n", "<leader>gG")
 
 -- Must unbind for blink compl
 -- vim.keymap.del("n", "<C-k>")

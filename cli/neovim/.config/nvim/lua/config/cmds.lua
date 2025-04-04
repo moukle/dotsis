@@ -50,3 +50,11 @@ end, {
   nargs = "?",
   complete = "file",
 })
+
+function _G.IsWSL()
+  local version = vim.fn.readfile("/proc/version", "", 1)
+  if vim.tbl_isempty(version) then
+    error("Could not read /proc/version")
+  end
+  return string.find(version[1], "microsoft")
+end
