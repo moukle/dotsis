@@ -1,5 +1,5 @@
 add_newline = true
-palette = "catppuccin_frappe"
+# palette = "catppuccin_frappe"
 format = """
 $julia$python\
 $hostname\

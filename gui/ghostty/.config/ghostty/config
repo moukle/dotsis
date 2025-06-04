@@ -1,11 +1,11 @@
 # font-family = JetBrainsMono Nerd Font
-font-family = Maple Mono
+font-family = Maple Mono NF
 # font-family = Julia Mono
 # font-family = Pragmaveska Nerd Font
 # font-family = Iosvmata
-font-size = 16
+font-size = 14
 # adjust-font-baseline = 115%
-adjust-cell-height = 15%
+adjust-cell-height = 18%
 
 shell-integration-features = cursor, no-cursor, sudo, no-sudo, title, no-title
 cursor-invert-fg-bg = true

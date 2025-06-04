@@ -3,13 +3,27 @@
 return {
     -- disable bufferline
     { "akinsho/bufferline.nvim", enabled = false },
-
+    {
+        "lukas-reineke/indent-blankline.nvim",
+        opts = function(_, opts)
+            opts.scope.enabled = false;
+        end
+    },
     {
         "neovim/nvim-lspconfig",
         opts = function(_, opts)
             opts.diagnostics.virtual_text = false;
             -- opts.diagnostics.virtual_lines = {current_line = true};
             opts.inlay_hints.enabled = false;
+
+            opts.diagnostics.signs = {
+                text = {
+                [vim.diagnostic.severity.ERROR] = "●",
+                [vim.diagnostic.severity.WARN] = "●",
+                [vim.diagnostic.severity.HINT] = "●",
+                [vim.diagnostic.severity.INFO] = "●",
+                }
+            };
         end
     },
 

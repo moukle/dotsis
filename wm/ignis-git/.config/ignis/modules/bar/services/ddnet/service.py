@@ -24,8 +24,15 @@ class DDNetService(BaseService):
 
     @IgnisProperty
     def is_available(self) -> bool:
+        def internet_connection():
+            try:
+                response = requests.get(DEFAULT_ENDPOINT_URL, timeout=5)
+                return True
+            except requests.ConnectionError:
+                return False
+
         return (os.path.exists(DEFAULT_DDNET_SETTINGS) and
-                requests.get(DEFAULT_ENDPOINT_URL).status_code == 200)
+                internet_connection())
 
     @IgnisProperty
     def friends_online(self) -> List[OnlineFriend]:

@@ -1,4 +1,9 @@
-[[manager.prepend_keymap]]
+[[mgr.prepend_keymap]]
 on   = [ "<C-b>" ]
 run  = 'shell --confirm "set_wall.sh $@"'
 desc = "Just for test!"
+
+[[mgr.prepend_keymap]]
+on   = [ "c", "a" ]
+run  = "plugin compress"
+desc = "Archive selected files"

@@ -155,6 +155,7 @@ return {
             guibg = colors.surface0,
           },
           { "", guibg = colors.base, guifg = colors.surface0 },
+          -- { "", guibg = "normal", guifg = colors.surface0 },
         }
       end,
     })
