@@ -22,6 +22,7 @@ return {
         background = {
           light = "latte",
           dark = "macchiato",
+          -- dark = "mocha",
         },
         dim_inactive = {
           -- enabled = true,
@@ -166,20 +167,20 @@ return {
           },
 
           -- oled
-          -- macchiato = {
-          --   text = "#f5f5f5",
-          --   subtext1 = "#ebebeb",
-          --   subtext0 = "#e0e0e0",
-          --   overlay2 = "#cccccc",
-          --   overlay1 = "#b3b3b3",
-          --   overlay0 = "#999999",
-          --   surface2 = "#424242",
-          --   surface1 = "#3d3d3d",
-          --   surface0 = "#202020",
-          --   base = "#000000",
-          --   mantle = "#000000",
-          --   crust = "#101010",
-          -- },
+          mocha = {
+            text = "#f5f5f5",
+            subtext1 = "#ebebeb",
+            subtext0 = "#e0e0e0",
+            overlay2 = "#cccccc",
+            overlay1 = "#b3b3b3",
+            overlay0 = "#999999",
+            surface2 = "#424242",
+            surface1 = "#3d3d3d",
+            surface0 = "#202020",
+            base = "#000000",
+            mantle = "#000000",
+            crust = "#101010",
+          },
 
           -- white
           -- latte = {

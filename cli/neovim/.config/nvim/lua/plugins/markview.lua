@@ -7,6 +7,9 @@ return {
     local presets = require("markview.presets")
 
     require("markview").setup({
+      -- https://github.com/OXY2DEV/markview.nvim/issues/365
+      experimental = { check_rtp_message = false },
+
       -- headings = presets.headings.decorated,
       highlight_groups = {
         MarkviewCode = { bg = "none" },

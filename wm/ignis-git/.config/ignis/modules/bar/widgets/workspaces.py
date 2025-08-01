@@ -99,12 +99,12 @@ class WorkspaceButton(Widget.Button):
                 center_widget = Widget.Box(
                     spacing = 8,
                     child=
-                        [Widget.Label(label=str(workspace["id"]),
+                    [Widget.Label(label=str(workspace["id"]) if workspace["id"] > 0 else "+",
                                       css_classes=["workspace-number"])] +
                         [Widget.Box(
                             spacing=3,
                             child = [
-                                Widget.Icon(image=Utils.get_app_icon_name(c["class"].lower()),
+                                Widget.Icon(image=Utils.get_app_icon_name(c["class"]) or Utils.get_app_icon_name(c["class"].lower()),
                                             pixel_size=32),
                                 Widget.Label(label=truncate_title(c["initialTitle"], 12) if c["focused"] else "",
                                              css_classes=["workspace-title"])

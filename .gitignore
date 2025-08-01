@@ -1,4 +1,11 @@
 wm/ags/.config/ags/res/*
-gaming/ddnet/.local/share/ddnet/*
 colors-catppuccin.lua
 lazy-lock.json
+
+gaming/ddnet/.local/share/ddnet/*
+!gaming/ddnet/.local/share/ddnet/settings_ddnet.cfg
+!gaming/ddnet/.local/share/ddnet/phacrum.cfg
+!gaming/ddnet/.local/share/ddnet/bootee.cfg
+!gaming/ddnet/.local/share/ddnet/assets
+gaming/ddnet/.local/share/ddnet/maps/*
+!gaming/ddnet/.local/share/ddnet/maps/bg/*

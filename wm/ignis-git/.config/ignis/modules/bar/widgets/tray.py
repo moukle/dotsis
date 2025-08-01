@@ -13,6 +13,12 @@ class TrayItem(Widget.Button):
         else:
             menu = None
 
+        # icon_name = ""
+        print(item.icon)
+        print(item.title)
+        if item.title == "spotify":
+            icon_name = item.title
+
         super().__init__(
             child=Widget.Box(
                 child=[

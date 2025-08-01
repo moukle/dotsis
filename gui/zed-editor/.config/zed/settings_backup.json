@@ -6,10 +6,10 @@
   },
   "languages": {
     "Julia": {
-      "show_edit_predictions": false
+      "show_inline_completions": false
     }
   },
-  "agent": {
+  "assistant": {
     "default_model": {
       "provider": "copilot_chat",
       "model": "gpt-3.5-turbo"
