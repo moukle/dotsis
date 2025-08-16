@@ -1,5 +1,6 @@
 return {
   "chrisgrieser/nvim-genghis",
+  enabled = false,
   dependencies = "stevearc/dressing.nvim",
   config = function()
     local keymap = vim.keymap.set
@@ -13,6 +14,6 @@ return {
     -- keymap("n", "<leader>nf", genghis.createNewFile, { desc = "[N]ew [F]ile" })
     -- keymap("n", "<leader>yf", genghis.duplicateFile, { desc = "[Y]ank and paste [F]ile" })
     -- keymap("n", "<leader>df", genghis.trashFile, { desc = "[D]elete [F]ile" })
-    keymap("x", "<leader>x", genghis.moveSelectionToNewFile, { desc = "Cut to new File" })
+    -- keymap("x", "<leader>x", genghis.moveSelectionToNewFile, { desc = "Cut to new File" })
   end,
 }

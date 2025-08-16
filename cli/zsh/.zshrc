@@ -121,6 +121,9 @@ alias mkdir='mkdir -vp'
 alias cp='cp -vR'
 alias cpv='rsync -ah --progress'
 
+alias disk='gdu'
+
+alias ju='juliaup'
 alias jl='julia'
 alias jp='julia --project'
 alias lg='lazygit'

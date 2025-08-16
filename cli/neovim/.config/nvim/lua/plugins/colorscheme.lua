@@ -61,6 +61,8 @@ return {
             WhichKey = { bg = C.base },
             WhichKeyNormal = { bg = C.base },
 
+            SnacksPickerInput = { bg = C.base, fg = C.text },
+            SnacksPickerInputCursorLine = { bg = C.base, fg = C.text },
             SnacksPickerBorder = { bg = C.base, fg = C.crust },
             SnacksPickerBoxTitle = { bg = C.base, fg = C.text },
             SnacksDashboardHeader = { fg = C.peach },

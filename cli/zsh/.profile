@@ -7,7 +7,7 @@ export PATH=$PATH:$HOME/.local/bin/zls-linux-x86_64-0.15.0-dev.202+56e25ab5
 export SDL_VIDEODRIVER=wayland
 
 # default programs
-export BROWSER=firefox
+export BROWSER=vivaldi
 export EDITOR=nvim
 
 # clean up home

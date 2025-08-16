@@ -9,12 +9,14 @@ import os
 
 from ..services import MyHyprlandService
 
+
 def truncate_title(string: str, to: int) -> str:
     defaults = {
-        "Spotify Premium" : "Spotify",
+        "Spotify Premium": "Spotify",
+        "Vivaldi - Vivaldi": "Vivaldi",
         "Zen Browser": "Zen",
         " - Discord": "Discord",
-        "org.pwmt.zathura": "Zathura"
+        "org.pwmt.zathura": "Zathura",
     }
 
     if string in defaults:
@@ -24,7 +26,10 @@ def truncate_title(string: str, to: int) -> str:
     else:
         return string
 
+
 hyprland = HyprlandService.get_default()
+
+
 class CustomHyprlandService(BaseService):
     def __init__(self):
         super().__init__()
@@ -32,7 +37,9 @@ class CustomHyprlandService(BaseService):
         self._clients: list[dict[str, Any]] = []
 
         hyprland.connect("notify::workspaces", lambda *_: self.__custom_sync_clients())
-        hyprland.connect("notify::active-window", lambda *_: self.__custom_sync_clients())
+        hyprland.connect(
+            "notify::active-window", lambda *_: self.__custom_sync_clients()
+        )
 
         self.__custom_sync_clients()
 
@@ -55,36 +62,42 @@ class CustomHyprlandService(BaseService):
         )
 
         # Get the active workspace
-        active_workspace = json.loads(Utils.exec_sh("hyprctl activeworkspace -j").stdout)
+        active_workspace = json.loads(
+            Utils.exec_sh("hyprctl activeworkspace -j").stdout
+        )
 
         # Check if the active workspace already has an entry, if not, add a placeholder entry
-        active_workspace_id = active_workspace['id']
+        active_workspace_id = active_workspace["id"]
         workspace_found = False
 
         # Check if the active workspace is already in the grouped clients
         for workspace in clients_data:
-            if workspace['id'] == active_workspace_id:
+            if workspace["id"] == active_workspace_id:
                 workspace_found = True
                 break
 
         # If no clients exist for the active workspace, add a placeholder with no clients
         if not workspace_found:
-            clients_data.append({
-                'id': active_workspace_id,
-                'clients': []  # No clients in the active workspace
-            })
+            clients_data.append(
+                {
+                    "id": active_workspace_id,
+                    "clients": [],  # No clients in the active workspace
+                }
+            )
 
         # Add the 'focused' field based on focusHistoryID
         for workspace in clients_data:
-            for client in workspace['clients']:
-                client['focused'] = (client['focusHistoryID'] == 0 and workspace_found)
-                del client['focusHistoryID']
+            for client in workspace["clients"]:
+                client["focused"] = client["focusHistoryID"] == 0 and workspace_found
+                del client["focusHistoryID"]
 
         # Update the clients list
-        self._clients = sorted(clients_data, key = lambda x: x["id"])
+        self._clients = sorted(clients_data, key=lambda x: x["id"])
         self.notify("clients")
 
+
 hyprland_clients = CustomHyprlandService.get_default()
+
 
 class WorkspaceButton(Widget.Button):
     def __init__(self, workspace: dict) -> None:
@@ -96,22 +109,35 @@ class WorkspaceButton(Widget.Button):
             child=Widget.CenterBox(
                 hexpand=False,
                 vexpand=False,
-                center_widget = Widget.Box(
-                    spacing = 8,
-                    child=
-                    [Widget.Label(label=str(workspace["id"]) if workspace["id"] > 0 else "+",
-                                      css_classes=["workspace-number"])] +
-                        [Widget.Box(
+                center_widget=Widget.Box(
+                    spacing=8,
+                    child=[
+                        Widget.Label(
+                            label=str(workspace["id"]) if workspace["id"] > 0 else "+",
+                            css_classes=["workspace-number"],
+                        )
+                    ]
+                    + [
+                        Widget.Box(
                             spacing=3,
-                            child = [
-                                Widget.Icon(image=Utils.get_app_icon_name(c["class"]) or Utils.get_app_icon_name(c["class"].lower()),
-                                            pixel_size=32),
-                                Widget.Label(label=truncate_title(c["initialTitle"], 12) if c["focused"] else "",
-                                             css_classes=["workspace-title"])
-                            ])
+                            child=[
+                                Widget.Icon(
+                                    image=Utils.get_app_icon_name(c["class"])
+                                    or Utils.get_app_icon_name(c["class"].lower()),
+                                    pixel_size=32,
+                                ),
+                                Widget.Label(
+                                    label=truncate_title(c["initialTitle"], 12)
+                                    if c["focused"]
+                                    else "",
+                                    css_classes=["workspace-title"],
+                                ),
+                            ],
+                        )
                         for c in workspace["clients"]
-                    ]),
-            )
+                    ],
+                ),
+            ),
         )
         if workspace["id"] == hyprland.active_workspace.id:
             self.add_css_class("active")

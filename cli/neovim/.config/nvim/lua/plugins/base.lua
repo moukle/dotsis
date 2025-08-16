@@ -24,6 +24,18 @@ return {
                 [vim.diagnostic.severity.INFO] = "●",
                 }
             };
+
+            -- vim.lsp.config("jetls", {
+            --     cmd = {
+            --         "julia",
+            --         "--startup-file=no",
+            --         "--history-file=no",
+            --         "--project=/home/mori/dev/JETLS.jl",
+            --         "/home/mori/dev/JETLS.jl/runserver.jl",
+            --     },
+            --     filetypes = {"julia"},
+            -- })
+            -- vim.lsp.enable("jetls")
         end,
         -- config = function()
             -- require('lspconfig')['zls'].setup {

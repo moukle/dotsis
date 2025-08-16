@@ -9,6 +9,11 @@ return {
     require("markview").setup({
       -- https://github.com/OXY2DEV/markview.nvim/issues/365
       experimental = { check_rtp_message = false },
+      preview = {
+        modes = { "n", "no", "c", "i" },
+        hybrid_modes = { "i" },
+        linewise_hybrid_mode = true,
+      },
 
       -- headings = presets.headings.decorated,
       highlight_groups = {
