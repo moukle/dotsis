@@ -3,10 +3,9 @@ return {
   dependencies = "kevinhwang91/promise-async",
   enabled = true,
   init = function()
-    vim.opt.foldcolumn = "auto:9"
+    vim.opt.foldcolumn = "0"
     vim.opt.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
     vim.opt.foldlevelstart = 99
-    vim.opt.foldenable = true
     vim.opt.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
 
     -- Set fold settings
@@ -48,7 +47,7 @@ return {
       close_fold_kinds_for_ft = {
         julia = { "string_literal" },
       },
-      fold_virt_text_handler = handler,
+      -- fold_virt_text_handler = handler,
     })
 
     vim.keymap.set("n", "zR", require("ufo").openAllFolds)

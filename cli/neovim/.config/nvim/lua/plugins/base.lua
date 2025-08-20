@@ -37,32 +37,6 @@ return {
             -- })
             -- vim.lsp.enable("jetls")
         end,
-        -- config = function()
-            -- require('lspconfig')['zls'].setup {
-            --     settings = {
-            --         zls = {
-            --             path = "/home/mori/.local/bin/zig-x86_64-linux-0.15.0-dev.847+850655f06",
-            --             -- path = "$HOME/.local/bin/zig-x86_64-linux-0.15.0-dev.847+850655f06"
-            --             Zls = {
-            --                 path = "/home/mori/.local/bin/zls-linux-x86_64-0.15.0-dev.202+56e25ab5",
-            --                 enableAutofix = true,
-            --                 enable_snippets = true,
-            --                 enable_ast_check_diagnostics = true,
-            --                 enable_autofix = true,
-            --                 enable_import_embedfile_argument_completions = true,
-            --                 warn_style = true,
-            --                 enable_semantic_tokens = true,
-            --                 enable_inlay_hints = true,
-            --                 inlay_hints_hide_redundant_param_names = true,
-            --                 inlay_hints_hide_redundant_param_names_last_token = true,
-            --                 operator_completions = true,
-            --                 include_at_in_builtins = true,
-            --                 max_detail_length = 1048576,
-            --             },
-            --         }
-            --     }
-            -- }
-        -- end
     },
 
     {
