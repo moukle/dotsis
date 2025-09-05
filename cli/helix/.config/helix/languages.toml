@@ -2,6 +2,15 @@
 name = "julia"
 auto-format = true
 
+[[language]]
+name = "typst"
+auto-format = true
+language-servers = [ "tinymist" ]
+
+[[language]]
+name = "toml"
+auto-format = true
+
 # [language-server.julia]
 # command = "julia"
 # args = [ "--project=@LanguageServer", "--startup-file=no", "--history-file=no", "-e", "using LanguageServer; runserver()" ]

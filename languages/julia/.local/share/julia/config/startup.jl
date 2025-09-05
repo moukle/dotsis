@@ -16,9 +16,9 @@
             @eval using VimBindings
             # VimBindings.Config.system_clipboard!(true)
 
-            @eval using OhMyREPL
-            @eval OhMyREPL.input_prompt!(" ", :green)
-            @eval OhMyREPL.colorscheme!("Distinguished")
+            # @eval using OhMyREPL
+            # @eval OhMyREPL.input_prompt!(" ", :green)
+            # @eval OhMyREPL.colorscheme!("Distinguished")
 
             # @eval using Suppressor
             # @eval @suppress using AbbreviatedStackTraces

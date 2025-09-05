@@ -55,16 +55,18 @@ return {
             NeoTreeNormal = { bg = C.none },
             NeoTreeNormalNC = { bg = C.none },
             NeoTreeWinSeparator = { bg = C.none, fg = C.crust },
-            SnacksPicker = { bg = C.base },
+
             MarkviewInlineCode = { bg = C.none },
 
             WhichKey = { bg = C.base },
             WhichKeyNormal = { bg = C.base },
 
+            SnacksPicker = { bg = C.base },
             SnacksPickerInput = { bg = C.base, fg = C.text },
             SnacksPickerInputCursorLine = { bg = C.base, fg = C.text },
             SnacksPickerBorder = { bg = C.base, fg = C.crust },
             SnacksPickerBoxTitle = { bg = C.base, fg = C.text },
+
             SnacksDashboardHeader = { fg = C.peach },
             SnacksDashboardIcon = { fg = C.yellow },
             SnacksDashboardDesc = { fg = C.text },

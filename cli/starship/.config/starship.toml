@@ -1,13 +1,20 @@
 add_newline = true
 # palette = "catppuccin_frappe"
 format = """
-$julia$python\
 $hostname\
 $jobs$character
 """
-right_format = "$directory$git_branch$git_status$cmd_duration"
+right_format = """\
+$julia$python \
+$directory \
+$git_branch\
+$git_status \
+$cmd_duration
+"""
 
 [python]
+style = "bg:none fg:yellow"
+symbol = " "
 format = "$symbol"
 
 [julia]
@@ -38,11 +45,13 @@ truncation_length = 3
 truncation_symbol = '…/'
 
 [git_branch]
-format = "[]($style)[[ ](bg:black fg:white bold)$branch](bg:black fg:white)[ ]($style)"
+# format = "[]($style)[[ ](bg:black fg:white bold)$branch](bg:black fg:white)[ ]($style)"
+format = "[]($style)[[ ](bg:black fg:white bold)$branch](bg:black fg:white)[]($style)"
 style = "bg:none fg:black"
 
 [git_status]
-format = "[]($style)[$all_status$ahead_behind](bg:black fg:white)[ ]($style)"
+# format = "[]($style)[$all_status$ahead_behind](bg:black fg:white)[ ]($style)"
+format = "[]($style)[  $all_status$ahead_behind](bg:black fg:white)[ ]($style)"
 style = "bg:none fg:black"
 up_to_date = '✓'
 

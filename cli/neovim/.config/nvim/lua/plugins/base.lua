@@ -85,7 +85,16 @@ return {
                     [","] = "change_dir"
                 }};
 
-        end
+        end,
+        keys = {
+            {
+                "<leader>ee",
+                function()
+                    require("neo-tree.command").execute({ reveal = true, dir = LazyVim.root() })
+                end,
+                desc = "NeoTree reveal",
+            }
+        }
     },
 
     -- Add more treesitter parsers
@@ -120,4 +129,18 @@ return {
             },
         },
     },
+
+    {
+        'stevearc/conform.nvim',
+        opts = {
+            formatters = {
+                julia_fmt = {
+                    -- command = "vim.lsp.buf.formatting_sync()"
+                }
+            },
+            formatters_by_ft = {
+                -- julia = { "julia_fmt" },
+            }
+        },
+    }
 }
