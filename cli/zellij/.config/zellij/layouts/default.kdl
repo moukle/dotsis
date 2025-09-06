@@ -17,8 +17,8 @@ layout {
                 mode_normal  "#[fg=blue]#[bg=blue] "
                 mode_tmux    "#[fg=yellow]#[bg=yellow] "
 
-                tab_normal    "#[fg=bright_black]#[fg=white,bg=bright_black,bold] {index} #[bg=black] {name}{fullscreen_indicator}{sync_indicator}{floating_indicator}#[fg=black]"
-                tab_active    "#[fg=bright_white]#[fg=black,bg=bright_white,bold,italic] {index} #[bg=white,fg=black] {name}{fullscreen_indicator}{sync_indicator}{floating_indicator}#[fg=white]"
+                tab_normal    "#[fg=bright_black]#[fg=white,bg=bright_black,bold]{index} #[bg=black] {name}{fullscreen_indicator}{sync_indicator}{floating_indicator}#[fg=black]"
+                tab_active    "#[fg=bright_white]#[fg=black,bg=bright_white,bold,italic]{index} #[bg=white,fg=black] {name}{fullscreen_indicator}{sync_indicator}{floating_indicator}#[fg=white]"
                 tab_separator "#[] "
                 tab_fullscreen_indicator " 󰽢 "
                 tab_sync_indicator       "  "
