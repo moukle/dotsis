@@ -6,9 +6,9 @@ $jobs$character
 """
 right_format = """\
 $julia$python \
-$directory \
+$directory\
 $git_branch\
-$git_status \
+$git_status\
 $cmd_duration
 """
 

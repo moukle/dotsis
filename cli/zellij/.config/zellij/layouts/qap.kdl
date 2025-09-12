@@ -1,0 +1,39 @@
+layout {
+    tab name="dev" {
+        pane size=2 borderless=false {
+            plugin location="zjstatus-bar"
+        }
+        pane split_direction="vertical" {
+            pane edit="src/QuantumAP/src/QuantumAP.jl"
+            pane command="./docker/run.sh"
+        }
+    }
+
+    tab name="log" {
+        pane size=2 borderless=false {
+            plugin location="zjstatus-bar"
+        }
+
+        pane split_direction="vertical" {
+            pane command="./docker/tb.sh"
+            pane {
+                command "yazi"
+                args "data/output/tensorboard_logs"
+            }
+        }
+    }
+
+    tab name="misc" {
+        pane size=2 borderless=false {
+            plugin location="zjstatus-bar"
+        }
+
+        pane split_direction="vertical" {
+            pane
+            // pane {
+            //     plugin location="https://github.com/dj95/zj-docker/releases/latest/download/zj-docker.wasm"
+            // }
+        }
+
+    }
+}
