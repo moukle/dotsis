@@ -1,6 +1,6 @@
 return {
   {
-    "echasnovski/mini.surround",
+    "nvim-mini/mini.surround",
     opts = {
       mappings = {
         add = "gsa",
@@ -15,7 +15,7 @@ return {
   },
 
   {
-    "echasnovski/mini.comment",
+    "nvim-mini/mini.comment",
     opts = {
       mappings = {
         comment = "gc",

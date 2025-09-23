@@ -6,6 +6,16 @@ return {
     -- scroll = { animate = { duration = { total = 100 } } },
     scroll = { enabled = false },
     picker = {
+      toggles = {
+        hidden = "z",
+      },
+      win = {
+        list = {
+          keys = {
+            ["<a-z>"] = "toggle_hidden",
+          },
+        },
+      },
       layout = {
         layout = {
           backdrop = false,

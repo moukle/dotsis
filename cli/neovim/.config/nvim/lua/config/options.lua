@@ -14,31 +14,54 @@ vim.opt.swapfile = false
 vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
 vim.opt.undofile = true
 
-if IsWSL() then
-  vim.g.clipboard = {
-    name = "win32yank-wsl",
-    copy = {
-      ["+"] = "win32yank.exe -i --crlf",
-      ["*"] = "win32yank.exe -i --crlf",
-    },
-    paste = {
-      ["+"] = "win32yank.exe -o --lf",
-      ["*"] = "win32yank.exe -o --lf",
-    },
-    cache_enabled = 0,
-  }
-  -- vim.g.clipboard = {
-  --   name = "WslClipboard",
-  --   copy = {
-  --     ["+"] = "clip.exe",
-  --     ["*"] = "clip.exe",
-  --   },
-  --   paste = {
-  --     ["+"] = 'powershell.exe -NoLogo -NoProfile -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
-  --     ["*"] = 'powershell.exe -NoLogo -NoProfile -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
-  --     -- ["+"] = 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
-  --     -- ["*"] = 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
-  --   },
-  --   cache_enabled = 0,
-  -- }
-end
+-- copy paste in SSH
+vim.api.nvim_create_autocmd("TextYankPost", {
+  callback = function()
+    vim.highlight.on_yank()
+    local copy_to_unnamedplus = require("vim.ui.clipboard.osc52").copy("+")
+    copy_to_unnamedplus(vim.v.event.regcontents)
+    local copy_to_unnamed = require("vim.ui.clipboard.osc52").copy("*")
+    copy_to_unnamed(vim.v.event.regcontents)
+  end,
+})
+
+-- if IsWSL() then
+-- vim.g.clipboard = {
+--   name = "OSC 52",
+--   copy = {
+--     ["+"] = require("vim.ui.clipboard.osc52").copy("+"),
+--     ["*"] = require("vim.ui.clipboard.osc52").copy("*"),
+--   },
+--   paste = {
+--     ["+"] = require("vim.ui.clipboard.osc52").paste("+"),
+--     ["*"] = require("vim.ui.clipboard.osc52").paste("*"),
+--   },
+-- }
+-- }
+-- vim.g.clipboard = {
+--   name = "win32yank-wsl",
+--   copy = {
+--     ["+"] = "win32yank.exe -i --crlf",
+--     ["*"] = "win32yank.exe -i --crlf",
+--   },
+--   paste = {
+--     ["+"] = "win32yank.exe -o --lf",
+--     ["*"] = "win32yank.exe -o --lf",
+--   },
+--   cache_enabled = 0,
+-- }
+-- vim.g.clipboard = {
+--   name = "WslClipboard",
+--   copy = {
+--     ["+"] = "clip.exe",
+--     ["*"] = "clip.exe",
+--   },
+--   paste = {
+--     ["+"] = 'powershell.exe -NoLogo -NoProfile -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
+--     ["*"] = 'powershell.exe -NoLogo -NoProfile -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
+--     -- ["+"] = 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
+--     -- ["*"] = 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
+--   },
+--   cache_enabled = 0,
+-- }
+-- end

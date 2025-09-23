@@ -4,7 +4,7 @@ layout {
             plugin location="zjstatus-bar"
         }
         pane split_direction="vertical" {
-            pane edit="src/QuantumAP/src/QuantumAP.jl"
+            pane command="nvim" args="src/QuantumAP/src/QuantumAP.jl"
             pane command="./docker/run.sh"
         }
     }
@@ -30,6 +30,7 @@ layout {
 
         pane split_direction="vertical" {
             pane
+            pane command="lazydocker"
             // pane {
             //     plugin location="https://github.com/dj95/zj-docker/releases/latest/download/zj-docker.wasm"
             // }

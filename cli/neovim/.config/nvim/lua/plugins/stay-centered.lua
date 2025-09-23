@@ -1,7 +1,7 @@
 return {
   "arnamak/stay-centered.nvim",
   lazy = false,
-  -- enabled = false,
+  enabled = false,
   opts = {
     skip_filetypes = {},
   },
