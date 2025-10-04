@@ -21,8 +21,8 @@ return {
       require("catppuccin").setup({
         background = {
           light = "latte",
-          dark = "macchiato",
-          -- dark = "mocha",
+          -- dark = "macchiato",
+          dark = "mocha", -- oled
         },
         dim_inactive = {
           -- enabled = true,

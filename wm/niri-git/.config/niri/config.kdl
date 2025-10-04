@@ -1,22 +1,34 @@
-spawn-at-startup "waybar"
-spawn-at-startup "swaybg" "-i" "/home/mori/Downloads/eberhard-grossgasteiger-SMyqIcE2NXs-unsplash.jpg"
-
-// debug {
-//     render-drm-device "/dev/dri/card0"
-// }
-
 environment {
-	DESKTOP ":0"
-	XDG_CURRENT_DESKTOP "niri"
-	XDG_SESSION_DESKTOP "niri"
-	XDG_SESSION_TYPE "wayland"
-	LIBVA_DRIVER_NAME "nvidia"
-	 GBM_BACKEND "nvidia-drm"
-	__GLX_VENDOR_LIBRARY_NAME "nvidia"
-	QT_QPA_PLATFORM "wayland"
+    // DISPLAY ":0"
+    // XDG_CURRENT_DESKTOP "niri"
+    // XDG_SESSION_DESKTOP "niri"
+    // XDG_SESSION_TYPE "wayland"
+    // LIBVA_DRIVER_NAME "nvidia"
+    // GBM_BACKEND "nvidia-drm"
+    // __GLX_VENDOR_LIBRARY_NAME "nvidia"
+    // QT_QPA_PLATFORM "wayland"
+    //
+    // SDL_VIDEODRIVER "wayland"
+    // SDL_VIDEO_WAYLAND_PREFER_LIBDECOR "1"
+    //
+    // GDK_DPI_SCALE "1"
+    // GDK_SCALE "1"
+    // QT_AUTO_SCREEN_SCALE_FACTOR "1"
+}
 
-	SDL_VIDEODRIVER "wayland"
-	SDL_VIDEO_WAYLAND_PREFER_LIBDECOR "1"
+spawn-at-startup "vicinae" "server"
+spawn-at-startup "swww-daemon"
+spawn-at-startup "qs" "-c" "noctalia-shell"
+spawn-at-startup "vivaldi"
+
+spawn-at-startup "gsettings" "set" "org.gnome.desktop.interface" "cursor-theme" "phinger-cursors-light"
+spawn-at-startup "gsettings" "set" "org.gnome.desktop.interface" "cursor-size" "32"
+
+screenshot-path "~/Pictures/screenshots/%Y-%m-%d %H-%M-%S.png"
+prefer-no-csd
+
+hotkey-overlay {
+    skip-at-startup
 }
 
 input {
@@ -29,54 +41,131 @@ input {
     mouse { accel-speed 0.000000; }
 }
 
-output "DP-1" {
+gestures {
+    hot-corners {
+        off
+    }
+}
+
+output "DP-2" {
+    scale 1.0
 }
 
 animations {
-	off
+    // slowdown 0.1
+    // off
 }
 
 layout {
+    background-color "transparent"
+
     gaps 16
 
     focus-ring {
         width 2
-        active-color "#f4b8e4"
+        active-color "#fffa"
         inactive-color "#737994"
     }
     border { off; }
 
     preset-column-widths {
-        proportion 0.333000
-        proportion 0.500000
-        proportion 0.666000
+        proportion 0.25
+        proportion 0.5
+        proportion 0.75
+        proportion 1.0
     }
+
     default-column-width { proportion 0.500000; }
+
+    insert-hint {
+        color "#FFFFFF10"
+    }
 
     center-focused-column "never"
 }
 
 window-rule {
-	geometry-corner-radius 12
-	clip-to-geometry true
+    geometry-corner-radius 12
+    clip-to-geometry true
+
+    shadow {
+        on
+        softness 12
+        spread 4
+        offset x=0 y=0
+        color "#00000090"
+        draw-behind-window true
+    }   // draw-border-with-background false
+}
+
+workspace "browser"
+workspace "dev"
+workspace "sozial"
+workspace "game"
+
+window-rule {
+    match app-id="vivaldi-stable"
+    open-maximized true
+    open-on-workspace "browser"
+}
+
+window-rule {
+    match app-id="discord"
+    match app-id="Spotify"
+    open-on-workspace "sozial"
+}
+
+window-rule {
+    match app-id="DDNet"
+    open-on-workspace "game"
+}
+
+layer-rule {
+    match namespace="^quickshell-overview$"
+    place-within-backdrop true
+}
+
+// Put swaybg inside the overview backdrop.
+layer-rule {
+    match namespace="^swww-daemon$"
+    place-within-backdrop true
+}
+
+overview {
+    // backdrop-color "#0000ff"
+    // zoom 0.3
+    workspace-shadow {
+        softness 500
+        spread 100
+        offset x=0 y=0
+        color "#0000"
+    }
+}
+
+debug {
+    honor-xdg-activation-with-invalid-serial
 }
 
 cursor {
-    xcursor-theme "default"
-    xcursor-size 24
+    xcursor-theme "phinger-cursors-light"
+    xcursor-size 48
 }
 
 // hotkey-overlay { skip-at-startup; }
 binds {
     Mod+Return { spawn "ghostty"; }
-    Mod+D { spawn "anyrun"; }
+    Mod+D      { spawn "vicinae" "toggle"; }
     // Mod+V { spawn "sh" "-c" "cliphist list | fuzzel --dmenu | cliphist decode | wl-copy"; }
 
-    Mod+Q { close-window; }
     Mod+Shift+Ctrl+Q { quit; }
+    Mod+Shift+P      { power-off-monitors; }
 
-    // Mod+Shift+L { spawn "gtklock"; }
-    Mod+Shift+P { power-off-monitors; }
+    Mod+Shift+Q      { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "sessionMenu" "toggle"; }
+    Mod+Shift+Ctrl+L { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "lockScreen" "toggle"; }
+    Mod+P            { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "settings" "toggle"; }
+
+    Mod+Q repeat=false { close-window; }
+    Mod+Tab repeat=false { toggle-overview; }
 
     Super+C { center-column; }
     Super+F { maximize-column; }
@@ -89,37 +178,57 @@ binds {
     Super+K { focus-window-up; }
 
     // move
-    Super+Ctrl+H { move-column-left; }
-    Super+Ctrl+L { move-column-right; }
-    Super+Ctrl+J { move-window-down; }
-    Super+Ctrl+K { move-window-up; }
+    Super+Shift+H { move-column-left; }
+    Super+Shift+L { move-column-right; }
+    Super+Shift+J { move-window-down; }
+    Super+Shift+K { move-window-up; }
 
     // monitor focus
-    Super+Shift+H { focus-monitor-left; }
-    Super+Shift+J { focus-monitor-down; }
-    Super+Shift+K { focus-monitor-up; }
-    Super+Shift+L { focus-monitor-right; }
+    // Super+Shift+H { focus-monitor-left; }
+    // Super+Shift+J { focus-monitor-down; }
+    // Super+Shift+K { focus-monitor-up; }
+    // Super+Shift+L { focus-monitor-right; }
 
     // monitor move
-    Super+Shift+Ctrl+H { move-column-to-monitor-left; }
-    Super+Shift+Ctrl+J { move-column-to-monitor-down; }
-    Super+Shift+Ctrl+K { move-column-to-monitor-up; }
-    Super+Shift+Ctrl+L { move-column-to-monitor-right; }
+    // Super+Shift+Ctrl+H { move-column-to-monitor-left; }
+    // Super+Shift+Ctrl+J { move-column-to-monitor-down; }
+    // Super+Shift+Ctrl+K { move-column-to-monitor-up; }
+    // Super+Shift+Ctrl+L { move-column-to-monitor-right; }
 
     Mod+Comma  { consume-window-into-column; }
     Mod+Period { expel-window-from-column; }
 
-    Super+R { switch-preset-column-width; }
+    Mod+R { switch-preset-column-width; }
     Mod+Shift+R { reset-window-height; }
     Super+Minus { set-column-width "-10%"; }
     Super+Equal { set-column-width "+10%"; }
     Super+Shift+Equal { set-window-height "+10%"; }
     Super+Shift+Minus { set-window-height "-10%"; }
 
-    Mod+U              { focus-workspace-down; }
-    Mod+I              { focus-workspace-up; }
-    Mod+Ctrl+U         { move-column-to-workspace-down; }
-    Mod+Ctrl+I         { move-column-to-workspace-up; }
+    Mod+1 { focus-workspace 1; }
+    Mod+2 { focus-workspace 2; }
+    Mod+3 { focus-workspace 3; }
+    Mod+4 { focus-workspace 4; }
+    Mod+5 { focus-workspace 5; }
+    Mod+6 { focus-workspace 6; }
+    Mod+7 { focus-workspace 7; }
+    Mod+8 { focus-workspace 8; }
+    Mod+9 { focus-workspace 9; }
+
+    Mod+Shift+1 { move-column-to-workspace 1; }
+    Mod+Shift+2 { move-column-to-workspace 2; }
+    Mod+Shift+3 { move-column-to-workspace 3; }
+    Mod+Shift+4 { move-column-to-workspace 4; }
+    Mod+Shift+5 { move-column-to-workspace 5; }
+    Mod+Shift+6 { move-column-to-workspace 6; }
+    Mod+Shift+7 { move-column-to-workspace 7; }
+    Mod+Shift+8 { move-column-to-workspace 8; }
+    Mod+Shift+9 { move-column-to-workspace 9; }
+
+    Mod+u              { focus-workspace-down; }
+    Mod+i              { focus-workspace-up; }
+    Mod+Shift+u         { move-column-to-workspace-down; }
+    Mod+Shift+i         { move-column-to-workspace-up; }
 
     Super+Shift+S { screenshot; }
     Super+Ctrl+S { screenshot-window; }
@@ -130,14 +239,21 @@ binds {
     Super+WheelScrollRight { focus-column-right; }
     Super+WheelScrollUp cooldown-ms=500 { focus-workspace-up; }
 
-    XF86AudioRaiseVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1+"; }
-    XF86AudioLowerVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1-"; }
-    XF86AudioMute        allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"; }
+    // Audio controls
+    // XF86AudioRaiseVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1+"; }
+    // XF86AudioLowerVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1-"; }
+    // XF86AudioMute        allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"; }
     XF86AudioMicMute     allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"; }
 
+    XF86AudioRaiseVolume { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "volume" "increase"; }
+    XF86AudioLowerVolume { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "volume" "decrease"; }
+    XF86AudioMute { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "volume" "muteOutput"; }
+
+    // Brightness controls
+    // XF86MonBrightnessDown { spawn "brightnessctl" "set" "5%-"; }
+    // XF86MonBrightnessUp { spawn "brightnessctl" "set" "+5%"; }
+    XF86MonBrightnessUp { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "brightness" "increase"; }
+    XF86MonBrightnessDown { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "brightness" "decrease"; }
+
     XF86Bluetooth { spawn "bt"; }
-    XF86MonBrightnessDown { spawn "brightnessctl" "set" "5%-"; }
-    XF86MonBrightnessUp { spawn "brightnessctl" "set" "+5%"; }
 }
-screenshot-path "~/pics/ss/ss%Y-%m-%d %H-%M-%S.png"
-prefer-no-csd

@@ -1,6 +1,7 @@
 return {
   "OXY2DEV/markview.nvim",
   lazy = true,
+  enabled = false,
   -- event = VimEnter,
   event = InsertEnter,
   init = function()

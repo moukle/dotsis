@@ -9,3 +9,12 @@ gaming/ddnet/.local/share/ddnet/*
 !gaming/ddnet/.local/share/ddnet/assets
 gaming/ddnet/.local/share/ddnet/maps/*
 !gaming/ddnet/.local/share/ddnet/maps/bg/*
+
+cli/neovim/.config/nvim/grug-far
+cli/neovim/.config/nvim/lazy
+cli/neovim/.config/nvim/log
+cli/neovim/.config/nvim/blink
+cli/neovim/.config/nvim/shada
+cli/neovim/.config/nvim/neogit
+cli/neovim/.config/nvim/sessions
+cli/neovim/.config/nvim/mason-registry-update

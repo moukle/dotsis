@@ -6,6 +6,11 @@ layout {
         pane split_direction="vertical" {
             pane command="nvim" args="src/QuantumAP/src/QuantumAP.jl"
             pane command="./docker/run.sh"
+            pane {
+                command "julia"
+                args "--project"
+                cwd "src/QuantumAP/src/"
+            }
         }
     }
 

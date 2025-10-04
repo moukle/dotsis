@@ -1,5 +1,8 @@
 {
-  "icon_theme": "Catppuccin Latte",
+  "git_panel": {
+    "sort_by_path": true
+  },
+  "icon_theme": "Material Icon Theme",
   "show_edit_predictions": false,
   "features": {
     "edit_prediction_provider": "zed"
@@ -13,8 +16,7 @@
     "default_model": {
       "provider": "copilot_chat",
       "model": "gpt-3.5-turbo"
-    },
-    "version": "2"
+    }
   },
   "project_panel": {
     "default_width": 150,
@@ -24,13 +26,13 @@
   "theme": {
     "mode": "system",
     "light": "Gruber Pear Lite 🍐",
-    "dark": "One Dark Pro Max"
+    "dark": "Phine"
   },
   "relative_line_numbers": true,
   "vim_mode": true,
   "ui_font_size": 22,
-  "ui_font_family": "Maple Mono",
-  "buffer_font_family": "Maple Mono",
+  "ui_font_family": "Maple Mono NF",
+  "buffer_font_family": "Maple Mono NF",
   "buffer_font_size": 20,
   "buffer_font_features": {
     "calt": true,

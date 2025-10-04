@@ -6,10 +6,10 @@
   },
   "languages": {
     "Julia": {
-      "show_inline_completions": false
+      "show_edit_predictions": false
     }
   },
-  "assistant": {
+  "agent": {
     "default_model": {
       "provider": "copilot_chat",
       "model": "gpt-3.5-turbo"
@@ -24,7 +24,7 @@
   "theme": {
     "mode": "system",
     "light": "Gruber Pear Lite 🍐",
-    "dark": "One Dark Pro Max"
+    "dark": "Phine"
   },
   "relative_line_numbers": true,
   "vim_mode": true,

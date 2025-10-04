@@ -64,9 +64,7 @@ mkdir -p $XDG_STATE_HOME/zsh
 
 # History
 HISTSIZE=5000
-export XDG_STATE_HOME=$HOME/.config/
 export HISTFILE="$XDG_STATE_HOME"/zsh/history
-# HISTFILE=~/.zsh_history
 SAVEHIST=$HISTSIZE
 HISTDUP=erase
 setopt appendhistory
@@ -172,7 +170,7 @@ source <(starship init zsh)
 eval "$(zoxide init zsh)"
 
 # Environment Variables
-# source $HOME/.profile
+source $HOME/.profile
 
 # source <(pyenv init)
 # export PYENV_ROOT="$HOME/.pyenv"
