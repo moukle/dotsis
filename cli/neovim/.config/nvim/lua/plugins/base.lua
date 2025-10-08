@@ -25,6 +25,8 @@ return {
                 }
             };
 
+            vim.lsp.enable("julials")
+
             -- vim.lsp.config("jetls", {
             --     cmd = {
             --         "julia",
@@ -112,7 +114,7 @@ return {
                 "vim",
                 "yaml",
                 "julia",
-                "zig",
+                -- "zig",
             },
         },
     },
@@ -125,7 +127,7 @@ return {
                 "stylua",
                 "shellcheck",
                 "shfmt",
-                "julia-lsp"
+                -- "julia-lsp"
             },
         },
     },
