@@ -143,7 +143,7 @@ return {
               and {
                 "",
                 ft_icon,
-                " ",
+                "  ",
                 guifg = ft_color,
                 -- guifg = colors.overlay0,
                 guibg = colors.surface0,

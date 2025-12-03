@@ -1,49 +1,93 @@
 {
+  "lsp": {
+    "JETLS": {
+      "settings": {
+        "formatter": "Runic"
+      }
+      // "binary": {
+      //   "path": "/usr/bin/julia",
+      //   "env": {
+      //     "JETLS_DIRECTORY": "/home/mori/dev/JETLS.jl/" // must end with `/`
+      //   }
+      // }
+    }
+  },
   "git_panel": {
     "sort_by_path": true
   },
+  "telemetry": {
+    "metrics": false,
+    "diagnostics": false
+  },
   "icon_theme": "Material Icon Theme",
-  "show_edit_predictions": false,
+  "show_edit_predictions": true,
   "features": {
-    "edit_prediction_provider": "zed"
+    "edit_prediction_provider": "copilot"
   },
   "languages": {
     "Julia": {
-      "show_edit_predictions": false
+      "show_edit_predictions": true
     }
   },
+  "title_bar": {
+    "show_sign_in": false,
+    "show_branch_icon": true,
+    "show_user_picture": false
+  },
   "agent": {
+    "default_profile": "ask",
     "default_model": {
       "provider": "copilot_chat",
-      "model": "gpt-3.5-turbo"
+      "model": "claude-sonnet-4.5"
     }
   },
   "project_panel": {
     "default_width": 150,
-    "dock": "right"
+    "dock": "left"
   },
   "base_keymap": "VSCode",
   "theme": {
     "mode": "system",
-    "light": "Gruber Pear Lite 🍐",
-    "dark": "Phine"
+    "light": "Ayu Light",
+    "dark": "Ayu Dark"
   },
+  "unnecessary_code_fade": 0.8,
   "relative_line_numbers": true,
   "vim_mode": true,
-  "ui_font_size": 22,
+  "ui_font_size": 20,
   "ui_font_family": "Maple Mono NF",
   "buffer_font_family": "Maple Mono NF",
-  "buffer_font_size": 20,
+  "buffer_font_size": 22,
   "buffer_font_features": {
     "calt": true,
-    "liga": true,
-    "ss02": true,
-    "ss19": false,
-    "cv18": true,
-    "cv14": true
+    "cv66": true
   },
   "git": {
     "inline_blame": { "enabled": false }
   },
-  "wrap_guides": [80, 120]
+  "tab_bar": {
+    "show_nav_history_buttons": false
+  },
+  "tabs": {
+    "git_status": true,
+    "file_icons": true
+  },
+  "search": {
+    "whole_word": false,
+    "case_sensitive": true,
+    "include_ignored": false,
+    "regex": false
+  },
+  "toolbar": {
+    "agent_review": false,
+    "breadcrumbs": false,
+    "code_actions": false,
+    "quick_actions": false,
+    "selections_menu": false
+  },
+  "indent_guides": {
+    "enabled": true
+    // "coloring": "indent_aware"
+  },
+  "wrap_guides": [92]
 }

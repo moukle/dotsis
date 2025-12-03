@@ -9,6 +9,7 @@ return {
             opts.scope.enabled = false;
         end
     },
+
     {
         "neovim/nvim-lspconfig",
         opts = function(_, opts)
@@ -38,6 +39,16 @@ return {
             --     filetypes = {"julia"},
             -- })
             -- vim.lsp.enable("jetls")
+            -- julia -e 'using Pkg; Pkg.Apps.add(; url="https://github.com/aviatesk/JETLS.jl", rev="release")'
+            vim.lsp.config("jetls", {
+                cmd = {
+                    "jetls",
+                    "--threads=auto",
+                    "--",
+                },
+                filetypes = {"julia"},
+            })
+            vim.lsp.enable("jetls")
         end,
     },
 
@@ -136,9 +147,9 @@ return {
         'stevearc/conform.nvim',
         opts = {
             formatters = {
-                julia_fmt = {
-                    -- command = "vim.lsp.buf.formatting_sync()"
-                }
+                -- julia_fmt = {
+                --     command = "vim.lsp.buf.formatting_sync()"
+                -- }
             },
             formatters_by_ft = {
                 -- julia = { "julia_fmt" },

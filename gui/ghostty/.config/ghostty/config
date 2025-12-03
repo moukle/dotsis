@@ -5,6 +5,7 @@ font-family = Maple Mono NF
 # font-family = Pragmaveska Nerd Font
 # font-family = Iosvmata
 font-size = 14
+# font-weight = 400
 # adjust-font-baseline = 115%
 adjust-cell-height = 18%
 
@@ -27,6 +28,11 @@ confirm-close-surface = false
 # background = 000000
 # palette = 0=#252525
 # palette = 8=#454545
+
+# background-opacity = 0.8
+# background-blur = 50
+
+app-notifications = no-clipboard-copy
 
 keybind = alt+one=unbind
 keybind = alt+two=unbind

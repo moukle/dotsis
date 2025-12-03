@@ -1,4 +1,5 @@
-export PATH=$PATH:$HOME/.local/bin/            # user scripts
+export PATH=$PATH:$HOME/.local/bin/ # user scripts
+export PATH=$PATH:$HOME/.local/share/julia/bin
 export PATH=$PATH:/opt/cuda/nsight_systems/bin # cuda
 
 export PATH=$PATH:$HOME/.local/bin/zig-x86_64-linux-0.15.0-dev.847+850655f06

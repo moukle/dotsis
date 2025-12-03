@@ -1,4 +1,5 @@
 environment {
+    ZED_WINDOW_DECORATIONS "server"
     // DISPLAY ":0"
     // XDG_CURRENT_DESKTOP "niri"
     // XDG_SESSION_DESKTOP "niri"
@@ -14,15 +15,28 @@ environment {
     // GDK_DPI_SCALE "1"
     // GDK_SCALE "1"
     // QT_AUTO_SCREEN_SCALE_FACTOR "1"
+
+    // DMS_RUN_GREETER "1"
+    QT_QPA_PLATFORMTHEME "gtk3"
+    QT_QPA_PLATFORMTHEME_QT6 "gtk3"
 }
 
 spawn-at-startup "vicinae" "server"
 spawn-at-startup "swww-daemon"
-spawn-at-startup "qs" "-c" "noctalia-shell"
+spawn-at-startup "qs"
+spawn-at-startup "dunst"
 spawn-at-startup "vivaldi"
+spawn-at-startup "gammastep"
 
 spawn-at-startup "gsettings" "set" "org.gnome.desktop.interface" "cursor-theme" "phinger-cursors-light"
 spawn-at-startup "gsettings" "set" "org.gnome.desktop.interface" "cursor-size" "32"
+spawn-at-startup "gsettings" "set" "org.gnome.desktop.interface" "gtk-theme" "adw-gtk3"
+spawn-at-startup "gsettings" "set" "org.gnome.desktop.interface" "icon-theme" "Reversal"
+spawn-at-startup "gsettings" "set" "org.gnome.desktop.interface" "font-name" "SF Pro Display 13"
+
+// DMS
+// spawn-at-startup "qs" "-c" "dms"
+// spawn-at-startup "bash" "-c" "wl-paste --watch cliphist store &"
 
 screenshot-path "~/Pictures/screenshots/%Y-%m-%d %H-%M-%S.png"
 prefer-no-csd
@@ -58,11 +72,10 @@ animations {
 
 layout {
     background-color "transparent"
-
-    gaps 16
+    gaps 25
 
     focus-ring {
-        width 2
+        width 3
         active-color "#fffa"
         inactive-color "#737994"
     }
@@ -72,13 +85,20 @@ layout {
         proportion 0.25
         proportion 0.5
         proportion 0.75
-        proportion 1.0
+        // proportion 1.0
     }
 
     default-column-width { proportion 0.500000; }
 
-    insert-hint {
-        color "#FFFFFF10"
+    // insert-hint {
+    //     color "#FFFFFF10"
+    // }
+
+    struts {
+        // left 64
+        // right 64
+        // top 64
+        bottom 5
     }
 
     center-focused-column "never"
@@ -105,38 +125,58 @@ workspace "game"
 
 window-rule {
     match app-id="vivaldi-stable"
-    open-maximized true
     open-on-workspace "browser"
+    open-maximized true
+    open-focused true
+}
+
+window-rule {
+    match title="Bitwarden - Vivaldi"
+    open-maximized false
+    open-floating true
+    open-focused true
 }
 
 window-rule {
     match app-id="discord"
     match app-id="Spotify"
     open-on-workspace "sozial"
+    open-focused true
 }
 
 window-rule {
     match app-id="DDNet"
     open-on-workspace "game"
+    open-focused true
 }
 
-layer-rule {
-    match namespace="^quickshell-overview$"
-    place-within-backdrop true
-}
+// https://github.com/YaLTeR/niri/issues/2335
+// window-rule {
+//     // This regular expression is intentionally made as specific as possible, 
+//     // since this is the default config, and we want no false positives. 
+//     // You can get away with just app-id="wezterm" if you want. 
+//     match app-id="dev.zed.Zed"
+//     default-column-width {} 
+// }
+
+// layer-rule {
+//     match namespace="^quickshell-overview$"
+//     place-within-backdrop true
+// }
 
 // Put swaybg inside the overview backdrop.
 layer-rule {
     match namespace="^swww-daemon$"
+    // match namespace="^wallpaper$"
     place-within-backdrop true
 }
 
 overview {
-    // backdrop-color "#0000ff"
-    // zoom 0.3
+    // backdrop-color "#707070"
+    zoom 0.3
     workspace-shadow {
-        softness 500
-        spread 100
+        softness 50
+        spread 10
         offset x=0 y=0
         color "#0000"
     }
@@ -155,14 +195,36 @@ cursor {
 binds {
     Mod+Return { spawn "ghostty"; }
     Mod+D      { spawn "vicinae" "toggle"; }
-    // Mod+V { spawn "sh" "-c" "cliphist list | fuzzel --dmenu | cliphist decode | wl-copy"; }
+    // Mod+V { spawn "sh" "-c" "cliphist list | vicinae dmenu | cliphist decode | wl-copy"; }
+    Mod+V { spawn "vicinae" "vicinae://extensions/vicinae/clipboard/history"; }
 
     Mod+Shift+Ctrl+Q { quit; }
     Mod+Shift+P      { power-off-monitors; }
 
-    Mod+Shift+Q      { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "sessionMenu" "toggle"; }
-    Mod+Shift+Ctrl+L { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "lockScreen" "toggle"; }
-    Mod+P            { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "settings" "toggle"; }
+    // noctalia-shell
+    // Mod+Shift+Q      { spawn "qs" "ipc" "call" "sessionMenu" "toggle"; }
+    // Mod+Shift+Ctrl+L { spawn "qs" "ipc" "call" "lockScreen" "toggle"; }
+    // Mod+P            { spawn "qs" "ipc" "call" "settings" "toggle"; }
+    // XF86AudioRaiseVolume { spawn "qs" "ipc" "call" "volume" "increase"; }
+    // XF86AudioLowerVolume { spawn "qs" "ipc" "call" "volume" "decrease"; }
+    // XF86AudioMute { spawn "qs" "ipc" "call" "volume" "muteOutput"; }
+    // XF86MonBrightnessUp { spawn "qs" "ipc" "call" "brightness" "increase"; }
+    // XF86MonBrightnessDown { spawn "qs" "ipc" "call" "brightness" "decrease"; }
+
+    // DMS
+    // Mod+D { spawn "qs" "-c" "dms" "ipc" "call" "spotlight" "toggle"; }
+    // Mod+Shift+Q { spawn "qs" "-c" "dms" "ipc" "call" "powermenu" "toggle"; }
+    // Mod+Shift+Ctrl+L { spawn "qs" "-c" "dms" "ipc" "call" "lock" "lock"; }
+    // Mod+P       { spawn "qs" "-c" "dms" "ipc" "call" "settings" "toggle"; }
+    // Mod+V       { spawn "qs" "-c" "dms" "ipc" "call" "clipboard" "toggle"; }
+    // Mod+Escape  { spawn "qs" "-c" "dms" "ipc" "call" "processlist" "toggle"; }
+    // Mod+X       { spawn "qs" "-c" "dms" "ipc" "call" "notepad" "toggle"; }
+    // Mod+W       { spawn "qs" "-c" "dms" "ipc" "call" "file" "browse" "wallpaper"; }
+    // XF86AudioRaiseVolume { spawn "qs" "-c" "dms" "ipc" "call" "audio" "increment" "10"; }
+    // XF86AudioLowerVolume { spawn "qs" "-c" "dms" "ipc" "call" "audio" "decrement" "10"; }
+    // XF86AudioMute { spawn "qs" "-c" "dms" "ipc" "call" "audio" "mute" ; }
+    // XF86MonBrightnessUp   { spawn "qs" "-c" "dms" "ipc" "call" "brightness" "increment" "10"; }
+    // XF86MonBrightnessDown { spawn "qs" "-c" "dms" "ipc" "call" "brightness" "decrement" "10"; }
 
     Mod+Q repeat=false { close-window; }
     Mod+Tab repeat=false { toggle-overview; }
@@ -240,20 +302,14 @@ binds {
     Super+WheelScrollUp cooldown-ms=500 { focus-workspace-up; }
 
     // Audio controls
-    // XF86AudioRaiseVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1+"; }
-    // XF86AudioLowerVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1-"; }
-    // XF86AudioMute        allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"; }
+    XF86AudioRaiseVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1+"; }
+    XF86AudioLowerVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1-"; }
+    XF86AudioMute        allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"; }
     XF86AudioMicMute     allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"; }
-
-    XF86AudioRaiseVolume { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "volume" "increase"; }
-    XF86AudioLowerVolume { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "volume" "decrease"; }
-    XF86AudioMute { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "volume" "muteOutput"; }
 
     // Brightness controls
     // XF86MonBrightnessDown { spawn "brightnessctl" "set" "5%-"; }
     // XF86MonBrightnessUp { spawn "brightnessctl" "set" "+5%"; }
-    XF86MonBrightnessUp { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "brightness" "increase"; }
-    XF86MonBrightnessDown { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "brightness" "decrease"; }
 
     XF86Bluetooth { spawn "bt"; }
 }
