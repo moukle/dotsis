@@ -13,6 +13,9 @@
         try
             @eval using Revise
 
+            @eval using REPL
+            REPL.numbered_prompt!()
+
             @eval using VimBindings
             # VimBindings.Config.system_clipboard!(true)
 

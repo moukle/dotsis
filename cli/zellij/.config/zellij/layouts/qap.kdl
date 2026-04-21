@@ -4,13 +4,9 @@ layout {
             plugin location="zjstatus-bar"
         }
         pane split_direction="vertical" {
-            pane command="nvim" args="src/QuantumAP/src/QuantumAP.jl"
-            pane command="./docker/run.sh"
-            pane {
-                command "julia"
-                args "--project"
-                cwd "src/QuantumAP/src/"
-            }
+            pane command="nvim" cwd="src/ASSA/"
+            pane command="jp" cwd="src/ASSA/"
+            // pane command="./docker_dev/run.sh"
         }
     }
 
@@ -20,10 +16,10 @@ layout {
         }
 
         pane split_direction="vertical" {
-            pane command="./docker/tb.sh"
+            pane command="./docker_dev/tb.sh"
             pane {
                 command "yazi"
-                args "data/output/tensorboard_logs"
+                args "src/ASSA/data/output/"
             }
         }
     }
@@ -35,7 +31,7 @@ layout {
 
         pane split_direction="vertical" {
             pane
-            pane command="lazydocker"
+            // pane command="lazydocker"
             // pane {
             //     plugin location="https://github.com/dj95/zj-docker/releases/latest/download/zj-docker.wasm"
             // }

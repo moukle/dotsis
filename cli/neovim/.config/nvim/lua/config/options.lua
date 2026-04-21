@@ -11,8 +11,10 @@ vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 
 vim.opt.swapfile = false
-vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
+vim.opt.undodir = os.getenv("XDG_STATE_HOME") .. "/vim/undodir"
 vim.opt.undofile = true
+
+vim.o.iskeyword = "@,48-57,192-255,-" -- Treat dash as `word` textobject part (add to skip with `w`, i.e. add `_`)
 
 -- copy paste in SSH
 vim.api.nvim_create_autocmd("TextYankPost", {

@@ -1,6 +1,7 @@
-theme = "catppuccin_oled"
+theme = "catppuccin_canvas"
 
 [editor]
+true-color = true
 line-number = "relative"
 color-modes = true
 # cursorline = true

@@ -26,8 +26,7 @@ return {
                 }
             };
 
-            vim.lsp.enable("julials")
-
+            -- vim.lsp.enable("julials")
             -- vim.lsp.config("jetls", {
             --     cmd = {
             --         "julia",
@@ -43,11 +42,20 @@ return {
             vim.lsp.config("jetls", {
                 cmd = {
                     "jetls",
-                    "--threads=auto",
-                    "--",
+                    "serve",
                 },
-                filetypes = {"julia"},
+                filetypes = { "julia" },
+                root_markers = { "Project.toml" }
             })
+            -- vim.lsp.enable("jetls")
+            -- vim.lsp.config("jetls", {
+            --     cmd = {
+            --         "jetls",
+            --         "--threads=auto",
+            --         "--",
+            --     },
+            --     filetypes = {"julia"},
+            -- })
             vim.lsp.enable("jetls")
         end,
     },
@@ -118,12 +126,12 @@ return {
                 "bash",
                 "lua",
                 "markdown",
-                "markdown_inline",
+                -- "markdown_inline",
                 "python",
-                "query",
-                "regex",
-                "vim",
-                "yaml",
+                -- "query",
+                -- "regex",
+                -- "vim",
+                -- "yaml",
                 "julia",
                 -- "zig",
             },
@@ -146,14 +154,31 @@ return {
     {
         'stevearc/conform.nvim',
         opts = {
-            formatters = {
-                -- julia_fmt = {
-                --     command = "vim.lsp.buf.formatting_sync()"
-                -- }
-            },
+            -- Prefer to format git hunks instead of the entire file
+            format_on_save = function()
+                local hunks = require("gitsigns").get_hunks()
+                local format = require("conform").format
+                for i = #hunks, 1, -1 do
+                    local hunk = hunks[i]
+                    if hunk ~= nil and hunk.type ~= "delete" then
+                    local start = hunk.added.start
+                    local last = start + hunk.added.count
+                    -- nvim_buf_get_lines uses zero-based indexing -> subtract from last
+                    local last_hunk_line = vim.api.nvim_buf_get_lines(0, last - 2, last - 1, true)[1]
+                    local range = { start = { start, 0 }, ["end"] = { last - 1, last_hunk_line:len() } }
+                    format({ range = range })
+                    end
+                end
+            end,
+
             formatters_by_ft = {
-                -- julia = { "julia_fmt" },
-            }
+                julia = {"runic"},
+            },
+            default_format_opts = {
+                -- Increase the timeout in case Runic needs to precompile
+                -- (e.g. after upgrading Julia and/or Runic).
+                timeout_ms = 10000,
+            },
         },
     }
 }

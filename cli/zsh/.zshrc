@@ -106,7 +106,7 @@ alias lt='eza --group --header --group-directories-first --tree --level 1'
 alias ltl='eza --group --header --group-directories-first --tree --level $1'
 alias lo='eza --group --header --group-directories-first --oneline'
 
-alias hx="helix"
+# alias hx="helix"
 alias vim='nvim'
 alias v='vim'
 
@@ -124,6 +124,8 @@ alias disk='gdu'
 alias ju='juliaup'
 alias jl='julia'
 alias jp='julia --project'
+# alias runic="julia --project=@runic --startup-file=no -e 'using Runic; exit(Runic.main(ARGS))' --"
+
 alias lg='lazygit'
 
 alias is_wsl='cat /proc/version | grep -q WSL2'
