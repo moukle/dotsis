@@ -17,9 +17,17 @@ return {
         },
       },
       layout = {
+        preset = "ivy",
         layout = {
+          -- border = { "▔", "▔", "▔", "", "▁", "▁", "▁", "" },
+          border = { "🭽", "▔", "🭾", "▕", "🭿", "▁", "🭼", "▏" },
+          title_pos = "center",
+          height = 15,
           backdrop = false,
         },
+        -- { win = "input", border = "single", height = 1, title = "Find {title} {live} {flags}", title_pos = "center" },
+        -- { win = "list", border = { "🭽", "▔", "🭾", "▕", "🭿", "▁", "🭼", "▏" }, height = 8 },
+        -- { win = "preview", border = { "🭽", "▔", "🭾", "▕", "🭿", "▁", "🭼", "▏" } },
       },
     },
     dashboard = {

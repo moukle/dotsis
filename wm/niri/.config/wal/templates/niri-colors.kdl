@@ -1,0 +1,30 @@
+// requires: https://github.com/eylles/pywal16
+// colors.kdl
+layout {
+    background-color "transparent"
+
+    border {
+        active-color "{foreground}"
+    }
+
+    focus-ring {
+        active-color "{color3}"
+        urgent-color "{color1}"
+    }
+
+    insert-hint {
+        color "{color2}"
+    }
+
+    tab-indicator {
+        active-color "{foreground}"
+        inactive-color "{color0}"
+        urgent-color "{color1}"
+    }
+}
+recent-windows {
+    highlight {
+        active-color "{foreground}"
+        urgent-color "{color1}"
+    }
+}

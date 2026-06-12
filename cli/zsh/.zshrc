@@ -1,10 +1,3 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  # source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
 # Set the directory we want to store zinit and plugins
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 
@@ -58,9 +51,6 @@ export XDG_STATE_HOME="$HOME/.local/state"
 alias wget=wget --hsts-file="$XDG_DATA_HOME/wget-hsts"
 compinit -d "$XDG_CACHE_HOME"/zsh/zcompdump-"$ZSH_VERSION"
 mkdir -p $XDG_STATE_HOME/zsh
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-# [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # History
 HISTSIZE=5000
@@ -132,6 +122,10 @@ alias is_wsl='cat /proc/version | grep -q WSL2'
 alias copy='if is_wsl; then win32yank.exe -i; else wl-copy; fi'
 alias -g C='| copy'
 
+function cht() {                                                                                                                                    ~
+  curl "https://cht.sh/$1"
+}
+
 # function DDNet() {
 #     # mute notifications when ddnet focused
 #     . $HOME/.config/hypr/handle_dunst.sh &
@@ -170,6 +164,8 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 # Shell integrations
 source <(starship init zsh)
 eval "$(zoxide init zsh)"
+
+eval "$(direnv hook zsh)"
 
 # Environment Variables
 source $HOME/.profile

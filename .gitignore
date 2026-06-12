@@ -18,3 +18,6 @@ cli/neovim/.config/nvim/shada
 cli/neovim/.config/nvim/neogit
 cli/neovim/.config/nvim/sessions
 cli/neovim/.config/nvim/mason-registry-update
+
+languages/julia/.local/share/julia/*
+!languages/julia/.local/share/julia/config

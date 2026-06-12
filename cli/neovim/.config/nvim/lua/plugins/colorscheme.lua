@@ -13,6 +13,9 @@ return {
     opts = {},
   },
   {
+    "mellow-theme/mellow.nvim",
+  },
+  {
     "catppuccin/nvim",
     lazy = false,
     priority = 1000,
@@ -21,13 +24,13 @@ return {
       require("catppuccin").setup({
         background = {
           light = "latte",
-          -- dark = "macchiato",
-          dark = "mocha", -- oled
+          dark = "macchiato",
+          -- dark = "mocha", -- oled
         },
         dim_inactive = {
           -- enabled = true,
         },
-        -- transparent_background = true,
+        transparent_background = false,
         integrations = {
           telescope = {
             enabled = true,
@@ -48,24 +51,31 @@ return {
             -- ["@punctuation.bracket"] = { C.subtext1 },
 
             FloatBorder = { fg = C.crust, bg = C.base },
-            FloatTitle = { style = { "bold" }, fg = C.text, bg = C.base },
+            FloatTitle = { style = { "bold" }, fg = C.text, bg = C.crust },
             -- NormalFloat = { bg = C.crust },
             Folded = { bg = C.crust, fg = C.surface2 },
 
-            NeoTreeNormal = { bg = C.none },
-            NeoTreeNormalNC = { bg = C.none },
-            NeoTreeWinSeparator = { bg = C.none, fg = C.crust },
+            -- NeoTreeNormal = { bg = C.mantle },
+            -- NeoTreeNormalNC = { bg = C.mantle },
+            -- NeoTreeWinSeparator = { bg = C.mantle, fg = C.crust },
+            NeoTreeNormal = { bg = C.base },
+            NeoTreeNormalNC = { bg = C.base },
+            NeoTreeWinSeparator = { bg = C.base, fg = C.crust },
 
             MarkviewInlineCode = { bg = C.none },
 
             WhichKey = { bg = C.base },
             WhichKeyNormal = { bg = C.base },
 
-            SnacksPicker = { bg = C.base },
-            SnacksPickerInput = { bg = C.base, fg = C.text },
-            SnacksPickerInputCursorLine = { bg = C.base, fg = C.text },
-            SnacksPickerBorder = { bg = C.base, fg = C.crust },
-            SnacksPickerBoxTitle = { bg = C.base, fg = C.text },
+            SnacksPicker = { bg = C.mantle, fg = C.text },
+            SnacksPickerInput = { bg = C.mantle, fg = C.text },
+            SnacksPickerInputCursorLine = { bg = C.mantle, fg = C.text },
+            SnacksPickerBorder = { bg = C.mantle, fg = C.crust },
+            -- not working?
+            -- SnacksPickerTitle = { bg = C.peach, fg = C.pink },
+            -- SnacksPickerBoxTitle = { bg = C.peach, fg = C.pink },
+            -- SnacksPickerInputTitle = { bg = C.peach, fg = C.pink },
+            -- SnacksPickerInputSearch = { bg = C.peach, fg = C.pink },
 
             SnacksDashboardHeader = { fg = C.peach },
             SnacksDashboardIcon = { fg = C.yellow },
@@ -75,6 +85,8 @@ return {
             SnacksDashboardKey = { fg = C.peach, style = { "bold" } },
             SnacksDashboardFooter = { fg = C.subtext0 },
             SnacksDashboardSpecial = { fg = C.peach, style = { "bold" } },
+
+            lualine_c_normal = { bg = C.peach },
           }
         end,
         color_overrides = {
@@ -182,8 +194,8 @@ return {
             surface1 = "#3d3d3d",
             surface0 = "#202020",
             base = "#000000",
-            mantle = "#000000",
-            crust = "#101010",
+            mantle = "#0c0c0c",
+            crust = "#141414",
           },
 
           -- white

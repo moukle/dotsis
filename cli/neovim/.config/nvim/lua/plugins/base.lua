@@ -26,36 +26,12 @@ return {
                 }
             };
 
-            -- vim.lsp.enable("julials")
-            -- vim.lsp.config("jetls", {
-            --     cmd = {
-            --         "julia",
-            --         "--startup-file=no",
-            --         "--history-file=no",
-            --         "--project=/home/mori/dev/JETLS.jl",
-            --         "/home/mori/dev/JETLS.jl/runserver.jl",
-            --     },
-            --     filetypes = {"julia"},
-            -- })
-            -- vim.lsp.enable("jetls")
             -- julia -e 'using Pkg; Pkg.Apps.add(; url="https://github.com/aviatesk/JETLS.jl", rev="release")'
             vim.lsp.config("jetls", {
-                cmd = {
-                    "jetls",
-                    "serve",
-                },
-                filetypes = { "julia" },
-                root_markers = { "Project.toml" }
+                cmd = { "jetls", "serve" },
+                filetypes = {"julia"},
+                root_markers = { "Project.toml" },
             })
-            -- vim.lsp.enable("jetls")
-            -- vim.lsp.config("jetls", {
-            --     cmd = {
-            --         "jetls",
-            --         "--threads=auto",
-            --         "--",
-            --     },
-            --     filetypes = {"julia"},
-            -- })
             vim.lsp.enable("jetls")
         end,
     },
@@ -92,7 +68,8 @@ return {
             opts.filesystem.filtered_items = {
                 show_hidden_count = false,
                 hide_dotfiles = false,
-                hide_by_name = {".git"}
+                hide_by_name = {".git"},
+                hide_gitignored = false,
             };
             opts.commands = {
                 change_dir = function(state)

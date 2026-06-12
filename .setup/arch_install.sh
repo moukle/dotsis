@@ -22,7 +22,7 @@ if ! command -v yay &> /dev/null; then
 
     cd - || exit
 
-    chaotic
+    # chaotic
 fi
 
 

@@ -1,0 +1,405 @@
+include "~/.cache/wal/niri-colors.kdl"
+
+environment {
+    ZED_WINDOW_DECORATIONS "server"
+    ELECTRON_OZONE_PLATFORM_HINT "auto"
+    DISPLAY ":0"
+    XDG_CURRENT_DESKTOP "niri"
+    XDG_SESSION_DESKTOP "niri"
+    XDG_SESSION_TYPE "wayland"
+    _JAVA_AWT_WM_NONREPARENTING "1"
+    _JAVA_OPTIONS "-Dawt.useSystemAAFontSettings=gasp"
+    QT_QPA_PLATFORMTHEME "gtk3"
+    QT_QPA_PLATFORMTHEME_QT6 "gtk3"
+
+    // LIBVA_DRIVER_NAME "nvidia"
+    // GBM_BACKEND "nvidia-drm"
+    // __GLX_VENDOR_LIBRARY_NAME "nvidia"
+    // SDL_VIDEODRIVER "wayland"
+    // MOZ_ENABLE_WAYLAND "1"
+    // MOZ_DBUS_REMOTE "1"
+    // GDK_BACKEND "wayland"
+    // ELECTRON_OZONE_PLATFORM_HINT "auto"
+    // WLR_NO_HARDWARE_CURSORS "1"
+    // QT_QPA_PLATFORM "wayland"
+    // SDL_VIDEO_WAYLAND_PREFER_LIBDECOR "1"
+    // GDK_DPI_SCALE "1"
+    // GDK_SCALE "1"
+    // QT_AUTO_SCREEN_SCALE_FACTOR "1"
+}
+
+screenshot-path "~/Pictures/screenshots/%Y-%m-%d %H-%M-%S.png"
+prefer-no-csd
+
+spawn-at-startup "vicinae" "server"
+spawn-at-startup "qs"
+spawn-at-startup "zen-browser"
+
+spawn-at-startup "gsettings" "set" "org.gnome.desktop.interface" "cursor-theme" "phinger-cursors-light"
+spawn-at-startup "gsettings" "set" "org.gnome.desktop.interface" "cursor-size" "32"
+spawn-at-startup "gsettings" "set" "org.gnome.desktop.interface" "gtk-theme" "adw-gtk3"
+spawn-at-startup "gsettings" "set" "org.gnome.desktop.interface" "icon-theme" "Reversal"
+spawn-at-startup "gsettings" "set" "org.gnome.desktop.interface" "font-name" "SF Pro Display 13"
+
+
+hotkey-overlay {
+    skip-at-startup
+}
+
+input {
+    keyboard {
+        xkb {
+            layout "us"
+            options "nodeadkeys"
+        }
+    }
+    mouse { accel-speed 0.000000; }
+}
+
+gestures {
+    hot-corners {
+        off
+    }
+}
+
+output "DP-2" {
+    // modeline "-vsync"
+    scale 1.0
+    // variable-refresh-rate
+}
+
+animations {
+    // slowdown 0.1
+    // off
+}
+
+blur {
+    // off
+    passes 2
+    offset 4
+    noise 0.02
+    saturation 1.5
+}
+
+layout {
+    gaps 20
+
+    focus-ring {
+        width 3
+    }
+    border {
+        off
+        width 1
+    }
+
+
+    preset-column-widths {
+        // proportion 0.25
+        proportion 0.33
+        proportion 0.5
+        proportion 0.67
+        // proportion 0.75
+        // proportion 1.0
+    }
+
+    default-column-width { proportion 0.5; }
+
+    // struts {
+    //     left 5
+    //     right 5
+    //     top 5
+    //     bottom 5
+    // }
+
+    tab-indicator {
+        hide-when-single-tab
+        place-within-column
+        gap 10
+        width 10
+        length total-proportion=0.1
+        position "left"
+        gaps-between-tabs 5
+        corner-radius 13
+    }
+
+    center-focused-column "never"
+}
+
+
+recent-windows {
+    open-delay-ms 150
+
+    highlight {
+        padding 20
+        corner-radius 10
+    }
+}
+
+layer-rule {
+   match namespace="noctalia-background-.*$"
+
+    background-effect {
+        xray false
+    }
+}
+
+window-rule {
+    geometry-corner-radius 20
+    clip-to-geometry true
+
+    shadow {
+        off
+        softness 12
+        spread 4
+        offset x=0 y=0
+        color "#58585890"
+        draw-behind-window true
+    }
+}
+
+window-rule {
+    match is-focused=true
+    background-effect {
+        blur false
+        xray true
+    }
+
+    shadow {
+        off
+        spread 4
+    }
+}
+
+layer-rule {
+    match namespace="vicinae"
+
+    shadow {
+        on
+        // softness 30
+        spread 4
+        draw-behind-window true
+    }
+}
+
+workspace "browser"
+workspace "dev"
+workspace "sozial"
+workspace "game"
+
+window-rule {
+    match app-id="helium"
+    match app-id="zen"
+    open-on-workspace "browser"
+    open-maximized true
+    open-focused true
+}
+
+window-rule {
+    match title="Extension: (Bitwarden Password Manager) - Bitwarden — Zen Browser"
+    match title="Bitwarden"
+    open-maximized false
+    open-floating true
+    open-focused true
+}
+
+window-rule {
+    match app-id="com.mitchellh.ghostty"
+    background-effect {
+        blur true
+        xray false
+    }
+   draw-border-with-background false
+}
+
+window-rule {
+    match is-focused=true
+    background-effect {
+        blur true
+        xray true
+    }
+
+    shadow {
+        off
+        spread 4
+    }
+}
+
+window-rule {
+    match app-id="discord"
+    match app-id="Spotify"
+    open-on-workspace "sozial"
+    open-focused true
+}
+
+window-rule {
+    match app-id="steam"
+    match app-id="DDNet"
+    open-on-workspace "game"
+    open-focused true
+}
+
+// fixes steam notification being in the center of the screen
+window-rule {
+    match app-id="steam" title=r#"^notificationtoasts_\d+_desktop$"#
+    default-floating-position x=10 y=10 relative-to="bottom-right"
+}
+
+// https://github.com/YaLTeR/niri/issues/2335
+// window-rule {
+//     // This regular expression is intentionally made as specific as possible, 
+//     // since this is the default config, and we want no false positives. 
+//     // You can get away with just app-id="wezterm" if you want. 
+//     match app-id="dev.zed.Zed"
+//     default-column-width {} 
+// }
+
+layer-rule {
+  match namespace="^noctalia-overview*"
+  place-within-backdrop true
+}
+
+// Put swaybg inside the overview backdrop.
+// layer-rule {
+//     match namespace="^swww-daemon$"
+//     // match namespace="^wallpaper$"
+//     place-within-backdrop true
+// }
+
+overview {
+    // backdrop-color "#707070"
+    zoom 0.3
+    workspace-shadow {
+        softness 50
+        spread 10
+        offset x=0 y=0
+        color "#0000"
+    }
+}
+
+debug {
+    honor-xdg-activation-with-invalid-serial
+
+    // https://github.com/YaLTeR/niri/issues/2477
+    render-drm-device "/dev/dri/renderD129"
+    wait-for-frame-completion-before-queueing
+}
+
+cursor {
+    xcursor-theme "phinger-cursors-light"
+    xcursor-size 48
+}
+
+// hotkey-overlay { skip-at-startup; }
+binds {
+    Mod+Return { spawn-sh "ghostty --gtk-single-instance=false"; }
+    Mod+D      { spawn "vicinae" "toggle"; }
+    // Mod+V { spawn "sh" "-c" "cliphist list | vicinae dmenu | cliphist decode | wl-copy"; }
+    Mod+V { spawn "vicinae" "vicinae://extensions/vicinae/clipboard/history"; }
+    // Mod+Z { spawn "sh" "toggle_pause.sh"; }
+
+    Mod+Shift+Ctrl+Q { quit; }
+    Mod+Shift+P      { power-off-monitors; }
+
+    // noctalia-shell
+    Mod+Shift+Q      { spawn "qs" "ipc" "call" "sessionMenu" "toggle"; }
+    Mod+Shift+Ctrl+L { spawn "qs" "ipc" "call" "lockScreen" "toggle"; }
+    Mod+P            { spawn "qs" "ipc" "call" "settings" "toggle"; }
+    Mod+W            { spawn "qs" "ipc" "call" "wallpaper" "toggle"; }
+    XF86AudioRaiseVolume { spawn "qs" "ipc" "call" "volume" "increase"; }
+    XF86AudioLowerVolume { spawn "qs" "ipc" "call" "volume" "decrease"; }
+    XF86AudioMute { spawn "qs" "ipc" "call" "volume" "muteOutput"; }
+    XF86MonBrightnessUp { spawn "qs" "ipc" "call" "brightness" "increase"; }
+    XF86MonBrightnessDown { spawn "qs" "ipc" "call" "brightness" "decrease"; }
+
+    Mod+Q repeat=false { close-window; }
+    Mod+Tab repeat=false { toggle-overview; }
+
+    Super+C { center-column; }
+    Super+F { maximize-column; }
+    Super+Shift+F { fullscreen-window; }
+    Super+S       { toggle-window-floating; }
+    Super+T { toggle-column-tabbed-display; }
+
+    // focus
+    Super+H { focus-column-left; }
+    Super+L { focus-column-right; }
+    Super+J { focus-window-down; }
+    Super+K { focus-window-up; }
+
+    // move
+    Super+Shift+H { move-column-left; }
+    Super+Shift+L { move-column-right; }
+    Super+Shift+J { move-window-down; }
+    Super+Shift+K { move-window-up; }
+
+    // monitor focus
+    // Super+Shift+H { focus-monitor-left; }
+    // Super+Shift+J { focus-monitor-down; }
+    // Super+Shift+K { focus-monitor-up; }
+    // Super+Shift+L { focus-monitor-right; }
+
+    // monitor move
+    // Super+Shift+Ctrl+H { move-column-to-monitor-left; }
+    // Super+Shift+Ctrl+J { move-column-to-monitor-down; }
+    // Super+Shift+Ctrl+K { move-column-to-monitor-up; }
+    // Super+Shift+Ctrl+L { move-column-to-monitor-right; }
+
+    Mod+Comma  { consume-window-into-column; }
+    Mod+Period { expel-window-from-column; }
+
+    Mod+R { switch-preset-column-width; }
+    Mod+Shift+R { reset-window-height; }
+    Super+Minus { set-column-width "-10%"; }
+    Super+Equal { set-column-width "+10%"; }
+    Super+Shift+Equal { set-window-height "+10%"; }
+    Super+Shift+Minus { set-window-height "-10%"; }
+
+    Mod+1 { focus-workspace 1; }
+    Mod+2 { focus-workspace 2; }
+    Mod+3 { focus-workspace 3; }
+    Mod+4 { focus-workspace 4; }
+    Mod+5 { focus-workspace 5; }
+    Mod+6 { focus-workspace 6; }
+    Mod+7 { focus-workspace 7; }
+    Mod+8 { focus-workspace 8; }
+    Mod+9 { focus-workspace 9; }
+
+    Mod+Shift+1 { move-column-to-workspace 1; }
+    Mod+Shift+2 { move-column-to-workspace 2; }
+    Mod+Shift+3 { move-column-to-workspace 3; }
+    Mod+Shift+4 { move-column-to-workspace 4; }
+    Mod+Shift+5 { move-column-to-workspace 5; }
+    Mod+Shift+6 { move-column-to-workspace 6; }
+    Mod+Shift+7 { move-column-to-workspace 7; }
+    Mod+Shift+8 { move-column-to-workspace 8; }
+    Mod+Shift+9 { move-column-to-workspace 9; }
+
+    Mod+u              { focus-workspace-down; }
+    Mod+i              { focus-workspace-up; }
+    Mod+Shift+u         { move-column-to-workspace-down; }
+    Mod+Shift+i         { move-column-to-workspace-up; }
+
+    Super+Shift+S { screenshot; }
+    Super+Ctrl+S { screenshot-window; }
+    Super+Shift+Ctrl+s { screenshot-screen; }
+
+    Super+WheelScrollDown cooldown-ms=500 { focus-workspace-down; }
+    Super+WheelScrollLeft { focus-column-left; }
+    Super+WheelScrollRight { focus-column-right; }
+    Super+WheelScrollUp cooldown-ms=500 { focus-workspace-up; }
+
+    // Audio controls
+    // XF86AudioRaiseVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1+"; }
+    // XF86AudioLowerVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1-"; }
+    // XF86AudioMute        allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"; }
+    // XF86AudioMicMute     allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"; }
+
+    // Brightness controls
+    // XF86MonBrightnessDown { spawn "brightnessctl" "set" "5%-"; }
+    // XF86MonBrightnessUp { spawn "brightnessctl" "set" "+5%"; }
+
+    XF86Bluetooth { spawn "bt"; }
+}
+
+// include "./noctalia.kdl"
+

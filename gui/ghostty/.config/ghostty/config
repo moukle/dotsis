@@ -1,24 +1,21 @@
-# font-family = JetBrainsMono Nerd Font
+# font-family = PragmataPro
 font-family = Maple Mono NF
-# font-family = Aporetic Sans Mono
-# font-family = Julia Mono
-# font-family = Pragmaveska Nerd Font
-# font-family = Iosvmata
+# font-family = Pragmasevka Nerd Font
 font-size = 14
-# font-weight = 400
 # adjust-font-baseline = 115%
 adjust-cell-height = 18%
 
 shell-integration-features = cursor, no-cursor, sudo, no-sudo, title, no-title
 cursor-invert-fg-bg = true
 
-window-decoration = false
+window-inherit-working-directory = false
+window-decoration = none
 # window-height = 05
 # window-width = 05
 window-padding-x = 10
 window-padding-y = 10
-window-padding-balance = true
-window-theme = ghostty
+# window-padding-balance = true
+# window-theme = ghostty
 
 # working-directory = inherit
 copy-on-select = true
@@ -28,9 +25,9 @@ confirm-close-surface = false
 # background = 000000
 # palette = 0=#252525
 # palette = 8=#454545
-
-# background-opacity = 0.8
-# background-blur = 50
+# background-opacity = 0.85
+background-blur = true
+# background-blur = macos-glass-regular
 
 app-notifications = no-clipboard-copy
 

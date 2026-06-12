@@ -1,10 +1,4 @@
 {
-  "collaboration_panel": {
-    "dock": "left",
-  },
-  "edit_predictions": {
-    "provider": "copilot",
-  },
   "auto_update_extensions": {
     "zedokai": false,
   },
@@ -65,26 +59,23 @@
   "buffer_line_height": "standard",
   "lsp": {
     "JETLS": {
-      "binary": {
-        "arguments": ["--threads=1", "--", "serve"],
+      "settings": {
+        "formatter": "Runic",
       },
     },
   },
   "git_panel": {
-    "tree_view": true,
-    "dock": "left",
     "sort_by_path": true,
   },
   "telemetry": {
     "metrics": false,
     "diagnostics": false,
   },
-  "icon_theme": {
-    "mode": "dark",
-    "light": "Material Icon Theme",
-    "dark": "Material Icon Theme",
-  },
+  "icon_theme": "Material Icon Theme",
   "show_edit_predictions": true,
+  "features": {
+    "edit_prediction_provider": "copilot",
+  },
   "languages": {
     "Julia": {
       "show_edit_predictions": true,
@@ -97,8 +88,6 @@
     "show_user_picture": false,
   },
   "agent": {
-    "sidebar_side": "right",
-    "dock": "right",
     "favorite_models": [
       {
         "provider": "copilot_chat",
@@ -107,15 +96,11 @@
     ],
     "default_profile": "ask",
     "default_model": {
-      "effort": "high",
-      "enable_thinking": true,
       "provider": "copilot_chat",
-      "model": "gpt-5.4-mini",
+      "model": "claude-sonnet-4.5",
     },
   },
   "project_panel": {
-    "sticky_scroll": true,
-    "dock": "left",
     "default_width": 240.0,
     "hide_hidden": false,
     "hide_root": true,
@@ -126,12 +111,13 @@
     "auto_reveal_entries": true,
     "entry_spacing": "standard",
     "hide_gitignore": false,
+    "button": false,
   },
   "base_keymap": "VSCode",
   "theme": {
-    "mode": "dark",
+    "mode": "system",
     "light": "Zedokai Light",
-    "dark": "Zedokai Darker (Filter Spectrum)",
+    "dark": "Zedokai (Filter Spectrum)",
   },
   "unnecessary_code_fade": 0.8,
   "relative_line_numbers": "wrapped",

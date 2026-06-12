@@ -23,7 +23,6 @@ packages_cli=(
     "libnotify"
     "neovim"
     "openssh"
-    "python-pywal"
     "starship"
     "tmux"
     "unzip"
@@ -35,37 +34,35 @@ packages_cli=(
 
     "zellij"
     "zsh"
+    "zoxide"
 )
 
 packages_gui=(
     "nautilus"
-    "code"
     "zed-editor"
-    "firefox"
-    "kitty"
-    "mission-center"
+    "ghostty"
     "pavucontrol"
     "zathura"
     "zathura-pdf-mupdf"
 )
 
 packages_wm=(
-    "anyrun-git"
-    "dunst"
-    "matugen-bin"
     "swww"
+    "vicinae-bin"
 
-    "whitesur-icon-theme-git"
+    # "whitesur-icon-theme-git"
     "phinger-cursors"
 
-    "hyprland"
-    "hyprdim"
-    "hypridle"
-    # requirements for hyprpm
-    "hyprwayland-scanner"
-    "cpio"
+    "python-pywal"
 
-    # "niri-git"
+    # "hyprland"
+    # "hyprdim"
+    # "hypridle"
+    # requirements for hyprpm
+    # "hyprwayland-scanner"
+    # "cpio"
+
+    "niri"
     "xdg-desktop-portal-gtk"
     "xdg-desktop-portal-gnome"
     "gnome-keyring"
@@ -73,12 +70,11 @@ packages_wm=(
 
     "libnotify"
     "pipewire"
-    "waybar"
-    "wlsunset"
+    "gammastep"
 )
 
 packages_fonts=(
-    "ttf-maple"
+    "maplemono-nf"
     "noto-fonts-emoji"
     "apple-fonts"
     "lexend-fonts-git"
