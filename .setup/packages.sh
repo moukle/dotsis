@@ -63,6 +63,7 @@ packages_wm=(
     # "cpio"
 
     "niri"
+    "noctalia"
     "xdg-desktop-portal-gtk"
     "xdg-desktop-portal-gnome"
     "gnome-keyring"

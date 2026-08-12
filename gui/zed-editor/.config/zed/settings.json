@@ -1,8 +1,16 @@
 {
+  "agent_servers": {
+    "github-copilot-cli": {
+      "type": "registry"
+    }
+  },
   "collaboration_panel": {
     "dock": "left",
   },
   "edit_predictions": {
+    "copilot": {
+      "enable_next_edit_suggestions": false
+    },
     "provider": "copilot",
   },
   "auto_update_extensions": {
@@ -80,23 +88,34 @@
     "diagnostics": false,
   },
   "icon_theme": {
-    "mode": "dark",
+    "mode": "light",
     "light": "Material Icon Theme",
     "dark": "Material Icon Theme",
   },
-  "show_edit_predictions": true,
+  "show_edit_predictions": false,
   "languages": {
     "Julia": {
       "show_edit_predictions": true,
     },
   },
   "title_bar": {
+    "show_branch_status_icon": true,
     "show_menus": false,
     "show_sign_in": true,
-    "show_branch_icon": true,
     "show_user_picture": false,
   },
   "agent": {
+    "tool_permissions": {
+      "default": "confirm",
+      "tools": {
+        "terminal": {
+          "always_allow": [
+            { "pattern": "^git\\s+(status|log|diff|branch)" },
+            ]
+        }
+      }
+    },
+    "show_turn_stats": false,
     "sidebar_side": "right",
     "dock": "right",
     "favorite_models": [
@@ -105,12 +124,12 @@
         "model": "claude-sonnet-4.5",
       },
     ],
-    "default_profile": "ask",
+    "default_profile": "write",
     "default_model": {
-      "effort": "high",
+      "effort": "low",
       "enable_thinking": true,
-      "provider": "copilot_chat",
-      "model": "gpt-5.4-mini",
+      "provider": "openai-subscribed",
+      "model": "gpt-5.6-sol",
     },
   },
   "project_panel": {
@@ -129,9 +148,9 @@
   },
   "base_keymap": "VSCode",
   "theme": {
-    "mode": "dark",
+    "mode": "light",
     "light": "Zedokai Light",
-    "dark": "Zedokai Darker (Filter Spectrum)",
+    "dark": "Zedokai Darker (Filter Ristretto)",
   },
   "unnecessary_code_fade": 0.8,
   "relative_line_numbers": "wrapped",

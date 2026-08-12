@@ -32,7 +32,7 @@ screenshot-path "~/Pictures/screenshots/%Y-%m-%d %H-%M-%S.png"
 prefer-no-csd
 
 spawn-at-startup "vicinae" "server"
-spawn-at-startup "qs"
+spawn-at-startup "noctalia"
 spawn-at-startup "zen-browser"
 
 spawn-at-startup "gsettings" "set" "org.gnome.desktop.interface" "cursor-theme" "phinger-cursors-light"
@@ -63,13 +63,10 @@ gestures {
 }
 
 output "DP-2" {
-    // modeline "-vsync"
-    scale 1.0
-    // variable-refresh-rate
+    scale 1.2
 }
 
 animations {
-    // slowdown 0.1
     // off
 }
 
@@ -94,12 +91,9 @@ layout {
 
 
     preset-column-widths {
-        // proportion 0.25
         proportion 0.33
         proportion 0.5
         proportion 0.67
-        // proportion 0.75
-        // proportion 1.0
     }
 
     default-column-width { proportion 0.5; }
@@ -136,7 +130,8 @@ recent-windows {
 }
 
 layer-rule {
-   match namespace="noctalia-background-.*$"
+   // match namespace="noctalia-background-.*$"
+   match namespace="^noctalia-(bar-[^\"]+|notification|dock|panel|attached-panel|osd)$"
 
     background-effect {
         xray false
@@ -175,7 +170,7 @@ layer-rule {
 
     shadow {
         on
-        // softness 30
+        softness 100
         spread 4
         draw-behind-window true
     }
@@ -244,35 +239,20 @@ window-rule {
     default-floating-position x=10 y=10 relative-to="bottom-right"
 }
 
-// https://github.com/YaLTeR/niri/issues/2335
-// window-rule {
-//     // This regular expression is intentionally made as specific as possible, 
-//     // since this is the default config, and we want no false positives. 
-//     // You can get away with just app-id="wezterm" if you want. 
-//     match app-id="dev.zed.Zed"
-//     default-column-width {} 
-// }
-
 layer-rule {
-  match namespace="^noctalia-overview*"
+  // match namespace="^noctalia-backdrop"
+  match namespace="^noctalia"
   place-within-backdrop true
 }
 
-// Put swaybg inside the overview backdrop.
-// layer-rule {
-//     match namespace="^swww-daemon$"
-//     // match namespace="^wallpaper$"
-//     place-within-backdrop true
-// }
-
 overview {
-    // backdrop-color "#707070"
     zoom 0.3
     workspace-shadow {
-        softness 50
-        spread 10
-        offset x=0 y=0
-        color "#0000"
+        on
+        softness 500
+        spread 1000
+        // offset x=0 y=0
+        color "#0003"
     }
 }
 
@@ -289,7 +269,6 @@ cursor {
     xcursor-size 48
 }
 
-// hotkey-overlay { skip-at-startup; }
 binds {
     Mod+Return { spawn-sh "ghostty --gtk-single-instance=false"; }
     Mod+D      { spawn "vicinae" "toggle"; }
@@ -301,15 +280,27 @@ binds {
     Mod+Shift+P      { power-off-monitors; }
 
     // noctalia-shell
-    Mod+Shift+Q      { spawn "qs" "ipc" "call" "sessionMenu" "toggle"; }
-    Mod+Shift+Ctrl+L { spawn "qs" "ipc" "call" "lockScreen" "toggle"; }
-    Mod+P            { spawn "qs" "ipc" "call" "settings" "toggle"; }
-    Mod+W            { spawn "qs" "ipc" "call" "wallpaper" "toggle"; }
-    XF86AudioRaiseVolume { spawn "qs" "ipc" "call" "volume" "increase"; }
-    XF86AudioLowerVolume { spawn "qs" "ipc" "call" "volume" "decrease"; }
-    XF86AudioMute { spawn "qs" "ipc" "call" "volume" "muteOutput"; }
-    XF86MonBrightnessUp { spawn "qs" "ipc" "call" "brightness" "increase"; }
-    XF86MonBrightnessDown { spawn "qs" "ipc" "call" "brightness" "decrease"; }
+    // Mod+Shift+Q      { spawn "qs" "ipc" "call" "sessionMenu" "toggle"; }
+    // Mod+Shift+Ctrl+L { spawn "qs" "ipc" "call" "lockScreen" "toggle"; }
+    // Mod+P            { spawn "qs" "ipc" "call" "settings" "toggle"; }
+    // Mod+W            { spawn "qs" "ipc" "call" "wallpaper" "toggle"; }
+    // XF86AudioRaiseVolume { spawn "qs" "ipc" "call" "volume" "increase"; }
+    // XF86AudioLowerVolume { spawn "qs" "ipc" "call" "volume" "decrease"; }
+    // XF86AudioMute { spawn "qs" "ipc" "call" "volume" "muteOutput"; }
+    // XF86MonBrightnessUp { spawn "qs" "ipc" "call" "brightness" "increase"; }
+    // XF86MonBrightnessDown { spawn "qs" "ipc" "call" "brightness" "decrease"; }
+
+    // Core Noctalia binds
+    Mod+P { spawn-sh "noctalia msg settings-toggle"; }
+    Mod+Shift+Q      { spawn-sh "noctalia msg panel-toggle session"; }
+    Mod+W { spawn-sh "noctalia msg panel-toggle wallpaper"; }
+
+    // Audio & Brightness
+    XF86AudioRaiseVolume { spawn-sh "noctalia msg volume-up"; }
+    XF86AudioLowerVolume { spawn-sh "noctalia msg volume-down"; }
+    XF86AudioMute { spawn-sh "noctalia msg volume-mute"; }
+    XF86MonBrightnessUp { spawn-sh "noctalia msg brightness-up"; }
+    XF86MonBrightnessDown { spawn-sh "noctalia msg brightness-down"; }
 
     Mod+Q repeat=false { close-window; }
     Mod+Tab repeat=false { toggle-overview; }
