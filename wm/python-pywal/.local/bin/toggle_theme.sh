@@ -13,15 +13,17 @@ set_helix_theme() {
 if [ $test $(dconf read /org/gnome/desktop/interface/color-scheme) = "'prefer-dark'" ]; then
     # switch to light
     dconf write /org/gnome/desktop/interface/color-scheme "'prefer-light'"
-    walr.sh canvas -l
+    walr.sh canvas_sun -l
     # set_helix_theme "catppuccin_light"
     sed -i "s/--dark/--light/" "${HOME}/.config/lazygit/config.yml"
-    vicinae vicinae://theme/set/vicinae-light
+    # vicinae vicinae://theme/set/vicinae-light
 else
     # switch to dark
     dconf write /org/gnome/desktop/interface/color-scheme "'prefer-dark'"
-    walr.sh everforest-gray
+    # walr.sh everforest-gray
+    # walr.sh base16-tomorrow-night
+    walr.sh hal_ristretto
     set_helix_theme "catppuccin_oled"
     sed -i "s/--light/--dark/" "${HOME}/.config/lazygit/config.yml"
-    vicinae vicinae://theme/set/vicinae-dark
+    # vicinae vicinae://theme/set/vicinae-dark
 fi

@@ -1,4 +1,7 @@
 {
+  "cli_default_open_behavior": "existing_window",
+  "agent_buffer_font_family": "Maple Mono NF",
+  "agent_ui_font_family": "Lexend",
   "agent_servers": {
     "github-copilot-cli": {
       "type": "registry"
@@ -59,8 +62,8 @@
     "thumb_border": "none",
     "show": "never",
   },
-  "agent_buffer_font_size": 15.0,
-  "agent_ui_font_size": 15.0,
+  "agent_buffer_font_size": 18.0,
+  "agent_ui_font_size": 20.0,
   "sticky_scroll": {
     "enabled": false,
   },
@@ -88,7 +91,7 @@
     "diagnostics": false,
   },
   "icon_theme": {
-    "mode": "light",
+    "mode": "dark",
     "light": "Material Icon Theme",
     "dark": "Material Icon Theme",
   },
@@ -105,6 +108,8 @@
     "show_user_picture": false,
   },
   "agent": {
+    "play_sound_when_agent_done": "when_hidden",
+    "notify_when_agent_waiting": "primary_screen",
     "tool_permissions": {
       "default": "confirm",
       "tools": {
@@ -115,7 +120,7 @@
         }
       }
     },
-    "show_turn_stats": false,
+    "show_turn_stats": true,
     "sidebar_side": "right",
     "dock": "right",
     "favorite_models": [
@@ -126,10 +131,10 @@
     ],
     "default_profile": "write",
     "default_model": {
-      "effort": "low",
+      "effort": "medium",
       "enable_thinking": true,
       "provider": "openai-subscribed",
-      "model": "gpt-5.6-sol",
+      "model": "gpt-6-astra",
     },
   },
   "project_panel": {
@@ -148,9 +153,9 @@
   },
   "base_keymap": "VSCode",
   "theme": {
-    "mode": "light",
-    "light": "Zedokai Light",
-    "dark": "Zedokai Darker (Filter Ristretto)",
+    "mode": "dark",
+    "light": "Zedokai Light (Filter Sun)",
+    "dark": "Zedokai (Filter Ristretto)",
   },
   "unnecessary_code_fade": 0.8,
   "relative_line_numbers": "wrapped",

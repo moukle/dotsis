@@ -26,7 +26,7 @@ confirm-close-surface = false
 # palette = 0=#252525
 # palette = 8=#454545
 # background-opacity = 0.85
-background-blur = true
+# background-blur = true
 # background-blur = macos-glass-regular
 
 app-notifications = no-clipboard-copy

@@ -4,27 +4,27 @@
 
     "special": {
 	"foreground": "#969899",
-	"background": "#131414",
+	"background": "#2c2525",
 	"_background": "#000000",
 	"cursor": "#BBBDBF"
     },
     "colors": {
-	"color0":       "#303030",
+	"color0":       "#383030",
 	"color1":       "#C63E4D",
 	"color2":       "#83BF57",
 	"color3":       "#C38A4D",
 	"color4":       "#378CBB",
 	"color5":       "#C55F8C",
 	"color6":       "#1BC0BF",
-	"color7":       "#838392",
-	"color8":       "#404040",
+	"color7":       "#928687",
+	"color8":       "#484040",
 	"color9":       "#FF7C76",
 	"color10":      "#BEFF9B",
 	"color11":      "#FFCF80",
 	"color12":      "#7BB6F9",
 	"color13":      "#FF98B9",
 	"color14":      "#7FEDFD",
-	"color15":      "#91919e"
+	"color15":      "#9e9495"
     }
 }
 

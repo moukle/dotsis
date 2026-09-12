@@ -168,6 +168,10 @@ window-rule {
 layer-rule {
     match namespace="vicinae"
 
+    background-effect {
+        xray false
+    }
+
     shadow {
         on
         softness 100
@@ -178,8 +182,9 @@ layer-rule {
 
 workspace "browser"
 workspace "dev"
-workspace "sozial"
+workspace "dev2"
 workspace "game"
+workspace "sozial"
 
 window-rule {
     match app-id="helium"
@@ -187,6 +192,10 @@ window-rule {
     open-on-workspace "browser"
     open-maximized true
     open-focused true
+}
+
+window-rule {
+    match title="^agent_ui:"
 }
 
 window-rule {
@@ -240,8 +249,8 @@ window-rule {
 }
 
 layer-rule {
-  // match namespace="^noctalia-backdrop"
-  match namespace="^noctalia"
+  match namespace="^noctalia-backdrop"
+  // match namespace="^noctalia"
   place-within-backdrop true
 }
 
@@ -393,4 +402,6 @@ binds {
 }
 
 // include "./noctalia.kdl"
+
+
 
