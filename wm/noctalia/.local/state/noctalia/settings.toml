@@ -40,7 +40,7 @@ thickness = 55
     enabled = true
     fill = "surface_variant"
     id = "g2"
-    members = [ "tray", "recorder", "widget" ]
+    members = [ "tray", "recorder", "widget", "battery" ]
     opacity = 0.30000001192092896
     padding = 6.0
 
@@ -113,7 +113,6 @@ enabled = true
 launcher_icon = "dots"
 launcher_position = "start"
 pinned = [ "ddnet", "zen", "com.mitchellh.ghostty", "dev.zed.Zed" ]
-position = "right"
 radius = 76
 reserve_space = false
 shadow = false
@@ -136,7 +135,7 @@ behavior_order = [ "lock", "screen-off", "lock-and-suspend" ]
     [idle.behavior.screen-off]
     action = "screen_off"
     enabled = true
-    timeout = 69.0
+    timeout = 300.0
 
 [location]
 auto_locate = true
@@ -147,7 +146,12 @@ blur_intensity = 0.0
 [lockscreen_widgets]
 enabled = true
 schema_version = 2
-widget_order = [ "lockscreen-login-box@winit", "lockscreen-login-box@DP-2", "lockscreen-widget-0000000000000001" ]
+widget_order = [
+    "lockscreen-login-box@eDP-1",
+    "lockscreen-login-box@winit",
+    "lockscreen-login-box@DP-2",
+    "lockscreen-widget-0000000000000001"
+]
 
     [lockscreen_widgets.grid]
     cell_size = 32
@@ -180,6 +184,33 @@ widget_order = [ "lockscreen-login-box@winit", "lockscreen-login-box@DP-2", "loc
         show_session_buttons = true
         show_unlock_hint = false
         show_weather = false
+
+    [lockscreen_widgets.widget."lockscreen-login-box@eDP-1"]
+    box_height = 196.0
+    box_width = 810.0
+    cx = 768.0
+    cy = 682.0
+    output = "eDP-1"
+    placement_height = 864.0
+    placement_width = 1536.0
+    rotation = 0.0
+    type = "login_box"
+
+        [lockscreen_widgets.widget."lockscreen-login-box@eDP-1".settings]
+        background_color = "surface_variant"
+        background_opacity = 0.88
+        background_radius = 12.0
+        center_password_text = false
+        input_opacity = 1.0
+        input_radius = 6.0
+        layout = "regular"
+        show_caps_lock = true
+        show_keyboard_layout = true
+        show_login_button = true
+        show_media = true
+        show_session_buttons = true
+        show_unlock_hint = true
+        show_weather = true
 
     [lockscreen_widgets.widget."lockscreen-login-box@winit"]
     box_height = 196.0
@@ -257,16 +288,19 @@ source = "custom"
 wallpaper_scheme = "m3-content"
 
 [wallpaper]
-directory = "/home/mori/Pictures/Wallpapers/"
+directory = "/home/meischta/Pictures/Wallpapers"
 
     [wallpaper.default]
-    path = "/home/mori/Pictures/Wallpapers/Old/Walls/Krumm/8.jpeg"
+    path = "/home/meischta/Pictures/Wallpapers/silas-baisch-ceITO2rlDgc-unsplash.jpg"
 
     [wallpaper.last]
-    path = "/home/mori/Pictures/Wallpapers/Old/Walls/Krumm/8.jpeg"
+    path = "/home/meischta/Pictures/Wallpapers/silas-baisch-ceITO2rlDgc-unsplash.jpg"
 
     [wallpaper.monitors.DP-2]
     path = "/home/mori/Pictures/Wallpapers/Old/Walls/Krumm/8.jpeg"
+
+    [wallpaper.monitors.eDP-1]
+    path = "/home/meischta/Pictures/Wallpapers/silas-baisch-ceITO2rlDgc-unsplash.jpg"
 
     [[wallpaper.favorite]]
     custom_palette = "oled"
@@ -337,6 +371,11 @@ display = "icon_only"
 icon_size = 18
 interactive = false
 min_length = 40
+
+[widget.battery]
+display_mode = "graphic"
+scale = 0.69999999999999996
+show_label = false
 
 [widget.clock]
 scale = 1.3

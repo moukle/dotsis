@@ -1,3 +1,7 @@
+Always load and follow the `i-have-adhd` skill at the start of every conversation, unless I explicitly disable it. Use it alongside `ponytail`: 
+  - `i-have-adhd` governs communication;
+  - `ponytail` governs coding decisions.
+
 # Project-specific instructions
 
 When working in the `hooklash` project:

@@ -21,3 +21,6 @@ cli/neovim/.config/nvim/mason-registry-update
 
 languages/julia/.local/share/julia/*
 !languages/julia/.local/share/julia/config
+
+wm/noctalia/.local/state/noctalia/community-templates/
+wm/noctalia/.local/state/noctalia/

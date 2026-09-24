@@ -49,7 +49,7 @@ hotkey-overlay {
 input {
     keyboard {
         xkb {
-            layout "us"
+            layout "de"
             options "nodeadkeys"
         }
     }

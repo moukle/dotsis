@@ -1,8 +1,8 @@
 {
-  "cli_default_open_behavior": "existing_window",
-  "agent_buffer_font_family": "Maple Mono NF",
-  "agent_ui_font_family": "Lexend",
   "agent_servers": {
+    "codex-acp": {
+      "type": "registry"
+    },
     "github-copilot-cli": {
       "type": "registry"
     }
@@ -62,8 +62,8 @@
     "thumb_border": "none",
     "show": "never",
   },
-  "agent_buffer_font_size": 18.0,
-  "agent_ui_font_size": 20.0,
+  "agent_buffer_font_size": 15.0,
+  "agent_ui_font_size": 15.0,
   "sticky_scroll": {
     "enabled": false,
   },
@@ -91,7 +91,7 @@
     "diagnostics": false,
   },
   "icon_theme": {
-    "mode": "dark",
+    "mode": "system",
     "light": "Material Icon Theme",
     "dark": "Material Icon Theme",
   },
@@ -108,8 +108,7 @@
     "show_user_picture": false,
   },
   "agent": {
-    "play_sound_when_agent_done": "when_hidden",
-    "notify_when_agent_waiting": "primary_screen",
+    "notify_when_agent_waiting": "all_screens",
     "tool_permissions": {
       "default": "confirm",
       "tools": {
@@ -120,7 +119,7 @@
         }
       }
     },
-    "show_turn_stats": true,
+    "show_turn_stats": false,
     "sidebar_side": "right",
     "dock": "right",
     "favorite_models": [
@@ -151,11 +150,11 @@
     "entry_spacing": "standard",
     "hide_gitignore": false,
   },
-  "base_keymap": "VSCode",
+  "base_keymap": "Zed",
   "theme": {
-    "mode": "dark",
+    "mode": "system",
     "light": "Zedokai Light (Filter Sun)",
-    "dark": "Zedokai (Filter Ristretto)",
+    "dark": "Zedokai Darker",
   },
   "unnecessary_code_fade": 0.8,
   "relative_line_numbers": "wrapped",
@@ -164,10 +163,10 @@
     "enabled": true,
     "delay_ms": 0,
   },
-  "ui_font_size": 18.0,
+  "ui_font_size": 16.0,
   "ui_font_family": "Lexend",
   "buffer_font_family": "Maple Mono NF",
-  "buffer_font_size": 18,
+  "buffer_font_size": 16,
   "buffer_font_features": {
     "calt": true,
     "cv01": true,
