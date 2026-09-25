@@ -85,8 +85,7 @@ _force_rehash() {
 alias fetch="fastfetch -c 'examples/8'"
 
 # alias cleanup="sudo pacman -Rsn $(pacman -Qtdq)"
-
-alias cat='bat --theme base16'
+alias cat='bat'
 
 alias ls='eza --icons --group-directories-first'
 alias la='ls -a'

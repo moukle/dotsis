@@ -1,12 +1,26 @@
-Always load and follow the `i-have-adhd` skill at the start of every conversation, unless I explicitly disable it. Use it alongside `ponytail`: 
-  - `i-have-adhd` governs communication;
-  - `ponytail` governs coding decisions.
+# AGENTS.md
+<!--toc:start-->
+- [AGENTS.md](#agentsmd)
+  - [Always](#always)
+  - [Project-specific instructions](#project-specific-instructions)
+    - [Hooklash](#hooklash)
+<!--toc:end-->
 
-# Project-specific instructions
+## Always
+
+Always load and follow the `i-have-adhd` skill at the start of every conversation,
+unless I explicitly disable it. Use it alongside `ponytail`:
+
+- `i-have-adhd` governs communication;
+- `ponytail` governs coding decisions.
+
+## Project-specific instructions
+
+### Hooklash
 
 When working in the `hooklash` project:
 
-- Never run CMake or CMake-related commands.
+- Never run `CMake` or `CMake`-related commands.
 - Never build, compile, run, or test the project.
 - If build or test validation is needed, ask the user to run it and provide the results.
 - Do not edit files until the user explicitly authorizes edits.

@@ -91,7 +91,7 @@
     "diagnostics": false,
   },
   "icon_theme": {
-    "mode": "dark",
+    "mode": "system",
     "light": "Material Icon Theme",
     "dark": "Material Icon Theme",
   },
@@ -115,8 +115,21 @@
       "tools": {
         "terminal": {
           "always_allow": [
-            { "pattern": "^git\\s+(status|log|diff|branch)" },
-            ]
+            { "pattern": "^cargo\\s+(build|test|check|clippy|fmt)" },
+            { "pattern": "^npm\\s+(install|test|run|build)" },
+            // { "pattern": "^git\\s+(status|log|diff|branch)" },
+            { "pattern": "^git\\s+(--no-pager\\s+|--no-optional-locks\\s+)*(status|log|diff|branch)\\b" },
+            { "pattern": "^ls\\b" },
+            { "pattern": "^cat\\s" }
+          ],
+          "always_deny": [
+            { "pattern": "rm\\s+-rf\\s+(/|~)" },
+            { "pattern": "sudo\\s+rm" }
+          ],
+          "always_confirm": [
+            { "pattern": "sudo\\s" },
+            { "pattern": "git\\s+push" }
+          ]
         }
       }
     },
@@ -153,7 +166,7 @@
   },
   "base_keymap": "VSCode",
   "theme": {
-    "mode": "dark",
+    "mode": "system",
     "light": "Zedokai Light (Filter Sun)",
     "dark": "Zedokai (Filter Ristretto)",
   },

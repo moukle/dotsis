@@ -40,4 +40,4 @@ keybind = alt+six=unbind
 keybind = alt+seven=unbind
 keybind = alt+eight=unbind
 
-theme = "/home/meischta/.cache/wal/colors-ghostty.conf"
+theme = noctalia

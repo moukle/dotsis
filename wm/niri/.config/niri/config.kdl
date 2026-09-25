@@ -1,4 +1,3 @@
-include "~/.cache/wal/niri-colors.kdl"
 
 environment {
     ZED_WINDOW_DECORATIONS "server"
@@ -37,7 +36,8 @@ spawn-at-startup "zen-browser"
 
 spawn-at-startup "gsettings" "set" "org.gnome.desktop.interface" "cursor-theme" "phinger-cursors-light"
 spawn-at-startup "gsettings" "set" "org.gnome.desktop.interface" "cursor-size" "32"
-spawn-at-startup "gsettings" "set" "org.gnome.desktop.interface" "gtk-theme" "adw-gtk3"
+// spawn-at-startup "gsettings" "set" "org.gnome.desktop.interface" "gtk-theme" "adw-gtk3"
+spawn-at-startup "gsettings" "set" "org.gnome.desktop.interface" "gtk-theme" "noctalia"
 spawn-at-startup "gsettings" "set" "org.gnome.desktop.interface" "icon-theme" "Reversal"
 spawn-at-startup "gsettings" "set" "org.gnome.desktop.interface" "font-name" "SF Pro Display 13"
 
@@ -49,7 +49,7 @@ hotkey-overlay {
 input {
     keyboard {
         xkb {
-            layout "de"
+            layout "us"
             options "nodeadkeys"
         }
     }
@@ -401,7 +401,5 @@ binds {
     XF86Bluetooth { spawn "bt"; }
 }
 
-// include "./noctalia.kdl"
-
-
-
+// include "~/.cache/wal/niri-colors.kdl"
+include "noctalia.kdl"

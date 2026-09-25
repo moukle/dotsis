@@ -283,21 +283,25 @@ gpu_poll_seconds = 5
 builtin = "Ayu"
 community_palette = "Ayu Blue"
 custom_palette = "zedokai"
-mode = "dark"
+mode = "auto"
 source = "custom"
 wallpaper_scheme = "m3-content"
 
+    [theme.templates]
+    builtin_ids = [ "gtk3", "gtk4", "ghostty", "niri", "qt" ]
+    community_ids = [ "zen-browser", "vicinae", "zellij", "bat", "yazi" ]
+
 [wallpaper]
-directory = "/home/meischta/Pictures/Wallpapers"
+directory = "~/Pictures/Wallpapers"
 
     [wallpaper.default]
-    path = "/home/meischta/Pictures/Wallpapers/silas-baisch-ceITO2rlDgc-unsplash.jpg"
+    path = "/home/mori/Pictures/Wallpapers/Rotation/will-xiang-0NlnKkX0Wd8-unsplash.jpg"
 
     [wallpaper.last]
-    path = "/home/meischta/Pictures/Wallpapers/silas-baisch-ceITO2rlDgc-unsplash.jpg"
+    path = "/home/mori/Pictures/Wallpapers/Rotation/will-xiang-0NlnKkX0Wd8-unsplash.jpg"
 
     [wallpaper.monitors.DP-2]
-    path = "/home/mori/Pictures/Wallpapers/Old/Walls/Krumm/8.jpeg"
+    path = "/home/mori/Pictures/Wallpapers/Rotation/will-xiang-0NlnKkX0Wd8-unsplash.jpg"
 
     [wallpaper.monitors.eDP-1]
     path = "/home/meischta/Pictures/Wallpapers/silas-baisch-ceITO2rlDgc-unsplash.jpg"
@@ -321,10 +325,10 @@ directory = "/home/meischta/Pictures/Wallpapers"
     theme_mode = "dark"
 
     [[wallpaper.favorite]]
-    custom_palette = "oled"
+    custom_palette = "zedokai"
     palette_source = "custom"
     path = "/home/mori/Pictures/Wallpapers/kram/Krumm/2.jpeg"
-    theme_mode = "dark"
+    theme_mode = "auto"
 
     [[wallpaper.favorite]]
     custom_palette = "melon"

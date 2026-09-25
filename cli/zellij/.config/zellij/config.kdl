@@ -186,6 +186,7 @@ web_client {
  
 // theme "catppuccin-frappe"
 theme "mellow"
+
  
 default_mode "normal"
 default_shell "zsh"
