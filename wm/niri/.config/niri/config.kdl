@@ -403,3 +403,4 @@ binds {
 
 // include "~/.cache/wal/niri-colors.kdl"
 include "noctalia.kdl"
+include optional=true "local.kdl"

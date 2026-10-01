@@ -1,8 +1,17 @@
 {
+  "diff_view_style": "unified",
   "cli_default_open_behavior": "existing_window",
   "agent_buffer_font_family": "Maple Mono NF",
   "agent_ui_font_family": "Lexend",
   "agent_servers": {
+    "claude-acp": {
+      "default_config_options": {
+        "mode": "auto",
+        "effort": "medium",
+        "model": "opus"
+      },
+      "type": "registry"
+    },
     "github-copilot-cli": {
       "type": "registry"
     }
@@ -22,7 +31,6 @@
   "outline_panel": {
     "dock": "left",
     "file_icons": true,
-    "folder_icons": true,
     "button": true,
   },
   "zoomed_padding": true,
@@ -108,6 +116,9 @@
     "show_user_picture": false,
   },
   "agent": {
+    "expand_terminal_card": false,
+    "enable_feedback": false,
+    "single_file_review": true,
     "play_sound_when_agent_done": "when_hidden",
     "notify_when_agent_waiting": "primary_screen",
     "tool_permissions": {
@@ -144,6 +155,7 @@
     ],
     "default_profile": "write",
     "default_model": {
+      "speed": "fast",
       "effort": "medium",
       "enable_thinking": true,
       "provider": "openai-subscribed",
