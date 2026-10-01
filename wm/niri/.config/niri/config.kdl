@@ -199,8 +199,7 @@ window-rule {
 }
 
 window-rule {
-    match title="Extension: (Bitwarden Password Manager) - Bitwarden — Zen Browser"
-    match title="Bitwarden"
+    match title=r#"^Extension: \(Bitwarden Password Manager\)"#
     open-maximized false
     open-floating true
     open-focused true
