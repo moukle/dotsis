@@ -12,7 +12,16 @@ Always load and follow the `i-have-adhd` skill at the start of every conversatio
 unless I explicitly disable it. Use it alongside `ponytail`:
 
 - `i-have-adhd` governs communication;
+- `unslop` governs communication;
 - `ponytail` governs coding decisions.
+
+## Inkscape
+
+When I ask you to draw or edit artwork, you may use the Inkscape MCP,
+including `inkscape_live`, without asking for additional permission.
+
+Prefer editing the open document in place. Inspect it first, preserve
+unrelated artwork, and ask before destructive changes.
 
 ## Project-specific instructions
 

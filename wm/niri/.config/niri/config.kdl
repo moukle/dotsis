@@ -89,11 +89,10 @@ layout {
         width 1
     }
 
-
     preset-column-widths {
         proportion 0.33
         proportion 0.5
-        proportion 0.67
+        proportion 0.66
     }
 
     default-column-width { proportion 0.5; }
@@ -265,6 +264,8 @@ overview {
 }
 
 debug {
+    disable-direct-scanout
+
     honor-xdg-activation-with-invalid-serial
 
     // https://github.com/YaLTeR/niri/issues/2477

@@ -1,5 +1,15 @@
 {
   "diff_view_style": "unified",
+  "context_servers": {
+    "inkscape_mcp": {
+      "enabled": true,
+      "command": "/home/mori/.venvs/inkscape-mcp/bin/inkscape_mcp",
+      "args": [],
+      "env": {
+        "INKSCAPE_BIN": "/usr/bin/inkscape"
+      }
+    }
+  },
   "cli_default_open_behavior": "existing_window",
   "agent_buffer_font_family": "Maple Mono NF",
   "agent_ui_font_family": "Lexend",
@@ -8,6 +18,7 @@
       "default_config_options": {
         "mode": "auto",
         "effort": "medium",
+        "fast": false,
         "model": "opus"
       },
       "type": "registry"
@@ -29,6 +40,7 @@
     "zedokai": false,
   },
   "outline_panel": {
+    "folder_indicator": "icon",
     "dock": "left",
     "file_icons": true,
     "button": true,
@@ -118,20 +130,63 @@
   "agent": {
     "expand_terminal_card": false,
     "enable_feedback": false,
-    "single_file_review": true,
+    "single_file_review": false,
     "play_sound_when_agent_done": "when_hidden",
     "notify_when_agent_waiting": "primary_screen",
     "tool_permissions": {
       "default": "confirm",
       "tools": {
+        "mcp:inkscape_mcp:inkscape_file": {
+          "default": "allow"
+        },
+        "mcp:inkscape_mcp:inkscape_system": {
+          "default": "allow"
+        },
+        "mcp:inkscape_mcp:inkscape_vector": {
+          "default": "allow"
+        },
+        "mcp:inkscape_mcp:inkscape_analysis": {
+          "default": "allow"
+        },
+        "mcp:inkscape_mcp:inkscape_live": {
+          "default": "allow"
+        },
+        "skill": {
+          "always_allow": [
+            {
+              "pattern": "ponytail"
+            },
+            {
+              "pattern": "i-have-adhd"
+            }
+          ]
+        },
         "terminal": {
           "always_allow": [
-            { "pattern": "^cargo\\s+(build|test|check|clippy|fmt)" },
-            { "pattern": "^npm\\s+(install|test|run|build)" },
-            // { "pattern": "^git\\s+(status|log|diff|branch)" },
-            { "pattern": "^git\\s+(--no-pager\\s+|--no-optional-locks\\s+)*(status|log|diff|branch)\\b" },
-            { "pattern": "^ls\\b" },
-            { "pattern": "^cat\\s" }
+            {
+              "pattern": "^cargo\\s+(build|test|check|clippy|fmt)"
+            },
+            {
+              "pattern": "^npm\\s+(install|test|run|build)"
+            },
+            {
+              "pattern": "^git\\s+(--no-pager\\s+|--no-optional-locks\\s+)*(status|log|diff|branch)\\b"
+            },
+            {
+              "pattern": "^ls\\b"
+            },
+            {
+              "pattern": "^cat\\s"
+            },
+            {
+              "pattern": "^git\\b"
+            },
+            {
+              "pattern": "^sed\\b"
+            },
+            {
+              "pattern": "^awk\\s+\\{files\\+\\+(\\s|$)"
+            }
           ],
           "always_deny": [
             { "pattern": "rm\\s+-rf\\s+(/|~)" },
@@ -151,15 +206,23 @@
       {
         "provider": "copilot_chat",
         "model": "claude-sonnet-4.5",
+        "enable_thinking": false
       },
+      {
+        "provider": "openai-subscribed",
+        "model": "gpt-6.1-sol",
+        "enable_thinking": true,
+        "effort": "low",
+        "speed": "fast"
+      }
     ],
     "default_profile": "write",
     "default_model": {
       "speed": "fast",
-      "effort": "medium",
+      "effort": "low",
       "enable_thinking": true,
       "provider": "openai-subscribed",
-      "model": "gpt-6-astra",
+      "model": "gpt-6.1-sol",
     },
   },
   "project_panel": {
