@@ -1,4 +1,4 @@
-config_version = 14
+config_version = 16
 
 [accessibility]
 ui_scale = 1.4000000134110451
@@ -28,7 +28,7 @@ thickness = 55
     accordion_direction = "start"
     border = ""
     enabled = true
-    fill = "surface_variant"
+    fill = "surface_container"
     id = "g3"
     members = [ "session", "clipboard", "volume", "cpu", "control-center", "notifications" ]
     opacity = 0.30000001192092896
@@ -38,7 +38,7 @@ thickness = 55
     accordion = false
     accordion_direction = "end"
     enabled = true
-    fill = "surface_variant"
+    fill = "surface_container"
     id = "g2"
     members = [ "tray", "recorder", "widget", "battery" ]
     opacity = 0.30000001192092896
@@ -48,7 +48,7 @@ thickness = 55
     accordion = false
     accordion_direction = "end"
     enabled = true
-    fill = "surface_variant"
+    fill = "surface_container"
     id = "g1"
     members = [ "clock" ]
     opacity = 0.0
@@ -58,7 +58,7 @@ thickness = 55
     accordion = false
     accordion_direction = "end"
     enabled = true
-    fill = "surface_variant"
+    fill = "surface_container"
     id = "g4"
     members = [ "workspaces" ]
     opacity = 0.0
@@ -92,11 +92,11 @@ widget_order = [ "desktop-widget-0000000000000001" ]
     [desktop_widgets.widget.desktop-widget-0000000000000001]
     box_height = 128.0
     box_width = 288.0
-    cx = 240.0
-    cy = 1668.0
+    cx = 288.0
+    cy = 2001.60009765625
     output = "DP-2"
-    placement_height = 1800.0
-    placement_width = 3200.0
+    placement_height = 2160.0
+    placement_width = 3840.0
     rotation = 0.0
     type = "clock"
 
@@ -162,16 +162,16 @@ widget_order = [
     [lockscreen_widgets.widget."lockscreen-login-box@DP-2"]
     box_height = 128.0
     box_width = 720.0
-    cx = 1600.0001220703125
-    cy = 1636.0
+    cx = 1920.000244140625
+    cy = 1963.2000732421875
     output = "DP-2"
-    placement_height = 1800.0
-    placement_width = 3200.0
+    placement_height = 2160.0
+    placement_width = 3840.0
     rotation = 0.0
     type = "login_box"
 
         [lockscreen_widgets.widget."lockscreen-login-box@DP-2".settings]
-        background_color = "surface_variant"
+        background_color = "surface_container"
         background_opacity = 0.81000000000000005
         background_radius = 32.0
         center_password_text = false
@@ -182,6 +182,7 @@ widget_order = [
         show_keyboard_layout = true
         show_login_button = true
         show_media = false
+        show_password_reveal = true
         show_session_buttons = true
         show_unlock_hint = false
         show_weather = false
@@ -198,7 +199,7 @@ widget_order = [
     type = "login_box"
 
         [lockscreen_widgets.widget."lockscreen-login-box@eDP-1".settings]
-        background_color = "surface_variant"
+        background_color = "surface_container"
         background_opacity = 0.88
         background_radius = 12.0
         center_password_text = false
@@ -209,6 +210,7 @@ widget_order = [
         show_keyboard_layout = true
         show_login_button = true
         show_media = true
+        show_password_reveal = true
         show_session_buttons = true
         show_unlock_hint = true
         show_weather = true
@@ -225,7 +227,7 @@ widget_order = [
     type = "login_box"
 
         [lockscreen_widgets.widget."lockscreen-login-box@winit".settings]
-        background_color = "surface_variant"
+        background_color = "surface_container"
         background_opacity = 0.88
         background_radius = 12.0
         center_password_text = false
@@ -236,6 +238,7 @@ widget_order = [
         show_keyboard_layout = true
         show_login_button = true
         show_media = true
+        show_password_reveal = true
         show_session_buttons = true
         show_unlock_hint = true
         show_weather = true
@@ -243,19 +246,23 @@ widget_order = [
     [lockscreen_widgets.widget.lockscreen-widget-0000000000000001]
     box_height = 64.0
     box_width = 128.0
-    cx = 1600.0001220703125
-    cy = 132.0
+    cx = 1920.000244140625
+    cy = 158.40000915527344
     output = "DP-2"
-    placement_height = 1800.0
-    placement_width = 3200.0
+    placement_height = 2160.0
+    placement_width = 3840.0
     rotation = 0.0
     type = "clock"
 
         [lockscreen_widgets.widget.lockscreen-widget-0000000000000001.settings]
         shadow = false
 
+[notification]
+filter_order = [ "filter" ]
+
 [osd.kinds]
 lock_keys = false
+media = false
 
 [plugins]
 enabled = [ "oldirtty/color_picker", "noctalia/screen_recorder" ]
@@ -283,34 +290,34 @@ gpu_poll_seconds = 5
 builtin = "Ayu"
 community_palette = "Ayu Blue"
 custom_palette = "zedokai"
-mode = "auto"
+mode = "dark"
 source = "custom"
 wallpaper_scheme = "m3-content"
 
     [theme.templates]
     builtin_ids = [ "gtk3", "gtk4", "ghostty", "niri", "qt" ]
-    community_ids = [ "zen-browser", "vicinae", "zellij", "bat", "yazi" ]
+    community_ids = [ "spotifast", "zen-browser", "vicinae", "zellij", "bat", "yazi" ]
 
 [wallpaper]
 directory = "~/Pictures/Wallpapers"
 
     [wallpaper.default]
-    path = "/home/mori/Pictures/Wallpapers/Rotation/will-xiang-0NlnKkX0Wd8-unsplash.jpg"
+    path = "/home/mori/Pictures/Wallpapers/Old/Walls/Krumm/8.jpeg"
 
     [wallpaper.last]
-    path = "/home/mori/Pictures/Wallpapers/Rotation/will-xiang-0NlnKkX0Wd8-unsplash.jpg"
+    path = "/home/mori/Pictures/Wallpapers/Old/Walls/Krumm/8.jpeg"
 
     [wallpaper.monitors.DP-2]
-    path = "/home/mori/Pictures/Wallpapers/Rotation/will-xiang-0NlnKkX0Wd8-unsplash.jpg"
+    path = "/home/mori/Pictures/Wallpapers/Old/Walls/Krumm/8.jpeg"
 
     [wallpaper.monitors.eDP-1]
     path = "/home/meischta/Pictures/Wallpapers/silas-baisch-ceITO2rlDgc-unsplash.jpg"
 
     [[wallpaper.favorite]]
-    custom_palette = "oled"
+    custom_palette = "zedokai"
     palette_source = "custom"
     path = "/home/mori/Pictures/Wallpapers/Old/Walls/DSC_9329.jpg"
-    theme_mode = "dark"
+    theme_mode = "auto"
 
     [[wallpaper.favorite]]
     custom_palette = "zedokai"

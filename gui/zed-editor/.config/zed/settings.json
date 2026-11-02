@@ -16,6 +16,7 @@
   "agent_servers": {
     "claude-acp": {
       "default_config_options": {
+        "ultracode": false,
         "mode": "auto",
         "effort": "medium",
         "fast": false,
@@ -94,7 +95,19 @@
   "current_line_highlight": "all",
   "ui_font_weight": 400.0,
   "buffer_line_height": "standard",
+  "document_folding_ranges": "on",
   "lsp": {
+    "custom-code-folding": {
+      "initialization_options": {
+        "patterns": [
+          {
+            "name": "vim-marker",
+            "start": "^\\s*//\\s*(?P<label>.*?)\\s*\\{\\{\\{\\s*$",
+            "end": "^\\s*//\\s*\\}\\}\\}\\s*$"
+          }
+        ]
+      }
+    },
     "JETLS": {
       "binary": {
         "arguments": ["--threads=1", "--", "serve"],
@@ -102,6 +115,7 @@
     },
   },
   "git_panel": {
+    "group_by": "status",
     "tree_view": true,
     "dock": "left",
     "sort_by_path": true,
@@ -136,6 +150,20 @@
     "tool_permissions": {
       "default": "confirm",
       "tools": {
+        "copy_path": {
+          "always_allow": [
+            {
+              "pattern": "^hooklash/assets/svgs/"
+            }
+          ]
+        },
+        "delete_path": {
+          "always_allow": [
+            {
+              "pattern": "^hooklash/assets/svgs/"
+            }
+          ]
+        },
         "mcp:inkscape_mcp:inkscape_file": {
           "default": "allow"
         },
@@ -162,6 +190,7 @@
           ]
         },
         "terminal": {
+          "default": "allow",
           "always_allow": [
             {
               "pattern": "^cargo\\s+(build|test|check|clippy|fmt)"
@@ -186,6 +215,12 @@
             },
             {
               "pattern": "^awk\\s+\\{files\\+\\+(\\s|$)"
+            },
+            {
+              "pattern": "^python3\\b"
+            },
+            {
+              "pattern": "^cp\\s+/home/mori/\\.cache/inkscape_mcp/snap-1d61a1c57fec441c8d19a9f25235db86\\.svg(\\s|$)"
             }
           ],
           "always_deny": [
@@ -212,17 +247,17 @@
         "provider": "openai-subscribed",
         "model": "gpt-6.1-sol",
         "enable_thinking": true,
-        "effort": "low",
+        "effort": "medium",
         "speed": "fast"
       }
     ],
     "default_profile": "write",
     "default_model": {
-      "speed": "fast",
-      "effort": "low",
+      "speed": "standard",
+      "effort": "high",
       "enable_thinking": true,
-      "provider": "openai-subscribed",
-      "model": "gpt-6.1-sol",
+      "provider": "anthropic",
+      "model": "claude-opus-5-5",
     },
   },
   "project_panel": {
@@ -298,4 +333,5 @@
     // "coloring": "indent_aware"
   },
   "wrap_guides": [92],
+
 }

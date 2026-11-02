@@ -196,7 +196,7 @@ default_shell "zsh"
 // layout_dir "/tmp"
 // theme_dir "/tmp"
 // mouse_mode false
-pane_frames false
+pane_frames true
 // mirror_session true
 // on_force_close "quit"
 // scroll_buffer_size 10000

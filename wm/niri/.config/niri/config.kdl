@@ -63,7 +63,8 @@ gestures {
 }
 
 output "DP-2" {
-    scale 1.2
+    // scale 1.2
+    scale 1.0
 }
 
 animations {
@@ -183,7 +184,7 @@ workspace "browser"
 workspace "dev"
 workspace "dev2"
 workspace "game"
-workspace "sozial"
+workspace "social"
 
 window-rule {
     match app-id="helium"
