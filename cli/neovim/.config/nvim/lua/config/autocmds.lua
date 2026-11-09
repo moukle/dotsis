@@ -68,3 +68,6 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.cmd("setlocal formatoptions-=c formatoptions-=o")
   end,
 })
+
+-- `//> Name` section headings: bar, cap and rule; raw text on the cursor line.
+require("config.section_headings")

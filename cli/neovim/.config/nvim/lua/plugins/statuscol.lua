@@ -196,5 +196,21 @@ return {
         },
       },
     })
+
+    --- A closed fold whose first line has no indentation gets its left rounded cap in the last gutter cell, so the
+    --- folded text keeps its column (plugins/ufo.lua draws the rest). Nil on other lines.
+    local function folded_gutter(lnum, plain)
+      if vim.v.virtnum ~= 0 or vim.fn.foldclosed(lnum) ~= lnum or not plain:match(" $") then return nil end
+      local line = vim.api.nvim_buf_get_lines(0, lnum - 1, lnum, false)[1] or ""
+      if line:match("^%s") then return nil end
+      return plain:sub(1, -2) .. "%#FoldedTextCap#\u{E0B6}%*"
+    end
+
+    -- `//> Name` section headings (config/section_headings.lua) put this column on their chip.
+    tools.section_statuscol = function()
+      local plain = require("statuscol").get_statuscol_string()
+      return require("config.section_headings").gutter(vim.v.lnum, plain) or folded_gutter(vim.v.lnum, plain) or plain
+    end
+    vim.o.statuscolumn = "%{%v:lua.tools.section_statuscol()%}"
   end,
 }

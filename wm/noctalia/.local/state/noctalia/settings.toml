@@ -290,7 +290,7 @@ gpu_poll_seconds = 5
 builtin = "Ayu"
 community_palette = "Ayu Blue"
 custom_palette = "zedokai"
-mode = "dark"
+mode = "auto"
 source = "custom"
 wallpaper_scheme = "m3-content"
 
@@ -302,13 +302,13 @@ wallpaper_scheme = "m3-content"
 directory = "~/Pictures/Wallpapers"
 
     [wallpaper.default]
-    path = "/home/mori/Pictures/Wallpapers/Old/Walls/Krumm/8.jpeg"
+    path = "/home/mori/Pictures/Wallpapers/Rotation/will-xiang-0NlnKkX0Wd8-unsplash.jpg"
 
     [wallpaper.last]
-    path = "/home/mori/Pictures/Wallpapers/Old/Walls/Krumm/8.jpeg"
+    path = "/home/mori/Pictures/Wallpapers/Rotation/will-xiang-0NlnKkX0Wd8-unsplash.jpg"
 
     [wallpaper.monitors.DP-2]
-    path = "/home/mori/Pictures/Wallpapers/Old/Walls/Krumm/8.jpeg"
+    path = "/home/mori/Pictures/Wallpapers/Rotation/will-xiang-0NlnKkX0Wd8-unsplash.jpg"
 
     [wallpaper.monitors.eDP-1]
     path = "/home/meischta/Pictures/Wallpapers/silas-baisch-ceITO2rlDgc-unsplash.jpg"
