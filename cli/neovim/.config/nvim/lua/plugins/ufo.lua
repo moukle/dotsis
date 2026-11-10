@@ -3,7 +3,7 @@ return {
   dependencies = "kevinhwang91/promise-async",
   enabled = true,
   init = function()
-    vim.opt.foldcolumn = "0"
+    vim.opt.foldcolumn = "1" -- fold icons in the gutter; clicking one toggles the fold (plugins/statuscol.lua)
     vim.opt.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
     vim.opt.foldlevelstart = 99
     vim.opt.fillchars = [[eob: ,diff:╱,fold: ,foldopen:,foldsep: ,foldclose:]]
@@ -44,8 +44,27 @@ return {
     end
 
     -- Treesitter folds carry their node type as kind (`function_definition`, `if_statement`); indent folds carry none.
-    local function is_function_kind(kind)
-      return kind ~= nil and (kind:find("function") or kind:find("method")) ~= nil
+    local function kind_has(kind, words)
+      return kind ~= nil and vim.iter(words):any(function(word) return kind:find(word) ~= nil end)
+    end
+
+    local FUNCTION_KINDS = { "function", "method", "lambda" }
+
+    --- Whether a brace initializer like `constexpr face_layout FACE{ ... };` sits outside every function body.
+    local function is_top_level_initializer(range, ranges)
+      if range.kind ~= "initializer_list" then
+        return false
+      end
+      return not vim.iter(ranges):any(function(outer)
+        return kind_has(outer.kind, FUNCTION_KINDS)
+          and outer.startLine <= range.startLine
+          and range.endLine <= outer.endLine
+      end)
+    end
+
+    local function is_closed_on_open(range, ranges)
+      return (kind_has(range.kind, { "function", "method", "struct", "class" }) and range.kind ~= "lambda_expression")
+        or is_top_level_initializer(range, ranges)
     end
 
     local function folds_with_closing_line(bufnr)
@@ -61,14 +80,15 @@ return {
         return nil
       end
       local lines = vim.api.nvim_buf_get_lines(bufnr, 0, -1, false)
-      for _, range in ipairs(ranges) do
+      local closed_on_open = vim.tbl_map(function(range) return is_closed_on_open(range, ranges) end, ranges)
+      for i, range in ipairs(ranges) do
         -- endLine is 0-based, so the fold's last line is lines[endLine + 1]. A fold that already ends on its own
         -- closing line keeps it; otherwise an inner `if { }` would swallow the function's `}`.
         if not is_closing_line(lines[range.endLine + 1]) and is_closing_line(lines[range.endLine + 2]) then
           range.endLine = range.endLine + 1
         end
-        -- Only function folds are "region", which close_fold_kinds_for_ft closes when a buffer first opens.
-        range.kind = is_function_kind(range.kind) and "region" or nil
+        -- Only these folds are "region", which close_fold_kinds_for_ft closes when a buffer first opens.
+        range.kind = closed_on_open[i] and "region" or nil
       end
 
       -- One fold over all includes, of the "imports" kind (also closed on open).
@@ -111,9 +131,18 @@ return {
     -- each chunk combines FoldedText under its own highlight (a list of groups, later ones win). Rounded caps close
     -- both ends. The left cap takes the last indentation cell, so the text keeps its column; an unindented fold gets
     -- it in the gutter instead (plugins/statuscol.lua).
+    -- Also records each fold's ellipsis cells (0-based, end exclusive) per buffer and start line, for the click map.
+    local ellipsis_cols = {}
+    vim.api.nvim_create_autocmd("BufWipeout", { callback = function(ev) ellipsis_cols[ev.buf] = nil end })
     local function fold_text(virt_text, lnum, end_lnum, _, _, ctx)
       local out = {}
+      local width = 0
       for i, chunk in ipairs(fold_chunks(virt_text, lnum, end_lnum, ctx)) do
+        if chunk[2] == "UfoFoldedEllipsis" then
+          ellipsis_cols[ctx.bufnr] = ellipsis_cols[ctx.bufnr] or {}
+          ellipsis_cols[ctx.bufnr][lnum] = { width, width + vim.fn.strdisplaywidth(chunk[1]) }
+        end
+        width = width + vim.fn.strdisplaywidth(chunk[1])
         local text, hl = chunk[1], chunk[2]
         if i == 1 then
           local indent = text:match("^%s*")
@@ -139,7 +168,7 @@ return {
       provider_selector = function()
         return folds_with_closing_line
       end,
-      -- Files open with functions and includes folded; zR or zo opens them.
+      -- Files open with functions, structs, classes and includes folded; zR or zo opens them.
       close_fold_kinds_for_ft = {
         default = { "imports", "region" },
       },
@@ -164,6 +193,19 @@ return {
     end
     set_folded_bg()
     vim.api.nvim_create_autocmd("ColorScheme", { callback = set_folded_bg })
+
+    -- A click on a closed fold's ellipsis opens it.
+    vim.keymap.set("n", "<LeftMouse>", function()
+      local mouse = vim.fn.getmousepos()
+      if mouse.winid == 0 then
+        return "<LeftMouse>"
+      end
+      local start = vim.api.nvim_win_call(mouse.winid, function() return vim.fn.foldclosed(mouse.line) end)
+      local cols = ellipsis_cols[vim.api.nvim_win_get_buf(mouse.winid)]
+      local hit = start ~= -1 and cols and cols[start]
+      local col = mouse.wincol - 1 - vim.fn.getwininfo(mouse.winid)[1].textoff
+      return (hit and hit[1] <= col and col < hit[2]) and "<LeftMouse>zo" or "<LeftMouse>"
+    end, { expr = true })
 
     vim.keymap.set("n", "zR", require("ufo").openAllFolds)
     vim.keymap.set("n", "zM", require("ufo").closeAllFolds)

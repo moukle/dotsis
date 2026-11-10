@@ -187,7 +187,16 @@ return {
           text = { " " },
         },
         {
-          text = { require("statuscol.builtin").foldfunc },
+          -- Fold icons only on the cursor line; closed folds elsewhere already show their pill (plugins/ufo.lua).
+          text = {
+            function(args)
+              if vim.api.nvim_win_get_cursor(args.win)[1] ~= args.lnum then
+                return "%#FoldColumn#" .. (" "):rep(args.fold.width) .. "%*"
+              end
+              return require("statuscol.builtin").foldfunc(args)
+            end,
+          },
+          click = "v:lua.ScFa",
           condition = {
             function()
               return vim.api.nvim_get_option_value("modifiable", { buf = 0 }) or " "

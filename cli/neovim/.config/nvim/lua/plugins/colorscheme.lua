@@ -58,6 +58,13 @@ return {
             ["@comment.documentation"] = { fg = C.subtext0, style = { "nocombine" } },
             ["@comment.documentation.marker"] = { fg = C.surface1, style = { "nocombine" } },
 
+            -- One hue per kind: green added, red deleted, amber changed words, no tint on changed lines.
+            -- Latte's green is nearly gray, so added lines use a literal green.
+            DiffAdd = { bg = require("catppuccin.utils.colors").darken("#4f9a3c", 0.15, C.base) },
+            DiffChange = { bg = C.base },
+            DiffText = { bg = require("catppuccin.utils.colors").darken(C.yellow, 0.22, C.base) },
+            DiffTextAdd = { bg = require("catppuccin.utils.colors").darken("#4f9a3c", 0.30, C.base) },
+
             -- No row background: plugins/neogit.lua draws file headers as pills.
             NeogitDiffHeader = { fg = C.text },
             NeogitDiffHeaderHighlight = { fg = C.text },

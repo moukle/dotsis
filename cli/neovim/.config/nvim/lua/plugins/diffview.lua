@@ -2,7 +2,7 @@ return {
   "sindrets/diffview.nvim",
   cmd = { "DiffviewOpen", "DiffviewFileHistory" },
   init = function()
-    vim.opt.diffopt:append({ "algorithm:histogram", "indent-heuristic", "linematch:60" })
+    vim.opt.diffopt:append({ "algorithm:histogram", "indent-heuristic", "linematch:20", "inline:word" })
     -- Dim the M column so only added and deleted files stand out in the file panel.
     local function dim_modified() vim.api.nvim_set_hl(0, "DiffviewStatusModified", { link = "NonText" }) end
     dim_modified()

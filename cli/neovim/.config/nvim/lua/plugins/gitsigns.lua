@@ -11,4 +11,18 @@ return {
     signs = DELETE_SIGNS,
     signs_staged = DELETE_SIGNS,
   },
+  keys = {
+    {
+      "<leader>gv",
+      function()
+        -- Unified diff inside the real buffer, so LSP and section headings keep working; hunks of all files go to quickfix.
+        local gs = require("gitsigns")
+        local on = gs.toggle_deleted()
+        gs.toggle_linehl(on)
+        gs.toggle_word_diff(on)
+        if on then gs.setqflist("all") end
+      end,
+      desc = "Review changes inline",
+    },
+  },
 }
