@@ -101,6 +101,7 @@ return {
         opts = {
             ensure_installed = {
                 "bash",
+                "cpp",
                 "lua",
                 "markdown",
                 -- "markdown_inline",
@@ -110,6 +111,7 @@ return {
                 -- "vim",
                 -- "yaml",
                 "julia",
+                "slang",
                 -- "zig",
             },
         },

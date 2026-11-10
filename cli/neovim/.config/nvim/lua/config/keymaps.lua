@@ -3,7 +3,7 @@
 -- Add any additional keymaps here
 -- vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
 
-vim.keymap.set("n", "<leader>gg", ":Neogit kind=floating<cr>", { desc = "Neo[G]it" })
+vim.keymap.set("n", "<leader>gg", ":Neogit<cr>", { desc = "Neo[G]it" })
 -- vim.keymap.del("n", "<leader>gG")
 
 -- Must unbind for blink compl

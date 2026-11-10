@@ -302,13 +302,13 @@ wallpaper_scheme = "m3-content"
 directory = "~/Pictures/Wallpapers"
 
     [wallpaper.default]
-    path = "/home/mori/Pictures/Wallpapers/Rotation/will-xiang-0NlnKkX0Wd8-unsplash.jpg"
+    path = "/home/mori/Pictures/Wallpapers/kram/spring/Frühling_6k_5.jpg"
 
     [wallpaper.last]
-    path = "/home/mori/Pictures/Wallpapers/Rotation/will-xiang-0NlnKkX0Wd8-unsplash.jpg"
+    path = "/home/mori/Pictures/Wallpapers/kram/spring/Frühling_6k_5.jpg"
 
     [wallpaper.monitors.DP-2]
-    path = "/home/mori/Pictures/Wallpapers/Rotation/will-xiang-0NlnKkX0Wd8-unsplash.jpg"
+    path = "/home/mori/Pictures/Wallpapers/kram/spring/Frühling_6k_5.jpg"
 
     [wallpaper.monitors.eDP-1]
     path = "/home/meischta/Pictures/Wallpapers/silas-baisch-ceITO2rlDgc-unsplash.jpg"
@@ -338,7 +338,7 @@ directory = "~/Pictures/Wallpapers"
     theme_mode = "auto"
 
     [[wallpaper.favorite]]
-    custom_palette = "melon"
+    custom_palette = "zedokai"
     palette_source = "custom"
     path = "/home/mori/Pictures/Wallpapers/Old/Walls/wallhaven-4l2p20.jpg"
     theme_mode = "dark"
@@ -350,7 +350,7 @@ directory = "~/Pictures/Wallpapers"
     theme_mode = "auto"
 
     [[wallpaper.favorite]]
-    custom_palette = "melon"
+    custom_palette = "zedokai"
     palette_source = "custom"
     path = "/home/mori/Pictures/Wallpapers/Old/Walls/alex-siale-qH36EgNjPJY-unsplash.jpg"
     theme_mode = "dark"
@@ -375,6 +375,39 @@ directory = "~/Pictures/Wallpapers"
     custom_palette = "zedokai"
     palette_source = "custom"
     path = "/home/mori/Pictures/Wallpapers/Rotation/will-xiang-0NlnKkX0Wd8-unsplash.jpg"
+    theme_mode = "auto"
+
+    [[wallpaper.favorite]]
+    path = "/home/mori/Pictures/Wallpapers/kram/Horizont_6k/Horizont_6k/Horizont_6k_1.png"
+
+    [[wallpaper.favorite]]
+    custom_palette = "zedokai"
+    palette_source = "custom"
+    path = "/home/mori/Pictures/Wallpapers/kram/Horizont_6k/Horizont_6k/Horizont_6k_8.png"
+    theme_mode = "auto"
+
+    [[wallpaper.favorite]]
+    custom_palette = "zedokai"
+    palette_source = "custom"
+    path = "/home/mori/Pictures/Wallpapers/kram/Horizont_6k/Horizont_6k/Horizont_6k_2.png"
+    theme_mode = "auto"
+
+    [[wallpaper.favorite]]
+    custom_palette = "zedokai"
+    palette_source = "custom"
+    path = "/home/mori/Pictures/Wallpapers/kram/Schroff_6k/6k/Schroff_6k.heic"
+    theme_mode = "auto"
+
+    [[wallpaper.favorite]]
+    custom_palette = "zedokai"
+    palette_source = "custom"
+    path = "/home/mori/Pictures/Wallpapers/kram/spring/Frühling_6k_5.jpg"
+    theme_mode = "auto"
+
+    [[wallpaper.favorite]]
+    custom_palette = "zedokai"
+    palette_source = "custom"
+    path = "/home/mori/Pictures/Wallpapers/kram/spring/Frühling_6k_7.jpg"
     theme_mode = "auto"
 
 [widget.active_window]

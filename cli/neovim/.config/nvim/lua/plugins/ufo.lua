@@ -6,7 +6,7 @@ return {
     vim.opt.foldcolumn = "0"
     vim.opt.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
     vim.opt.foldlevelstart = 99
-    vim.opt.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
+    vim.opt.fillchars = [[eob: ,diff:╱,fold: ,foldopen:,foldsep: ,foldclose:]]
 
     -- Set fold settings
     vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
@@ -43,6 +43,11 @@ return {
       return first - 1, last - 1
     end
 
+    -- Treesitter folds carry their node type as kind (`function_definition`, `if_statement`); indent folds carry none.
+    local function is_function_kind(kind)
+      return kind ~= nil and (kind:find("function") or kind:find("method")) ~= nil
+    end
+
     local function folds_with_closing_line(bufnr)
       -- Only files: the dashboard and other scratch buffers would otherwise get indent folds, closed on open.
       if vim.bo[bufnr].buftype ~= "" then
@@ -57,12 +62,13 @@ return {
       end
       local lines = vim.api.nvim_buf_get_lines(bufnr, 0, -1, false)
       for _, range in ipairs(ranges) do
-        -- endLine is 0-based, so the line after it is lines[endLine + 2].
-        if is_closing_line(lines[range.endLine + 2]) then
+        -- endLine is 0-based, so the fold's last line is lines[endLine + 1]. A fold that already ends on its own
+        -- closing line keeps it; otherwise an inner `if { }` would swallow the function's `}`.
+        if not is_closing_line(lines[range.endLine + 1]) and is_closing_line(lines[range.endLine + 2]) then
           range.endLine = range.endLine + 1
         end
-        -- Every fold is a "region", so close_fold_kinds_for_ft closes them all when a buffer first opens.
-        range.kind = "region"
+        -- Only function folds are "region", which close_fold_kinds_for_ft closes when a buffer first opens.
+        range.kind = is_function_kind(range.kind) and "region" or nil
       end
 
       -- One fold over all includes, of the "imports" kind (also closed on open).
@@ -133,7 +139,7 @@ return {
       provider_selector = function()
         return folds_with_closing_line
       end,
-      -- Files open fully folded; zR or zo opens them.
+      -- Files open with functions and includes folded; zR or zo opens them.
       close_fold_kinds_for_ft = {
         default = { "imports", "region" },
       },
@@ -161,6 +167,11 @@ return {
 
     vim.keymap.set("n", "zR", require("ufo").openAllFolds)
     vim.keymap.set("n", "zM", require("ufo").closeAllFolds)
+    -- h at or before the first non-blank closes the fold (like nvim-origami); l on a closed fold opens it natively.
+    vim.keymap.set("n", "h", function()
+      local before_text = vim.fn.col(".") <= vim.fn.indent(".") + 1
+      return (before_text and vim.fn.foldlevel(".") > 0) and "zc" or "h"
+    end, { expr = true })
     vim.keymap.set("n", "K", function()
       local winid = require("ufo").peekFoldedLinesUnderCursor()
       if not winid then

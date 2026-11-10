@@ -33,6 +33,8 @@ return {
     local sticks = require("buffer-sticks")
     sticks.setup({
       filter = { buftypes = { "terminal" } },
+      -- Fully blended, so the empty part of the float shows what is under it instead of Normal's background.
+      winblend = 100,
       highlights = {
         active = { link = "Statement" },
         alternate = { link = "StorageClass" },

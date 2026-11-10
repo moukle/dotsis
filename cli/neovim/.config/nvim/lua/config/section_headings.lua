@@ -28,10 +28,18 @@ local function set_hl()
     { prefix = "SectionHeading", bar = mix(base, accent, 0.18) },
     { prefix = "SectionHeadingSub", bar = mix(base, accent, 0.08) },
   }
+  -- A Title tint looks muddy on dark backgrounds; use the catppuccin Surface0 there instead, half of it for sub-headings.
+  local ok, palettes = pcall(require, "catppuccin.palettes")
+  if ok and vim.o.background == "dark" then
+    local surface0 = tonumber(palettes.get_palette().surface0:sub(2), 16)
+    styles[1].bar = surface0
+    styles[2].bar = mix(base, surface0, 0.5)
+  end
   for _, s in ipairs(styles) do
     vim.api.nvim_set_hl(0, s.prefix, { fg = accent, bg = s.bar, bold = true })
     vim.api.nvim_set_hl(0, s.prefix .. "Cap", { fg = s.bar })
   end
+
 end
 
 --- The rest of the bar filling Room cells, ending in the right cap.
@@ -83,6 +91,12 @@ vim.api.nvim_set_decoration_provider(ns, {
     vim.api.nvim_buf_set_extmark(buf, ns, row, 0, { virt_text = virt_text, virt_text_pos = "overlay", ephemeral = true })
   end,
 })
+
+--- Virtual text chunks for Label on a SectionHeading bar Width cells wide, rounded at both ends.
+function M.bar(label, width)
+  local chunks = { { LEFT_CAP, "SectionHeadingCap" }, { label, "SectionHeading" } }
+  return vim.list_extend(chunks, bar_end("SectionHeading", width - 1 - vim.fn.strdisplaywidth(label)))
+end
 
 set_hl()
 vim.api.nvim_create_autocmd("ColorScheme", { callback = set_hl })
